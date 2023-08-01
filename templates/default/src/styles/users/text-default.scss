@@ -1,0 +1,153 @@
+.text-default {
+    --mb-space: 16px;
+    color: $color;
+    padding: 16px 24px 32px;
+    border-radius: 8px;
+    box-shadow: 0px 6px 12px -6px rgba($color, 0.05);
+    background: #fff;
+
+    .faq & {
+        padding: 0;
+        box-shadow: none;
+        --mb-space: 24px;
+    }
+
+    &__documents {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px 24px;
+        padding: 16px;
+
+        &-item {
+            width: calc(33.333333% - 16px);
+        }
+    }
+
+    h2,
+    h3 {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 24px;
+        margin: 0 0 var(--mb-space);
+    }
+
+    ol,
+    ul {
+        padding: 0;
+        margin: 0 0 var(--mb-space);
+        list-style: none;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    ol {
+        counter-reset: counter;
+
+        > li {
+            &::before {
+                content: counter(counter) '.';
+                counter-increment: counter; 
+            }
+        }
+    }
+
+    ul {
+        li {
+            position: relative;
+            padding-left: 30px;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0.68em;
+                left: 13px;
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background: $color;
+            }
+        }
+
+        .ul-full-img {
+            margin-left: -30px;
+            margin-bottom: var(--mb-space);
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    li {
+        margin: 0 0 var(--mb-space);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    p {
+        margin: 0 0 var(--mb-space);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    span {
+        display: block;
+        margin-bottom: 8px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    img {
+        margin-bottom: var(--mb-space);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    @include mdMax {
+        &__documents {
+            padding: 8px;
+
+            &-item {
+                width: calc(50% - 12px);
+            }
+        }
+    }
+
+    @include sm {
+        padding: 16px;
+        
+        &__documents {
+            gap: 8px;
+
+            &-item {
+                width: 100%;
+            }
+        }
+
+        ul {
+            li {
+                padding-left: 22px;
+    
+                &::before {
+                    left: 9px;
+                    width: 4px;
+                    height: 4px;
+                }
+            }
+
+            .ul-full-img {
+                margin-left: -22px;
+            }
+        }
+    }
+}

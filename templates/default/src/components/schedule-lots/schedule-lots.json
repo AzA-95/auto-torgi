@@ -1,0 +1,222 @@
+{
+    "json": {
+        "scheduleLots": [
+            {
+                "name": "\"Алтайский бройлер\" АО \"КЦ\" филиал",
+                "rows": [
+                    {
+                        "count": "6 лотов",
+                        "start": "07.12.2022",
+                        "end": "14.12.2022",
+                        "duration": "7 дней",
+                        "type": "Открытых: 3",
+                        "startFromDay": "7",
+                        "fillToDay": "14",
+                        "fillColor": "#005BD1",
+                        "startShort": "07",
+                        "endShort": "14"
+                    },
+                    {
+                        "count": "1 лот",
+                        "start": "08.12.2022",
+                        "end": "16.12.2022",
+                        "duration": "12 дней",
+                        "type": "Открытых: 1",
+                        "startFromDay": "8",
+                        "fillToDay": "16",
+                        "fillColor": "#88B6FF",
+                        "startShort": "08",
+                        "endShort": "16"
+                    }
+                ]
+            },
+            {
+                "name": "\"АВТОТОР\" АО",
+                "rows": [
+                    {
+                        "count": "1 лот",
+                        "start": "03.12.2022",
+                        "end": "12.12.2022",
+                        "duration": "9 дней",
+                        "type": "Открытых: 1",
+                        "startFromDay": "3",
+                        "fillToDay": "12",
+                        "fillColor": "#B5D1FF",
+                        "startShort": "03",
+                        "endShort": "12"
+                    }
+                ]
+            },
+            {
+                "name": "\"АЛД Автомотив\" ООО",
+                "rows": [
+                    {
+                        "count": "66 лотов",
+                        "start": "10.12.2022",
+                        "end": "22.12.2022",
+                        "duration": "12 дней",
+                        "type": "Открытых: 1",
+                        "startFromDay": "10",
+                        "fillToDay": "22",
+                        "fillColor": "#FF7444",
+                        "startShort": "10",
+                        "endShort": "22"
+                    }
+                ]
+            },
+            {
+                "name": "\"Арвал\" ООО",
+                "rows": [
+                    {
+                        "count": "1 лот",
+                        "start": "09.12.2022",
+                        "end": "16.12.2022",
+                        "duration": "7 дней",
+                        "type": "Открытых: 1",
+                        "startFromDay": "9",
+                        "fillToDay": "16",
+                        "fillColor": "#FFB49A",
+                        "startShort": "09",
+                        "endShort": "16"
+                    }
+                ]
+            },
+            {
+                "name": "\"Васильевская птицефабрика\" АО",
+                "rows": [
+                    {
+                        "count": "1 лот",
+                        "start": "09.12.2022",
+                        "end": "19.12.2022",
+                        "duration": "10 дней",
+                        "type": "Открытых: 1",
+                        "startFromDay": "9",
+                        "fillToDay": "19",
+                        "fillColor": "#FFE0D6",
+                        "startShort": "09",
+                        "endShort": "19"
+                    }
+                ]
+            },
+            {
+                "name": "\"Волгоградский филиал Ростелеком\" ПАО",
+                "rows": [
+                    {
+                        "count": "1 лот",
+                        "start": "09.12.2022",
+                        "end": "16.12.2022",
+                        "duration": "7 дней",
+                        "type": "Открытых: 1",
+                        "startFromDay": "9",
+                        "fillToDay": "16",
+                        "fillColor": "#00B2AC",
+                        "startShort": "09",
+                        "endShort": "16"
+                    }
+                ]
+            },
+            {
+                "name": "\"Краснодарский филиал «Ростелеком»\" ПАО",
+                "rows": [
+                    {
+                        "count": "1 лот",
+                        "start": "06.12.2022",
+                        "end": "21.12.2022",
+                        "duration": "5 дней",
+                        "type": "Открытых: 1",
+                        "startFromDay": "6",
+                        "fillToDay": "21",
+                        "fillColor": "#7BDDDA",
+                        "startShort": "06",
+                        "endShort": "21"
+                    }
+                ]
+            },
+            {
+                "name": "\"КР\" ООО",
+                "rows": [
+                    {
+                        "count": "1 лот",
+                        "start": "12.12.2022",
+                        "end": "20.12.2022",
+                        "duration": "8 дней",
+                        "type": "Открытых: 1",
+                        "startFromDay": "12",
+                        "fillToDay": "20",
+                        "fillColor": "#C6EAE9",
+                        "startShort": "12",
+                        "endShort": "20"
+                    }
+                ]
+            },
+            {
+                "name": "\"Куриное царство\" Курский филиал\" АО",
+                "rows": [
+                    {
+                        "count": "1 лот",
+                        "start": "10.12.2022",
+                        "end": "22.12.2022",
+                        "duration": "12 дней",
+                        "type": "Открытых: 1",
+                        "startFromDay": "10",
+                        "fillToDay": "22",
+                        "fillColor": "#EA3434",
+                        "startShort": "10",
+                        "endShort": "22"
+                    }
+                ]
+            },
+            {
+                "name": "\"Макрорегиональный филиал “Урал “Ростелеком” Екатеринбургский филиал\" АО",
+                "rows": [
+                    {
+                        "count": "1 лот",
+                        "start": "11.12.2022",
+                        "end": "20.12.2022",
+                        "duration": "9 дней",
+                        "type": "Открытых: 1",
+                        "startFromDay": "11",
+                        "fillToDay": "20",
+                        "fillColor": "#FF9393",
+                        "startShort": "11",
+                        "endShort": "20"
+                    }
+                ]
+            },
+            {
+                "name": "Маслов Сергей Александрович ИП",
+                "rows": [
+                    {
+                        "count": "1 лот",
+                        "start": "09.12.2022",
+                        "end": "25.12.2022",
+                        "duration": "16 дней",
+                        "type": "Открытых: 1",
+                        "startFromDay": "9",
+                        "fillToDay": "25",
+                        "fillColor": "#FFCACA",
+                        "startShort": "09",
+                        "endShort": "25"
+                    }
+                ]
+            },
+            {
+                "name": "\"Мерседес-Бенц Файненшл Сервисес Рус\" ООО",
+                "rows": [
+                    {
+                        "count": "1 лот",
+                        "start": "08.12.2022",
+                        "end": "23.12.2022",
+                        "duration": "15 дней",
+                        "type": "Открытых: 1",
+                        "startFromDay": "8",
+                        "fillToDay": "23",
+                        "fillColor": "#898D93",
+                        "startShort": "08",
+                        "endShort": "23"
+                    }
+                ]
+            }
+        ]
+    }
+}

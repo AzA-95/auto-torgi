@@ -1,0 +1,37 @@
+{
+    "json": {
+        "lk": {
+            "favorites": [
+                {
+                    "pic": "images/lk/favorites/pic.jpg",
+                    "name": "BMW 7 серии 730Ld xDrive 3.0d AT",
+                    "showFavoriteType": true
+                },
+                {
+                    "pic": "images/lk/favorites/pic-2.jpg",
+                    "name": "Alfa Romeo 159 1.8 MT",
+                    "showFavoriteType": true
+                },
+                {
+                    "pic": "images/lk/favorites/pic-3.jpg",
+                    "name": "BMW M8 Competition 4.4 AT",
+                    "showFavoriteType": true
+                }
+            ],
+            "bought": [
+                {
+                    "pic": "images/lk/bought/pic.jpg",
+                    "name": "BMW M8 Competition 4.4 AT"
+                },
+                {
+                    "pic": "images/lk/bought/pic-2.jpg",
+                    "name": "Alfa Romeo 159 1.8 MT"
+                },
+                {
+                    "pic": "images/lk/bought/pic-3.jpg",
+                    "name": "BMW 7 серии 730Ld xDrive 3.0d AT"
+                }
+            ]
+        }
+    }
+}

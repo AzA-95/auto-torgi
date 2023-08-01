@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Навигация</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, interactive-widget=resizes-content">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/static/frontend-works.js"></script>
+	<!-- Внимание этот скрипт не надо переносить в бекенд 
+		он нужен чисто для демо отсчета таймеров в лотах в верстке -->
+	<script src="js/static/demo-lots-timer.js"></script>
+	<!-- Конец -->
+</head>
+<style>
+	body {
+		margin: 0;
+		color: #fff;
+		background: #8d99ae;
+		font-family: 'Roboto', sans-serif;
+	}
+
+	.wrapper {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		margin: 0 auto;
+		padding: 50px 0;
+		max-width: 1000px;
+	}
+
+	h1 {
+		margin-bottom: 30px;
+	}
+
+	ul {
+		width: 300px;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	li {
+		text-align: center;
+		margin-bottom: 16px;
+	}
+
+	a {
+		display: block;
+		color: #2b2d42;
+		padding: 11px 25px;
+		border-radius: 4px;
+		background: #edf2f4;
+		text-decoration: none;
+
+		&:hover {
+			color: #edf2f4;
+			background: #2b2d42;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.wrapper {
+			padding: 20px 0;
+		}
+	}
+</style>
+
+<body>
+	<div class="wrapper">
+		<h1>Навигация</h1>
+		<ul>
+			<li><a target="_blank" href="main.html">Главная</a></li>
+			<li><a target="_blank" href="favorites.html">Избранные</a></li>
+			<li><a target="_blank" href="statistics.html">Статистика</a></li>
+			<li><a target="_blank" href="detail.html">Карточка Лота</a></li>
+			<li><a target="_blank" href="detail-won.html">Карточка Лота Выиграно</a></li>
+			<li><a target="_blank" href="detail-not-won.html">Карточка Лота Проиграно</a></li>
+			<li><a target="_blank" href="lk.html">Личный Кабинет</a></li>
+			<li><a target="_blank" href="faq.html">Справка</a></li>
+			<li><a target="_blank" href="rules.html">Правила аукционов</a></li>
+			<li><a target="_blank" href="calendar.html">Календарь торгов</a></li>
+			<li><a target="_blank" href="404.html">404</a></li>
+			<li><a target="_blank" href="popups.html">Попапы</a></li>
+		</ul>
+	</div>
+	<!-- /.wrapper -->
+	<script src='js/main.bundle.js'></script>
+</body>
+
+</html>

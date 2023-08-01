@@ -1,0 +1,71 @@
+{% macro header(args) %}
+	<header class="header js-header">
+		{% if args.showBackLink %}
+			<a href="#" class="header__back-link"></a>
+		{% endif %}
+
+		<div class="header__logo">
+			<a href="#">
+				<img src="images/logo/logo-small.svg" alt="logo">
+			</a>
+		</div>
+
+		
+
+		<div class="header__title">
+			<span>{{ args.title }}</span>
+
+			{% if args.showInfoIcon %}
+				<i class="icon-info" data-tippy-theme="big" data-tippy-maxWidth="424" data-tippy-interactive="true" data-tippy-placement="bottom" data-tippy-content='<div class="tooltip-big">
+										<div class="tooltip-big__title">"АЛД Автомотив" ООО</div>
+											<div class="tooltip-big__properties">
+												<div class="tooltip-big__property">
+													<div class="tooltip-big__property-prop"><span>Период</span></div>
+													<div class="tooltip-big__property-val">Дек. 03 – Дек. 14, 2022</div>
+												</div>
+												<div class="tooltip-big__property">
+													<div class="tooltip-big__property-prop"><span>Длительность:</span></div>
+													<div class="tooltip-big__property-val">11 дней</div>
+												</div>
+												<div class="tooltip-big__property">
+													<div class="tooltip-big__property-prop"><span>Кол-во лотов:</span></div>
+													<div class="tooltip-big__property-val">8</div>
+												</div>
+												<div class="tooltip-big__property">
+													<div class="tooltip-big__property-prop"><span>Тип торгов:</span></div>
+													<div class="tooltip-big__property-val">Открытых:3</div>
+												</div>
+											</div>
+											<div class="tooltip-big__desc">
+												Быстрое образование и хранение льда: генератор льда IceMaker имеет независимую систему управления и может производить около 100 кубиков льда в сутки.
+											</div>
+											<div class="tooltip-big__link">
+												<a href="#">Перейти к списку</a>
+											</div>
+										</div>'
+				>
+				</i>
+			{% endif %}
+		</div>
+		<div class="header__right">
+			<div class="header__notification"></div>
+			<div class="header__time"><span class="js-header-time">11:22</span> МСК</div>
+
+			{% if args.showAuth %}
+				<div class="header__account">
+					{% include "account-person/account-person.njk" %}
+				</div>
+				<div class="header__logout-btn">
+					{% include "logout-btn/logout-btn.njk" %}
+				</div>
+			{% else %}
+				<div class="header__sign-in-btn">
+					{% include "sign-in-btn/sign-in-btn.njk" %}
+				</div>
+			{% endif %}
+		</div>
+		<div class="header__hamburger">
+			{% include "hamburger/hamburger.njk" %}
+		</div>
+	</header>
+{% endmacro %}

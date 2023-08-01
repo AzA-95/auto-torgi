@@ -1,0 +1,7 @@
+{% macro checkbox(args) %}
+    <label class="checkbox">
+        <input type="checkbox" {% if args.checked %}checked="checked"{% endif %} class="checkbox__input">
+        <span class="checkbox__icon"></span>
+        <span class="checkbox__text">{{ args.text }}</span>
+    </label>
+{% endmacro %}

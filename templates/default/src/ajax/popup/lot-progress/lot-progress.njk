@@ -1,0 +1,73 @@
+<div class="popup-block">
+	<div class="popup-block__title">Ход торгов по лоту №10657</div>
+	
+    <div class="popup-block-lot-progress">
+        <div class="popup-block-lot-progress__inner">
+            {% set lots = [
+                {
+                    price: "1 030 000 ₽",
+                    participant: "Участник N° 770",
+                    showIcon: true
+                },
+                {
+                    price: "1 025 000 ₽",
+                    participant: "Участник N° 911",
+                    showIcon: false
+                },
+                {
+                    price: "1 010 000 ₽",
+                    participant: "Участник N° 770",
+                    showIcon: true
+                },
+                {
+                    price: "1 005 000 ₽",
+                    participant: "Участник N° 911",
+                    showIcon: false
+                },
+                {
+                    price: "995 000 ₽",
+                    participant: "Участник N° 770",
+                    showIcon: false
+                },
+                {
+                    price: "990 000 ₽",
+                    participant: "Участник N° 911",
+                    showIcon: false
+                },
+                {
+                    price: "975 000 ₽",
+                    participant: "Участник N° 770",
+                    showIcon: false
+                },
+                {
+                    price: "955 000 ₽",
+                    participant: "Участник N° 911",
+                    showIcon: false
+                },
+                {
+                    price: "945 000 ₽",
+                    participant: "Участник N° 770",
+                    showIcon: false
+                }
+            ] %}
+
+            {% for item in lots %}
+                <div class="popup-block-lot-progress__bet">
+                    <div class="popup-block-lot-progress__bet-info">
+                        <div class="popup-block-lot-progress__price">
+                            <span>{{ item.price }}</span>
+
+                            {% if item.showIcon %}
+                                <i class="icon-bids-auto-gray"></i>
+                            {% endif %}
+                        </div>
+                        <div class="popup-block-lot-progress__participant">{{ item.participant }}</div>
+                    </div>
+                    <div class="popup-block-lot-progress__date">
+                        <span>24.12.22,<br>11:44:29</span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

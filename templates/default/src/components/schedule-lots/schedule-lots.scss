@@ -1,0 +1,327 @@
+.schedule {
+    &-lots {
+        --left-graph-col-width: 15%;
+        --one-precent-of-day: calc(100 / var(--total-count-days) * 1%);
+        padding: 8px;
+        border-radius: 8px;
+        box-shadow: 0px 6px 12px -6px rgba($color, 0.05);
+        background: #fff;
+        
+        &__inner {
+            position: relative;
+        }
+
+        &__top-date,
+        &__graphs-overlay {
+            display: none;
+        }
+
+        &__top-row {
+            display: flex;
+            line-height: 20px;
+
+            &-item {
+                color: $colorSecond;
+                width: 16.66666%;
+                padding: 10px 12px;
+            }
+        }
+
+        @include mdMin {
+            --vertical-line-width: 1px;
+
+            &.view-type-graph & {
+                padding-top: 4px;
+                padding-bottom: 4px;
+
+                &__top-row {
+                    display: none;
+                }
+
+                &__top-date {
+                    display: block;
+                    width: 100%;
+                    font-size: 10px;
+                    line-height: 16px;
+                    padding-bottom: 8px;
+                    
+                    &-current {
+                        position: relative;
+                        z-index: 2;
+                        color: $colorAccent;
+                        font-weight: 700;
+                        text-align: center;
+                        margin-bottom: 4px;
+                    }
+                    
+                    &-list {
+                        display: flex;
+                        padding-left: var(--left-graph-col-width);
+                    }
+        
+                    &-item {
+                        color: $colorSecond;
+                        width: var(--one-precent-of-day);
+                        flex-shrink: 0;
+
+                        span {
+                            padding-left: var(--vertical-line-width); // equal to width of vertical line
+                        }
+        
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            top: 48px;
+                            bottom: 8px;
+                            width: var(--vertical-line-width);
+                            background: rgba(137, 141, 147, 0.12);
+                        }
+
+                        // prevent hide first vertical line and date by overalay if variable --fill-days equal to zero(0)
+                        &:first-child {
+                            span {
+                                padding-left: calc(var(--vertical-line-width) * 2);
+                            }
+                            
+                            &::before {
+                                z-index: 2; 
+                            }
+                        }
+                    }
+                }
+
+                &__item {
+                    position: relative;
+                    z-index: 1;
+                    border-top: 4px solid #fff;
+                    border-bottom: 4px solid #fff;
+                }
+                
+                &__graphs-overlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: flex;
+                    width: 100%;
+                    height: 100%;
+                    padding-left: calc(var(--left-graph-col-width));
+                    
+                    &::before {
+                        content: '';
+                        position: relative;
+                        z-index: 1; // don't remove it's needed to prevent hover on inactive lines
+                        width: calc((var(--one-precent-of-day) * var(--fill-days)) + var(--vertical-line-width));
+                        background: linear-gradient(270deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+                        border-right: 2px solid #fff;
+                    }
+                }
+            }
+        }
+        
+        @include xlMin {
+            --left-graph-col-width: 17.5%;
+
+            &.view-type-graph & {
+                &__top-date {
+                    font-size: 12px;
+                }
+            }
+        }
+
+        @include md {
+            &__top-row {
+                font-size: 12px;
+
+                &-item {
+                    padding: 8px 2px;
+                }
+            }
+        }
+
+        @include sm {
+            &__top-row {
+                display: none;;
+            }
+
+            &__item {
+                margin-bottom: 8px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    &-lot {
+        &__name {
+            font-weight: 600;
+            line-height: 20px;
+            padding: 10px 12px;
+            border-radius: 6px;
+            background: rgba(137, 141, 147, 0.12);
+        }
+
+        &__row {
+            display: flex;
+            line-height: 20px;
+        }
+
+        &__count,
+        &__start,
+        &__end,
+        &__duration,
+        &__type,
+        &__action {
+            width: 16.66666%;
+            padding: 10px 12px;
+        }
+
+        &__action {
+            a {
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        &__graphs {
+            display: none;
+        }
+
+        @include mdMin {
+            .schedule-lots.view-type-graph & {
+                display: flex;
+                align-items: flex-start;
+
+                &__name {
+                    width: var(--left-graph-col-width);
+                    flex-shrink: 0;
+                    font-weight: 400;
+                    padding: 14px 12px;
+                    background: none;
+                    border-radius: 0;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+
+                &__rows {
+                    display: none;
+                }
+
+                &__graphs {
+                    display: block;
+                    width: calc(100% - var(--left-graph-col-width));
+                    overflow: hidden;
+                }
+                
+                &__graph {
+                    position: relative;
+                    display: flex;
+                    height: 48px;
+                    margin-bottom: 4px;
+        
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        bottom: -4px;
+                        width: 100%;
+                        height: 4px;
+                        background: #fff;
+                    }
+        
+                    &:last-child {
+                        margin-bottom: 0;
+        
+                        &::before {
+                            content: none;
+                        }
+                    }
+        
+                    &-line {
+                        cursor: pointer;
+                        margin-left: calc((var(--start-from-day) - 1) * var(--one-precent-of-day));
+                        width: calc(var(--one-precent-of-day) * (var(--fill-to-day) - (var(--start-from-day) - 1)));
+                    }
+                }
+            }
+        }
+
+        @include md {
+            &__name,
+            &__count,
+            &__start,
+            &__end,
+            &__duration,
+            &__type,
+            &__action {
+                font-size: 12px;
+            }
+            
+            &__count,
+            &__start,
+            &__end,
+            &__duration,
+            &__type,
+            &__action {
+                padding: 8px 2px;
+            }
+
+            &__count {
+                padding-left: 12px;
+            }
+        }
+
+        @include sm {
+            &__name {
+                cursor: pointer;
+                position: relative;
+                padding: 10px 36px 10px 8px;
+
+                &::after {
+                    content: '';
+                    width: 24px;
+                    height: 24px;
+                    position: absolute;
+                    top: 50%;
+                    right: 8px;
+                    margin-top: -12px;
+                    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M12.0007 13.172L16.9507 8.22198L18.3647 9.63598L12.0007 16L5.63672 9.63598L7.05072 8.22198L12.0007 13.172Z' fill='%23005BD1'/%3E%3C/svg%3E") no-repeat;
+                    background: contain;
+                    transition: transform 0.2s linear;
+                }
+            }
+
+            &.active &__name::after {
+                transform: rotate(180deg);
+            }
+
+            &__rows {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.2s linear;
+            }
+
+            &.active &__rows {
+                max-height: var(--max-height);
+            }
+
+            &__row {
+                flex-wrap: wrap;
+            }
+
+            &__count,
+            &__action {
+                width: 100%;
+            }
+
+            &__start,
+            &__end,
+            &__duration,
+            &__type {
+                width: 50%;
+            }
+        }
+    }
+}

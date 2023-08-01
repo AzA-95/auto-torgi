@@ -1,0 +1,90 @@
+<div class="schedule-lots js-schedule-lots" style="--total-count-days: 31;">
+    <div class="schedule-lots__inner">
+        <div class="schedule-lots__top-date">
+            <div class="schedule-lots__top-date-current">Сегодня</div>
+            <div class="schedule-lots__top-date-list">
+                {% for item in range(31) %}
+                    <div class="schedule-lots__top-date-item">
+                        <span>{{ item + 1 }}.12</span>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="schedule-lots__top-row">
+            <div class="schedule-lots__top-row-item">Кол-во лотов</div>
+            <div class="schedule-lots__top-row-item">Начало</div>
+            <div class="schedule-lots__top-row-item">Окончание</div>
+            <div class="schedule-lots__top-row-item">Длительность</div>
+            <div class="schedule-lots__top-row-item">Тип торгов</div>
+            <div class="schedule-lots__top-row-item">Действия</div>
+        </div>
+
+        <div class="schedule-lots__items">
+            {% for parentItem in json.scheduleLots %}
+                <div class="schedule-lots__item">
+                    <div class="schedule-lot">
+                        <div class="schedule-lot__name js-schedule-lot__name" title="{{ parentItem.name }}">{{ parentItem.name }}</div>
+
+                        <div class="schedule-lot__rows">
+                            {% for item in parentItem.rows %}
+                                <div class="schedule-lot__row">
+                                    <div class="schedule-lot__count">{{ item.count }}</div>
+                                    <div class="schedule-lot__start">{{ item.start }}</div>
+                                    <div class="schedule-lot__end">{{ item.end }}</div>
+                                    <div class="schedule-lot__duration">{{ item.duration }}</div>
+                                    <div class="schedule-lot__type">{{ item.type }}</div>
+                                    <div class="schedule-lot__action">
+                                        <a href="#">Перейти к списку</a>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="schedule-lot__graphs">
+                            {% for item in parentItem.rows %}
+                                <div class="schedule-lot__graph">
+                                    <div
+                                        class="schedule-lot__graph-line"
+                                        style="
+                                            --start-from-day: {{ item.startFromDay }};
+                                            --fill-to-day: {{ item.fillToDay }};
+                                            background: {{ item.fillColor }};
+                                        "
+                                        data-tippy-theme="big"
+                                        data-tippy-maxWidth="424"
+                                        data-tippy-followCursor="horizontal"
+                                        data-tippy-content='<div class="tooltip-big">
+                                                                <div class="tooltip-big__title">{{ parentItem.name }}</div>
+                                                                <div class="tooltip-big__properties">
+                                                                    <div class="tooltip-big__property">
+                                                                        <div class="tooltip-big__property-prop"><span>Период</span></div>
+                                                                        <div class="tooltip-big__property-val">Дек. {{ item.startShort }} – Дек. {{ item.endShort }}, 2022</div>
+                                                                    </div>
+                                                                    <div class="tooltip-big__property">
+                                                                        <div class="tooltip-big__property-prop"><span>Длительность:</span></div>
+                                                                        <div class="tooltip-big__property-val">{{ item.duration }}</div>
+                                                                    </div>
+                                                                    <div class="tooltip-big__property">
+                                                                        <div class="tooltip-big__property-prop"><span>Кол-во лотов:</span></div>
+                                                                        <div class="tooltip-big__property-val">{{ item.count }}</div>
+                                                                    </div>
+                                                                    <div class="tooltip-big__property">
+                                                                        <div class="tooltip-big__property-prop"><span>Тип торгов:</span></div>
+                                                                        <div class="tooltip-big__property-val">{{ item.type }}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>'
+                                    >
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="schedule-lots__graphs-overlay" style="--fill-days: 11;"></div>
+    </div>
+</div>

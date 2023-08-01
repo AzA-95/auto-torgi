@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+	{% set title = "Faq Page" %}
+	{% set showSidebarAuth = true %}
+
+	{% include "head/head.njk" %}
+
+	{% from "header/header.njk" import header %}
+	{% from "mobile-menu/mobile-menu.njk" import mobileMenu %}
+<body>
+	<div class="wrapper">
+		{% include "sidebar/sidebar.njk" %}
+
+		<div class="main">
+			{{
+				header({
+					title: "Справка",
+					showAuth: true,
+					showBackLink: true
+				})
+			}}
+
+			{{
+				mobileMenu({
+					showAuth: true
+				})
+			}}
+
+			<div class="main-content">
+                {% include "faq/faq.njk" %}
+			</div>
+		</div>
+	</div>
+	<!-- /.wrapper -->
+
+	{% include "../components/scripts/scripts.njk" %}
+</body>
+</html>

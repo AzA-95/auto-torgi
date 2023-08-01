@@ -1,0 +1,15 @@
+.container {
+	width: 100%;
+	max-width: 1194px;
+	padding: 0 15px;
+	margin: 0 auto;
+
+	& & { // если будут вложеные контейнеры в друг друга
+		padding: 0;
+		max-width: none;
+	}
+
+	@media (--phone) {
+		padding: 0 20px;
+	}
+}

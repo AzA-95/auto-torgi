@@ -1,0 +1,54 @@
+{% from "templates/default/src/components/checkbox/checkbox.njk" import checkbox %}
+
+{% set labels = [
+    'Ставка принята',
+    'Ставка перебита',
+    'Ставка отклонена',
+    'Торги завершены',
+    'Документы готовы',
+    'Аукцион стартовал'
+] %}
+
+<div class="popup-block popup-block_small">
+	<div class="popup-block__title">Настройка оповещений</div>
+	
+	<form action="#" class="popup-block__form">
+        <div class="popup-block__fields popup-block__fields_mb-bigger">
+            {% for labelText in labels %}
+                <div class="popup-block__field">
+                    <div class="popup-block__label">{{ labelText }}</div>
+                    <div class="popup-block__checkboxes">
+                        <div class="popup-block__checkbox">
+                            {{
+                                checkbox({
+                                    text: "SMS",
+                                    checked: true
+                                })
+                            }}
+                        </div>
+                        <div class="popup-block__checkbox">
+                            {{
+                                checkbox({
+                                    text: "E-mail"
+                                })
+                            }}
+                        </div>
+                        <div class="popup-block__checkbox">
+                            {{
+                                checkbox({
+                                    text: "На сайте",
+                                    checked: true
+                                })
+                            }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+		<div class="popup-block__btns">
+            <button type="button" class="popup-block__btn popup-block__btn_light popup-block__btn_smaller js-popup-close-btn">Сбросить</button>
+            <button type="button" class="popup-block__btn">Сохранить изменения</button>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,173 @@
+{% from "small-card-lot/small-card-lot.njk" import smallCardLot %}
+
+<div class="lk">
+    <div class="lk-profile">
+        <div class="lk-profile__top">
+            <div class="lk-profile__title">Данные</div>
+            <div class="lk-profile__logout">
+                {% include "logout-btn/logout-btn.njk" %}
+            </div>
+        </div>
+        <div class="lk-profile__author">
+            <div class="lk-profile__photo">
+                <div class="lk-profile__pic">
+                    <img class="lazyload" data-src="images/lk/profile/avatar.svg" alt="picture">
+                </div>
+                
+                <!-- Нижняя разметка для вывода блок без фото -->
+                <!-- <div class="lk-profile__without-pic">K</div> -->
+                
+                <div class="lk-profile__change-photo">
+                    <label class="lk-profile__change-photo-btn">
+                        <input type="file" accept=".png, .jpg, .jpeg">
+                        <span>Сменить фото</span>
+                    </label>
+                </div>
+            </div>
+            <div class="lk-profile__data">
+                <div class="lk-profile__full-name">
+                    <div class="lk-profile__prop">ФИО:</div>
+                    <div class="lk-profile__val">Константин Константинопольский</div>
+                    <button type="button" class="lk-profile__change">Изменить данные учётной записи</button>
+                </div>
+                <div class="lk-profile__alert">
+                    <div class="lk-profile__prop">ОПОВЕЩЕНИЯ:</div>
+                    <button type="button" class="lk-profile__change">Настроить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lk-statistics">
+        <div class="lk-statistics__top">
+            <div class="lk-statistics__title">Статистика</div>
+            <div class="lk-statistics__see-all-link">
+                <a href="#">Смотреть все</a>
+            </div>
+        </div>
+        <div class="lk-statistics__row">
+            <div class="lk-statistics__circle">
+                <div class="lk-pie-chart">
+                    <div class="lk-pie-chart__default"></div>
+                    <div class="lk-pie-chart__circle">
+                        <div
+                            class="lk-pie-chart__pie js-lk-pie-chart__pie"
+                            data-start="0"
+                            data-end="64"
+                            data-tippy-theme="small"
+                            data-tippy-maxWidth="424"
+                            data-tippy-followCursor="true"
+                            data-tippy-content='<div class="tooltip-lk-pie-chart">
+                                                    <div class="tooltip-lk-pie-chart__title">Не выиграно</div>
+                                                    <div class="tooltip-lk-pie-chart__text">9 лотов</div>
+                                                </div>'
+                        >
+                            <a href="#"></a>
+                        </div>
+                        <div
+                            class="lk-pie-chart__pie lk-pie-chart__pie_hide js-lk-pie-chart__pie"
+                            data-start="0"
+                            data-end="0"
+                            data-tippy-theme="small"
+                            data-tippy-maxWidth="424"
+                            data-tippy-followCursor="true"
+                            data-tippy-content='<div class="tooltip-lk-pie-chart">
+                                                    <div class="tooltip-lk-pie-chart__title">Выиграно</div>
+                                                    <div class="tooltip-lk-pie-chart__text">0 лот</div>
+                                                </div>'
+                        >
+                            <a href="#2"></a>
+                        </div>
+                        <div
+                            class="lk-pie-chart__pie js-lk-pie-chart__pie"
+                            data-start="64"
+                            data-end="100"
+                            data-tippy-theme="small"
+                            data-tippy-maxWidth="424"
+                            data-tippy-followCursor="true"
+                            data-tippy-content='<div class="tooltip-lk-pie-chart">
+                                                    <div class="tooltip-lk-pie-chart__title">Активны</div>
+                                                    <div class="tooltip-lk-pie-chart__text">3 лота</div>
+                                                </div>'
+                        >
+                            <a href="#3"></a>
+                        </div>
+                        <div
+                            class="lk-pie-chart__pie lk-pie-chart__pie_hide js-lk-pie-chart__pie"
+                            data-start="0"
+                            data-end="0"
+                            data-tippy-theme="small"
+                            data-tippy-maxWidth="424"
+                            data-tippy-followCursor="true"
+                            data-tippy-content='<div class="tooltip-lk-pie-chart">
+                                                    <div class="tooltip-lk-pie-chart__title">Ожидают решения</div>
+                                                    <div class="tooltip-lk-pie-chart__text">0 лотов</div>
+                                                </div>'
+                        >
+                            <a href="#4"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="lk-statistics__data">
+                <div class="lk-statistics__properties">
+                    <div class="lk-statistics__property">
+                        <div class="lk-statistics__prop">Ваша ставка лидирует</div>
+                        <div class="lk-statistics__val">3 лота</div>
+                    </div>
+                    <div class="lk-statistics__property">
+                        <div class="lk-statistics__prop">Ваша ставка перебита</div>
+                        <div class="lk-statistics__val">9 лотов</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lk-statistics__states">
+            <div class="lk-statistics__state">
+                <a href="#" class="lk-statistics__state-link">Не выиграно (9)</a>
+            </div>
+            <div class="lk-statistics__state">
+                <a href="#" class="lk-statistics__state-link">Выиграно (0)</a>
+            </div>
+            <div class="lk-statistics__state">
+                <a href="#" class="lk-statistics__state-link">Активные (3)</a>
+            </div>
+            <div class="lk-statistics__state">
+                <a href="#" class="lk-statistics__state-link">Ожидают решения (0)</a>
+            </div>
+        </div>
+    </div>
+    <div class="lk-favorites">
+        <div class="lk-favorites__top">
+            <div class="lk-favorites__title">Избранные</div>
+            <div class="lk-favorites__see-all-link">
+                <a href="#">Смотреть все</a>
+            </div>
+        </div>
+        <div class="lk-favorites__lots">
+            {% for item in json.lk.favorites %}
+                <div class="lk-favorites__lot">
+                    {{
+                        smallCardLot(item)
+                    }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="lk-bought">
+        <div class="lk-bought__top">
+            <div class="lk-bought__title">Выкупленные</div>
+            <div class="lk-bought__see-all-link">
+                <a href="#">Смотреть все</a>
+            </div>
+        </div>
+        <div class="lk-bought__lots">
+            {% for item in json.lk.bought %}
+                <div class="lk-favorites__lot">
+                    {{
+                        smallCardLot(item)
+                    }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

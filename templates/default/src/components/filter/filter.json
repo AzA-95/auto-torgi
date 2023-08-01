@@ -1,0 +1,369 @@
+{
+    "json": {
+        "filter": {
+            "fields": {
+                "top": [
+                    {
+                        "fields": [
+                            {
+                                "name": "brand",
+                                "disabled": false,
+                                "placeholder": "Марка",
+                                "multiple": false,
+                                "showSearch": true,
+                                "allowDeselect": true,
+                                "options": [
+                                    "Audi",
+                                    "Bmw",
+                                    "Mercedes-Benz",
+                                    "Львовский Автопогрузчик",
+                                    "Мобильный сварочный агрегат на одноосном шасси"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "fields": [
+                            {
+                                "name": "model",
+                                "disabled": true,
+                                "placeholder": "Модель",
+                                "multiple": true,
+                                "showSearch": true,
+                                "allowDeselect": true,
+                                "options": [
+                                    "x5",
+                                    "x6",
+                                    "x7",
+                                    "i7"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "fields": [
+                            {
+                                "name": "transmission",
+                                "disabled": false,
+                                "placeholder": "КПП",
+                                "multiple": true,
+                                "showSearch": true,
+                                "allowDeselect": true,
+                                "options": [
+                                    "АКПП",
+                                    "Механика",
+                                    "МКПП",
+                                    "МКПП/АКПП"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "fields": [
+                            {
+                                "name": "year-from",
+                                "disabled": false,
+                                "placeholder": "Год от",
+                                "multiple": false,
+                                "showSearch": true,
+                                "allowDeselect": true,
+                                "options": [
+                                    "1992",
+                                    "1993",
+                                    "1994",
+                                    "1995",
+                                    "1996",
+                                    "1997",
+                                    "1998"
+                                ]
+                            },
+                            {
+                                "name": "year-to",
+                                "disabled": false,
+                                "placeholder": "до",
+                                "multiple": false,
+                                "showSearch": true,
+                                "allowDeselect": true,
+                                "options": [
+                                    "2000",
+                                    "2001",
+                                    "2005",
+                                    "2008",
+                                    "2018",
+                                    "2022",
+                                    "2023"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "fields": [
+                            {
+                                "name": "mileage-from",
+                                "disabled": false,
+                                "placeholder": "Пробег от",
+                                "multiple": false,
+                                "showSearch": true,
+                                "allowDeselect": true,
+                                "options": [
+                                    "11.000",
+                                    "28.000",
+                                    "50.000"
+                                ]
+                            },
+                            {
+                                "name": "mileage-to",
+                                "disabled": false,
+                                "placeholder": "до",
+                                "multiple": false,
+                                "showSearch": true,
+                                "allowDeselect": true,
+                                "options": [
+                                    "30.000",
+                                    "60.000",
+                                    "85.000"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "fields": [
+                            {
+                                "name": "salesman",
+                                "disabled": false,
+                                "placeholder": "Продавец",
+                                "multiple": false,
+                                "showSearch": true,
+                                "allowDeselect": true,
+                                "options": [
+                                    "Empty"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "fields": [
+                            {
+                                "name": "city",
+                                "disabled": false,
+                                "placeholder": "Город",
+                                "multiple": false,
+                                "showSearch": true,
+                                "allowDeselect": true,
+                                "options": [
+                                    "Москва",
+                                    "Санкт-Петербург"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "fields": [
+                            {
+                                "name": "trade-type",
+                                "disabled": false,
+                                "placeholder": "Тип торгов",
+                                "multiple": false,
+                                "showSearch": true,
+                                "allowDeselect": true,
+                                "options": [
+                                    "Купить сейчас",
+                                    "Открытые торги"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "fields": [
+                            {
+                                "name": "category",
+                                "disabled": false,
+                                "placeholder": "Категория",
+                                "multiple": false,
+                                "showSearch": true,
+                                "allowDeselect": true,
+                                "options": [
+                                    "Корпоративные парки",
+                                    "Лизинг и банки",
+                                    "Физические лица",
+                                    "Такси и прокат",
+                                    "Официальные дилеры",
+                                    "Водная техника"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "fields": [
+                            {
+                                "name": "state",
+                                "disabled": false,
+                                "placeholder": "Состояние",
+                                "multiple": false,
+                                "showSearch": true,
+                                "allowDeselect": true,
+                                "options": [
+                                    "Кроме аварийных",
+                                    "Аварийные"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "bottom": [
+                    {
+                        "fields": [
+                            {
+                                "name": "volume-from",
+                                "disabled": false,
+                                "placeholder": "Объём от",
+                                "multiple": false,
+                                "showSearch": true,
+                                "allowDeselect": true,
+                                "options": [
+                                    "1600",
+                                    "1800",
+                                    "2000",
+                                    "2800"
+                                ]
+                            },
+                            {
+                                "name": "volume-to",
+                                "disabled": false,
+                                "placeholder": "до",
+                                "multiple": false,
+                                "showSearch": true,
+                                "allowDeselect": true,
+                                "options": [
+                                    "1600",
+                                    "1800",
+                                    "2000",
+                                    "2800",
+                                    "3000",
+                                    "8000"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "fields": [
+                            {
+                                "name": "engine",
+                                "disabled": false,
+                                "placeholder": "Двигатель",
+                                "multiple": false,
+                                "showSearch": true,
+                                "allowDeselect": true,
+                                "options": [
+                                    "Бензин",
+                                    "Дизель",
+                                    "Гибрид"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "fields": [
+                            {
+                                "name": "color",
+                                "disabled": false,
+                                "placeholder": "Цвет",
+                                "multiple": false,
+                                "showSearch": true,
+                                "allowDeselect": true,
+                                "options": [
+                                    "Белый",
+                                    "Черный"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "fields": [
+                            {
+                                "name": "climate-control",
+                                "disabled": false,
+                                "placeholder": "Климат-контроль",
+                                "multiple": false,
+                                "showSearch": true,
+                                "allowDeselect": true,
+                                "options": [
+                                    "Климат-контроль",
+                                    "Климат-контроль 2-зонный",
+                                    "Климат-контроль многозонный",
+                                    "Кондиционер"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "fields": [
+                            {
+                                "name": "upholstery",
+                                "disabled": false,
+                                "placeholder": "Обивка салона",
+                                "multiple": false,
+                                "showSearch": true,
+                                "allowDeselect": true,
+                                "options": [
+                                    "Кожа",
+                                    "Ткань"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "fields": [
+                            {
+                                "name": "VAT",
+                                "disabled": false,
+                                "placeholder": "НДС",
+                                "multiple": false,
+                                "showSearch": true,
+                                "allowDeselect": true,
+                                "options": [
+                                    "НДС не облагается",
+                                    "НДС включен"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "fields": [
+                            {
+                                "name": "body-type",
+                                "disabled": false,
+                                "placeholder": "Тип кузова",
+                                "multiple": false,
+                                "showSearch": true,
+                                "allowDeselect": true,
+                                "options": [
+                                    "Седан",
+                                    "Универсал",
+                                    "Пикап"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "fields": [
+                            {
+                                "name": "drive-unit",
+                                "disabled": false,
+                                "placeholder": "Привод",
+                                "multiple": false,
+                                "showSearch": true,
+                                "allowDeselect": true,
+                                "options": [
+                                    "4х2",
+                                    "4х4",
+                                    "Заднеприводный с подключаемым передним"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

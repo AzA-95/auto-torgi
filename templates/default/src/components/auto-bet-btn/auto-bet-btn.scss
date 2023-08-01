@@ -1,0 +1,27 @@
+.auto-bet-btn {
+    width: 100%;
+    appearance: none;
+    cursor: pointer;
+    color: $colorThird;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    padding: 7px 16px;
+    border-radius: 4px;
+    border: 1px solid $colorThird;
+    background: transparent;
+
+    i {
+        flex-shrink: 0;
+        margin-right: 8px;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        opacity: 0.8;
+    }
+}

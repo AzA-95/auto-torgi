@@ -1,0 +1,16 @@
+// *** Базовые ***
+@import 'base/variables.scss';
+@import 'base/mixins.scss';
+@import 'base/fonts.scss';
+@import 'base/reboot.scss';
+@import 'base/base.scss';
+@import 'base/wrapper.scss';
+
+// *** Плагины ***
+@import "plugins/plugins.scss";
+
+// *** Общие без компонентов для страниц ***
+@import "users/**/*.scss";
+
+// *** Компоненты для страниц ***
+@import "../components/**/*.scss";

@@ -1,0 +1,22 @@
+{% from "lot-card/lot-card.njk" import lotCard %}
+
+<div class="lots">
+    {% set lotsType = json.lots.main %}
+
+    {% if lotsTypeStatistics %}
+        {% set lotsType = json.lots.statistics %}
+    {% endif %}
+
+    {% for item in lotsType %}
+        <div class="lots__item">
+            {% if lotsTypeFavorites %}
+                {% set item = item|setAttribute('favoriteActive', true) %}
+            {% endif %}
+
+            {{
+                lotCard(item)
+            }}
+        </div>
+    {% endfor %}
+    
+</div>

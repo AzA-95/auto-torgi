@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+	{% set title = "Main Page" %}
+
+	{% include "head/head.njk" %}
+
+	{% from "select-box/select-box.njk" import selectBox %}
+	{% from "header/header.njk" import header %}
+	{% from "mobile-menu/mobile-menu.njk" import mobileMenu %}
+<body>
+	<div class="wrapper">
+		{% include "sidebar/sidebar.njk" %}
+
+		<div class="main">
+			{{
+				header({
+					title: "Текущие торги",
+					showInfoIcon: true
+				})
+			}}
+
+			{{
+				mobileMenu()
+			}}
+
+			<div class="main-content has-filter">
+				{% include "filter/filter.njk" %}
+
+				{% include "sort-line/sort-line.njk" %}
+
+				{% include "lots/lots.njk" %}
+
+				{% include "pagination/pagination.njk" %}
+			</div>
+		</div>
+	</div>
+	<!-- /.wrapper -->
+
+	{% include "../components/scripts/scripts.njk" %}
+</body>
+</html>

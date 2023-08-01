@@ -1,0 +1,92 @@
+.tooltip {
+    &-big {
+        &__title {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 24px;
+            margin-bottom: 8px;
+        }
+
+        &__properties {
+            margin-bottom: 16px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &__property {
+            display: flex;
+            align-items: flex-end;
+            margin-bottom: 8px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            &-prop {
+                position: relative;
+                color: $colorSecond;
+                width: 40%;
+                overflow: hidden;
+                padding-right: 16px;
+
+                span {
+                    position: relative;
+                    z-index: 1;
+                    padding-right: 8px;
+                    background: #fff;
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: 2px;
+                    width: 100%;
+                    margin-left: 8px;
+                    border-bottom: 1px dashed rgba($color, 0.12);
+                }
+            }
+
+            &-val {
+                width: 60%;
+                padding-left: 8px;
+            }
+        }
+
+        &__link {
+            line-height: 20px;
+            margin-top: 16px;
+
+            a {
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    &-lk-pie-chart {
+        line-height: 1;
+
+        &__title {
+            margin-bottom: 6px;
+        }
+
+        &__text {
+            color: $colorSecond;
+        }
+    }
+
+    @include sm {
+        &-big {
+            &__property {
+                &-prop,
+                &-val {
+                    width: 50%;
+                }
+            }
+        }
+    }
+}

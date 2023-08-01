@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+	{% set title = "Detail Page" %}
+	{% set showSidebarAuth = true %}
+
+	{% include "head/head.njk" %}
+
+	{% from "header/header.njk" import header %}
+	{% from "mobile-menu/mobile-menu.njk" import mobileMenu %}
+<body>
+	<div class="wrapper">
+		{% include "sidebar/sidebar.njk" %}
+
+		<div class="main">
+			{{
+				header({
+					title: "Лот №107431",
+					showAuth: true,
+					showBackLink: true
+				})
+			}}
+
+			{{
+				mobileMenu({
+					showAuth: true
+				})
+			}}
+
+			<div class="main-content main-content_pb-none">
+                {% include "lot-detail/lot-detail.njk" %}
+			</div>
+		</div>
+	</div>
+	<!-- /.wrapper -->
+
+	{% include "../components/scripts/scripts.njk" %}
+</body>
+</html>

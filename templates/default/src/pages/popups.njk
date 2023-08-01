@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+	{% set title = "Popups Page" %}
+	{% set showSidebarAuth = true %}
+
+	{% include "head/head.njk" %}
+	{% from "header/header.njk" import header %}
+	{% from "mobile-menu/mobile-menu.njk" import mobileMenu %}
+
+	<style>
+		h1 {
+			margin: 0 0 30px;
+		}
+
+		.btns {
+			display: flex;
+			flex-wrap: wrap;
+			margin: 0 -10px 60px;
+		}
+
+		.btn {
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			border: none;
+			cursor: pointer;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			align-items: center;
+			color: #fff;
+			font-weight: 500;
+			padding: 14px 30px;
+			margin: 10px;
+			border-radius: 100px;
+			background: #005BD1;
+		}
+
+		.btn:focus {
+			outline: none;
+		}
+
+		.btn:hover {
+			opacity: 0.8;
+		}
+	</style>
+<body>
+	<div class="wrapper">
+		{% include "sidebar/sidebar.njk" %}
+
+		<div class="main">
+			{{
+				header({
+					title: "Попапы",
+					showAuth: true,
+					showBackLink: true
+				})
+			}}
+
+			{{
+				mobileMenu({
+					showAuth: true
+				})
+			}}
+
+			<div class="main-content">
+				<h1>Демо попапов</h1>
+
+				<div class="btns">
+					<button class="btn" data-ajax data-url="ajax/popup/auto-bet/auto-bet.html">Автоставка</button>
+					<button class="btn" data-ajax data-url="ajax/popup/bids-info/bids-info.html">Открытые торги</button>
+					<button class="btn" data-ajax data-url="ajax/popup/change-note/change-note.html">Добавить/Изменить заметку</button>
+					<button class="btn" data-ajax data-url="ajax/popup/confirm/confirm.html">Удалить заметку</button>
+					<button class="btn" data-ajax data-url="ajax/popup/auth/auth.html">Авторизация</button>
+					<button class="btn" data-ajax data-url="ajax/popup/reg/reg.html">Регистрация</button>
+					<button class="btn" data-ajax data-url="ajax/popup/lot-progress/lot-progress.html">Ход торгов по лоту</button>
+					<button class="btn" data-ajax data-url="ajax/popup/lot-card/lot-card.html">Крточка лота</button>
+					<button class="btn" data-ajax data-url="ajax/popup/car-info/car-info.html">Проверка по VIN</button>
+					<button class="btn" data-ajax data-url="ajax/popup/conditions/conditions.html">Условия и сборы</button>
+					<button class="btn" data-ajax data-url="ajax/popup/contact-details/contact-details.html">Контактные данные</button>
+					<button class="btn" data-ajax data-url="ajax/popup/settings/settings.html">Настройка оповещений</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /.wrapper -->
+
+	{% include "../components/scripts/scripts.njk" %}
+</body>
+</html>

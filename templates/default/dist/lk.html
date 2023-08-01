@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Lk Page</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, interactive-widget=resizes-content">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/static/frontend-works.js"></script>
+	<!-- Внимание этот скрипт не надо переносить в бекенд 
+		он нужен чисто для демо отсчета таймеров в лотах в верстке -->
+	<script src="js/static/demo-lots-timer.js"></script>
+	<!-- Конец -->
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="sidebar">
+			<div class="sidebar__content">
+				<div class="sidebar__logo">
+					<div class="sidebar__logo-small">
+						<a href="#">
+							<img src="images/logo/logo-small.svg" alt="logo">
+						</a>
+					</div>
+					<div class="sidebar__logo-big">
+						<a href="#">
+							<img src="images/logo/logo.svg" alt="logo">
+						</a>
+					</div>
+				</div>
+				<div class="sidebar__lots active">
+					<div class="sidebar__lots-title js-sidebar__lots-title">
+						<span>Текущие торги</span>
+					</div>
+					<nav class="sidebar__lots-nav js-sidebar__lots-nav">
+						<ul class="sidebar__lots-list">
+							<li class="sidebar__lots-item">
+								<a href="#" class="sidebar__lots-link active">Все лоты</a>
+							</li>
+							<li class="sidebar__lots-item">
+								<a href="#" class="sidebar__lots-link">Легковые автомобили</a>
+							</li>
+							<li class="sidebar__lots-item">
+								<a href="#" class="sidebar__lots-link">Грузовики</a>
+							</li>
+							<li class="sidebar__lots-item">
+								<a href="#" class="sidebar__lots-link">Погрузчики</a>
+							</li>
+							<li class="sidebar__lots-item">
+								<a href="#" class="sidebar__lots-link">Автобусы</a>
+							</li>
+							<li class="sidebar__lots-item">
+								<a href="#" class="sidebar__lots-link">Сельскохозяйственная техника</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<div class="sidebar__menu">
+					<ul class="sidebar__menu-list">
+						<li class="sidebar__menu-item">
+							<a href="#" class="sidebar__menu-link">
+								<i class="icon-star sidebar__menu-icon"></i>
+								<span>Избранные лоты</span>
+							</a>
+						</li>
+						<li class="sidebar__menu-item">
+							<a href="#" class="sidebar__menu-link">
+								<i class="icon-calendar sidebar__menu-icon"></i>
+								<span>Календарь торгов</span>
+							</a>
+						</li>
+						<li class="sidebar__menu-item">
+							<a href="#" class="sidebar__menu-link">
+								<i class="icon-account sidebar__menu-icon"></i>
+								<span>Личный кабинет</span>
+							</a>
+						</li>
+						<li class="sidebar__menu-item">
+							<a href="#" class="sidebar__menu-link">
+								<i class="icon-question sidebar__menu-icon"></i>
+								<span>FAQ</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="sidebar__footer">
+					<div class="sidebar__copyright">© 2023 АвтоТорги.</div>
+					<div class="sidebar__privacy">
+						<a href="#">Пользовательское соглашение</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="main">
+			<header class="header js-header">
+				<a href="#" class="header__back-link"></a>
+				<div class="header__logo">
+					<a href="#">
+						<img src="images/logo/logo-small.svg" alt="logo">
+					</a>
+				</div>
+				<div class="header__title">
+					<span>Личный кабинет</span>
+				</div>
+				<div class="header__right">
+					<div class="header__notification"></div>
+					<div class="header__time"><span class="js-header-time">11:22</span> МСК</div>
+					<div class="header__account">
+						<div class="account-person">
+							<div class="account-person__pic">
+								<img src="images/account-person/pic.svg" alt="avatar">
+							</div>
+							<!--<div class="account-person__without-pic">K</div>-->
+							<div class="account-person__name">Константин</div>
+							<a href="#" class="account-person__full-link"></a>
+						</div>
+					</div>
+					<div class="header__logout-btn">
+						<a href="#" class="logout-btn">Выйти</a>
+					</div>
+				</div>
+				<div class="header__hamburger">
+					<div class="hamburger js-hamburger"></div>
+				</div>
+			</header>
+			<div class="mobile-menu js-mobile-menu">
+				<div class="mobile-menu__account">
+					<div class="mobile-menu__person">
+						<div class="account-person">
+							<div class="account-person__pic">
+								<img src="images/account-person/pic.svg" alt="avatar">
+							</div>
+							<!--<div class="account-person__without-pic">K</div>-->
+							<div class="account-person__name">Константин</div>
+							<a href="#" class="account-person__full-link"></a>
+						</div>
+					</div>
+					<div class="mobile-menu__logout-btn">
+						<a href="#" class="logout-btn">Выйти</a>
+					</div>
+				</div>
+				<div class="mobile-menu__lots">
+					<div class="mobile-menu__lots-title js-mobile-menu__lots-title">
+						<span>Текущие торги</span>
+					</div>
+					<nav class="mobile-menu__lots-nav js-mobile-menu__lots-nav">
+						<ul class="mobile-menu__lots-list">
+							<li class="mobile-menu__lots-item">
+								<a href="#" class="mobile-menu__lots-link active">Все лоты</a>
+							</li>
+							<li class="mobile-menu__lots-item">
+								<a href="#" class="mobile-menu__lots-link">Легковые автомобили</a>
+							</li>
+							<li class="mobile-menu__lots-item">
+								<a href="#" class="mobile-menu__lots-link">Грузовики</a>
+							</li>
+							<li class="mobile-menu__lots-item">
+								<a href="#" class="mobile-menu__lots-link">Погрузчики</a>
+							</li>
+							<li class="mobile-menu__lots-item">
+								<a href="#" class="mobile-menu__lots-link">Автобусы</a>
+							</li>
+							<li class="mobile-menu__lots-item">
+								<a href="#" class="mobile-menu__lots-link">Сельскохозяйственная техника</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<div class="mobile-menu__menu">
+					<ul class="mobile-menu__menu-list">
+						<li class="mobile-menu__menu-item">
+							<a href="#" class="mobile-menu__menu-link">
+								<i class="icon-star mobile-menu__menu-icon"></i>
+								<span>Избранные лоты</span>
+							</a>
+						</li>
+						<li class="mobile-menu__menu-item">
+							<a href="#" class="mobile-menu__menu-link">
+								<i class="icon-calendar mobile-menu__menu-icon"></i>
+								<span>Календарь торгов</span>
+							</a>
+						</li>
+						<li class="mobile-menu__menu-item">
+							<a href="#" class="mobile-menu__menu-link">
+								<i class="icon-account mobile-menu__menu-icon"></i>
+								<span>Личный кабинет</span>
+							</a>
+						</li>
+						<li class="mobile-menu__menu-item">
+							<a href="#" class="mobile-menu__menu-link">
+								<i class="icon-question mobile-menu__menu-icon"></i>
+								<span>FAQ</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="mobile-menu__footer">
+					<div class="mobile-menu__copyright">© 2023 АвтоТорги.</div>
+					<div class="mobile-menu__privacy">
+						<a href="#">Пользовательское соглашение</a>
+					</div>
+				</div>
+			</div>
+			<div class="main-content">
+				<div class="lk">
+					<div class="lk-profile">
+						<div class="lk-profile__top">
+							<div class="lk-profile__title">Данные</div>
+							<div class="lk-profile__logout">
+								<a href="#" class="logout-btn">Выйти</a>
+							</div>
+						</div>
+						<div class="lk-profile__author">
+							<div class="lk-profile__photo">
+								<div class="lk-profile__pic">
+									<img class="lazyload" data-src="images/lk/profile/avatar.svg" alt="picture">
+								</div>
+								<!-- Нижняя разметка для вывода блок без фото -->
+								<!-- <div class="lk-profile__without-pic">K</div> -->
+								<div class="lk-profile__change-photo">
+									<label class="lk-profile__change-photo-btn">
+										<input type="file" accept=".png, .jpg, .jpeg">
+										<span>Сменить фото</span>
+									</label>
+								</div>
+							</div>
+							<div class="lk-profile__data">
+								<div class="lk-profile__full-name">
+									<div class="lk-profile__prop">ФИО:</div>
+									<div class="lk-profile__val">Константин Константинопольский</div>
+									<button type="button" class="lk-profile__change">Изменить данные учётной записи</button>
+								</div>
+								<div class="lk-profile__alert">
+									<div class="lk-profile__prop">ОПОВЕЩЕНИЯ:</div>
+									<button type="button" class="lk-profile__change">Настроить</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="lk-statistics">
+						<div class="lk-statistics__top">
+							<div class="lk-statistics__title">Статистика</div>
+							<div class="lk-statistics__see-all-link">
+								<a href="#">Смотреть все</a>
+							</div>
+						</div>
+						<div class="lk-statistics__row">
+							<div class="lk-statistics__circle">
+								<div class="lk-pie-chart">
+									<div class="lk-pie-chart__default"></div>
+									<div class="lk-pie-chart__circle">
+										<div class="lk-pie-chart__pie js-lk-pie-chart__pie" data-start="0" data-end="64" data-tippy-theme="small" data-tippy-maxWidth="424" data-tippy-followCursor="true" data-tippy-content='<div class="tooltip-lk-pie-chart">
+                                                    <div class="tooltip-lk-pie-chart__title">Не выиграно</div>
+                                                    <div class="tooltip-lk-pie-chart__text">9 лотов</div>
+                                                </div>'>
+											<a href="#"></a>
+										</div>
+										<div class="lk-pie-chart__pie lk-pie-chart__pie_hide js-lk-pie-chart__pie" data-start="0" data-end="0" data-tippy-theme="small" data-tippy-maxWidth="424" data-tippy-followCursor="true" data-tippy-content='<div class="tooltip-lk-pie-chart">
+                                                    <div class="tooltip-lk-pie-chart__title">Выиграно</div>
+                                                    <div class="tooltip-lk-pie-chart__text">0 лот</div>
+                                                </div>'>
+											<a href="#2"></a>
+										</div>
+										<div class="lk-pie-chart__pie js-lk-pie-chart__pie" data-start="64" data-end="100" data-tippy-theme="small" data-tippy-maxWidth="424" data-tippy-followCursor="true" data-tippy-content='<div class="tooltip-lk-pie-chart">
+                                                    <div class="tooltip-lk-pie-chart__title">Активны</div>
+                                                    <div class="tooltip-lk-pie-chart__text">3 лота</div>
+                                                </div>'>
+											<a href="#3"></a>
+										</div>
+										<div class="lk-pie-chart__pie lk-pie-chart__pie_hide js-lk-pie-chart__pie" data-start="0" data-end="0" data-tippy-theme="small" data-tippy-maxWidth="424" data-tippy-followCursor="true" data-tippy-content='<div class="tooltip-lk-pie-chart">
+                                                    <div class="tooltip-lk-pie-chart__title">Ожидают решения</div>
+                                                    <div class="tooltip-lk-pie-chart__text">0 лотов</div>
+                                                </div>'>
+											<a href="#4"></a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="lk-statistics__data">
+								<div class="lk-statistics__properties">
+									<div class="lk-statistics__property">
+										<div class="lk-statistics__prop">Ваша ставка лидирует</div>
+										<div class="lk-statistics__val">3 лота</div>
+									</div>
+									<div class="lk-statistics__property">
+										<div class="lk-statistics__prop">Ваша ставка перебита</div>
+										<div class="lk-statistics__val">9 лотов</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="lk-statistics__states">
+							<div class="lk-statistics__state">
+								<a href="#" class="lk-statistics__state-link">Не выиграно (9)</a>
+							</div>
+							<div class="lk-statistics__state">
+								<a href="#" class="lk-statistics__state-link">Выиграно (0)</a>
+							</div>
+							<div class="lk-statistics__state">
+								<a href="#" class="lk-statistics__state-link">Активные (3)</a>
+							</div>
+							<div class="lk-statistics__state">
+								<a href="#" class="lk-statistics__state-link">Ожидают решения (0)</a>
+							</div>
+						</div>
+					</div>
+					<div class="lk-favorites">
+						<div class="lk-favorites__top">
+							<div class="lk-favorites__title">Избранные</div>
+							<div class="lk-favorites__see-all-link">
+								<a href="#">Смотреть все</a>
+							</div>
+						</div>
+						<div class="lk-favorites__lots">
+							<div class="lk-favorites__lot">
+								<div class="small-card-lot">
+									<div class="small-card-lot__photo">
+										<a href="#">
+											<picture>
+												<img class="lazyload" data-src="images/lk/favorites/pic.jpg" alt="pic">
+											</picture>
+										</a>
+									</div>
+									<div class="small-card-lot__desc">
+										<div class="small-card-lot__name">
+											<a href="#">
+												<span>BMW 7 серии 730Ld xDrive 3.0d AT</span>
+											</a>
+											<div class="small-card-lot__favorite">
+												<div class="favorite active"></div>
+											</div>
+										</div>
+										<div class="small-card-lot__properties">
+											<div class="small-card-lot__property">
+												<div class="small-card-lot__property-prop">Заканчивается:</div>
+												<div class="small-card-lot__property-val ">13.12.2022, 12:20 МСК</div>
+											</div>
+											<div class="small-card-lot__property">
+												<div class="small-card-lot__property-prop">Текущая ставка:</div>
+												<div class="small-card-lot__property-val colored">1 000 000 ₽</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="lk-favorites__lot">
+								<div class="small-card-lot">
+									<div class="small-card-lot__photo">
+										<a href="#">
+											<picture>
+												<img class="lazyload" data-src="images/lk/favorites/pic-2.jpg" alt="pic">
+											</picture>
+										</a>
+									</div>
+									<div class="small-card-lot__desc">
+										<div class="small-card-lot__name">
+											<a href="#">
+												<span>Alfa Romeo 159 1.8 MT</span>
+											</a>
+											<div class="small-card-lot__favorite">
+												<div class="favorite active"></div>
+											</div>
+										</div>
+										<div class="small-card-lot__properties">
+											<div class="small-card-lot__property">
+												<div class="small-card-lot__property-prop">Заканчивается:</div>
+												<div class="small-card-lot__property-val ">13.12.2022, 12:20 МСК</div>
+											</div>
+											<div class="small-card-lot__property">
+												<div class="small-card-lot__property-prop">Текущая ставка:</div>
+												<div class="small-card-lot__property-val colored">1 000 000 ₽</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="lk-favorites__lot">
+								<div class="small-card-lot">
+									<div class="small-card-lot__photo">
+										<a href="#">
+											<picture>
+												<img class="lazyload" data-src="images/lk/favorites/pic-3.jpg" alt="pic">
+											</picture>
+										</a>
+									</div>
+									<div class="small-card-lot__desc">
+										<div class="small-card-lot__name">
+											<a href="#">
+												<span>BMW M8 Competition 4.4 AT</span>
+											</a>
+											<div class="small-card-lot__favorite">
+												<div class="favorite active"></div>
+											</div>
+										</div>
+										<div class="small-card-lot__properties">
+											<div class="small-card-lot__property">
+												<div class="small-card-lot__property-prop">Заканчивается:</div>
+												<div class="small-card-lot__property-val ">13.12.2022, 12:20 МСК</div>
+											</div>
+											<div class="small-card-lot__property">
+												<div class="small-card-lot__property-prop">Текущая ставка:</div>
+												<div class="small-card-lot__property-val colored">1 000 000 ₽</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="lk-bought">
+						<div class="lk-bought__top">
+							<div class="lk-bought__title">Выкупленные</div>
+							<div class="lk-bought__see-all-link">
+								<a href="#">Смотреть все</a>
+							</div>
+						</div>
+						<div class="lk-bought__lots">
+							<div class="lk-favorites__lot">
+								<div class="small-card-lot">
+									<div class="small-card-lot__photo">
+										<a href="#">
+											<picture>
+												<img class="lazyload" data-src="images/lk/bought/pic.jpg" alt="pic">
+											</picture>
+										</a>
+									</div>
+									<div class="small-card-lot__desc">
+										<div class="small-card-lot__name">
+											<a href="#">
+												<span>BMW M8 Competition 4.4 AT</span>
+												<i class="small-card-lot__bids-icon"></i>
+											</a>
+										</div>
+										<div class="small-card-lot__properties">
+											<div class="small-card-lot__property">
+												<div class="small-card-lot__property-prop">Адрес нахождения авто:</div>
+												<div class="small-card-lot__property-val ">Москва</div>
+											</div>
+											<div class="small-card-lot__property">
+												<div class="small-card-lot__property-prop">Ответственный за выдачу:</div>
+												<div class="small-card-lot__property-val ">Пименов Сергей</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="lk-favorites__lot">
+								<div class="small-card-lot">
+									<div class="small-card-lot__photo">
+										<a href="#">
+											<picture>
+												<img class="lazyload" data-src="images/lk/bought/pic-2.jpg" alt="pic">
+											</picture>
+										</a>
+									</div>
+									<div class="small-card-lot__desc">
+										<div class="small-card-lot__name">
+											<a href="#">
+												<span>Alfa Romeo 159 1.8 MT</span>
+												<i class="small-card-lot__bids-icon"></i>
+											</a>
+										</div>
+										<div class="small-card-lot__properties">
+											<div class="small-card-lot__property">
+												<div class="small-card-lot__property-prop">Адрес нахождения авто:</div>
+												<div class="small-card-lot__property-val ">Москва</div>
+											</div>
+											<div class="small-card-lot__property">
+												<div class="small-card-lot__property-prop">Ответственный за выдачу:</div>
+												<div class="small-card-lot__property-val ">Пименов Сергей</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="lk-favorites__lot">
+								<div class="small-card-lot">
+									<div class="small-card-lot__photo">
+										<a href="#">
+											<picture>
+												<img class="lazyload" data-src="images/lk/bought/pic-3.jpg" alt="pic">
+											</picture>
+										</a>
+									</div>
+									<div class="small-card-lot__desc">
+										<div class="small-card-lot__name">
+											<a href="#">
+												<span>BMW 7 серии 730Ld xDrive 3.0d AT</span>
+												<i class="small-card-lot__bids-icon"></i>
+											</a>
+										</div>
+										<div class="small-card-lot__properties">
+											<div class="small-card-lot__property">
+												<div class="small-card-lot__property-prop">Адрес нахождения авто:</div>
+												<div class="small-card-lot__property-val ">Москва</div>
+											</div>
+											<div class="small-card-lot__property">
+												<div class="small-card-lot__property-prop">Ответственный за выдачу:</div>
+												<div class="small-card-lot__property-val ">Пименов Сергей</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /.wrapper -->
+	<script src='js/main.bundle.js'></script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+{% from "favorite/favorite.njk" import favorite %}
+
+{% macro smallCardLot(args) %}
+    <div class="small-card-lot">
+        <div class="small-card-lot__photo">
+            <a href="#">
+                <picture>
+                    <img class="lazyload" data-src="{{ args.pic }}" alt="pic">
+                </picture>
+            </a>
+        </div>
+        <div class="small-card-lot__desc">
+            <div class="small-card-lot__name">
+                <a href="#">
+                    <span>{{ args.name }}</span>
+
+                    {% if not args.showFavoriteType %}
+                        <i class="small-card-lot__bids-icon"></i>
+                    {% endif %}
+                </a>
+
+                {% if args.showFavoriteType %}
+                    <div class="small-card-lot__favorite">
+                        {{
+                            favorite({
+                                modiferClass: 'active'
+                            })
+                        }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="small-card-lot__properties">
+                {% set properties = [
+                                    {key: "Заканчивается:", value: "13.12.2022, 12:20 МСК"},
+                                    {key: "Текущая ставка:", value: "1 000 000 ₽", colored: true}
+                                ]
+                %}
+
+                {% if not args.showFavoriteType %}
+                    {% set properties = [
+                                        {key: "Адрес нахождения авто:", value: "Москва"},
+                                        {key: "Ответственный за выдачу:", value: "Пименов Сергей"}
+                                    ]
+                    %}
+                {% endif %}
+                
+                {% for item in properties %}
+                    <div class="small-card-lot__property">
+                        <div class="small-card-lot__property-prop">{{ item.key }}</div>
+                        <div class="small-card-lot__property-val {%if item.colored %}colored{% endif %}">{{ item.value }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endmacro %}

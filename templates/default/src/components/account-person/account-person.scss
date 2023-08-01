@@ -1,0 +1,46 @@
+.account-person {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &:hover & {
+        &__pic,
+        &__without-pic,
+        &__name {
+            opacity: 0.8;
+        }
+    }
+
+    &__pic,
+    &__without-pic {
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 8px;
+    }
+
+    &__without-pic {
+        color: #fff;
+        font-size: 20px;
+        font-weight: 800;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #FFA9A9;
+    }
+
+    &__name {
+        color: $color;
+    }
+
+    &__full-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}

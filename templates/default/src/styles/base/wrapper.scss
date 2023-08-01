@@ -1,0 +1,7 @@
+.wrapper {
+	position: relative;
+
+	@include sm {
+		min-width: 360px;
+	}
+}

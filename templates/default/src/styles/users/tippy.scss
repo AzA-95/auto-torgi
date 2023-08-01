@@ -1,0 +1,42 @@
+.tippy-box {
+    color: $color;
+    font-size: $font-size;
+    line-height: $line-height;
+    border-radius: 3px;
+    box-shadow: 0 8px 10px 1px rgba($color, 0.14), 0 3px 14px 2px rgba($color, 0.12), 0 5px 5px -3px rgba($color, 0.2);
+    background: #fff;
+
+    .tippy-content {
+        padding: 5px 12px;
+    }
+    
+    &[data-theme~='big'] {
+        min-width: 424px;
+        border-radius: 8px;
+        box-shadow: 0 10px 24px -6px rgba($color, 0.1), 0 10px 24px 6px rgba($color, 0.1);
+        
+        .tippy-content {
+            width: 100%;
+            padding: 24px;
+        }
+
+        @include sm {
+            min-width: 360px;
+        }
+    }
+
+    &[data-theme~='small'] {
+        .tippy-content {
+            min-width: 100px;
+            text-align: center;
+        }
+    }
+
+    &[data-placement^=bottom]>.tippy-arrow::before {
+        border-bottom-color: #fff;
+    }
+
+    &[data-placement^=top]>.tippy-arrow::before {
+        border-top-color: #fff;
+    }
+}

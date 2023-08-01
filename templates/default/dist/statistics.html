@@ -1,0 +1,1721 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Statistics Page</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, interactive-widget=resizes-content">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/static/frontend-works.js"></script>
+	<!-- Внимание этот скрипт не надо переносить в бекенд 
+		он нужен чисто для демо отсчета таймеров в лотах в верстке -->
+	<script src="js/static/demo-lots-timer.js"></script>
+	<!-- Конец -->
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="sidebar">
+			<div class="sidebar__content">
+				<div class="sidebar__logo">
+					<div class="sidebar__logo-small">
+						<a href="#">
+							<img src="images/logo/logo-small.svg" alt="logo">
+						</a>
+					</div>
+					<div class="sidebar__logo-big">
+						<a href="#">
+							<img src="images/logo/logo.svg" alt="logo">
+						</a>
+					</div>
+				</div>
+				<div class="sidebar__lots active">
+					<div class="sidebar__lots-title js-sidebar__lots-title">
+						<span>Текущие торги</span>
+					</div>
+					<nav class="sidebar__lots-nav js-sidebar__lots-nav">
+						<ul class="sidebar__lots-list">
+							<li class="sidebar__lots-item">
+								<a href="#" class="sidebar__lots-link active">Все лоты</a>
+							</li>
+							<li class="sidebar__lots-item">
+								<a href="#" class="sidebar__lots-link">Легковые автомобили</a>
+							</li>
+							<li class="sidebar__lots-item">
+								<a href="#" class="sidebar__lots-link">Грузовики</a>
+							</li>
+							<li class="sidebar__lots-item">
+								<a href="#" class="sidebar__lots-link">Погрузчики</a>
+							</li>
+							<li class="sidebar__lots-item">
+								<a href="#" class="sidebar__lots-link">Автобусы</a>
+							</li>
+							<li class="sidebar__lots-item">
+								<a href="#" class="sidebar__lots-link">Сельскохозяйственная техника</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<div class="sidebar__menu">
+					<ul class="sidebar__menu-list">
+						<li class="sidebar__menu-item">
+							<a href="#" class="sidebar__menu-link">
+								<i class="icon-star sidebar__menu-icon"></i>
+								<span>Избранные лоты</span>
+							</a>
+						</li>
+						<li class="sidebar__menu-item">
+							<a href="#" class="sidebar__menu-link">
+								<i class="icon-calendar sidebar__menu-icon"></i>
+								<span>Календарь торгов</span>
+							</a>
+						</li>
+						<li class="sidebar__menu-item">
+							<a href="#" class="sidebar__menu-link">
+								<i class="icon-account sidebar__menu-icon"></i>
+								<span>Личный кабинет</span>
+							</a>
+						</li>
+						<li class="sidebar__menu-item">
+							<a href="#" class="sidebar__menu-link">
+								<i class="icon-question sidebar__menu-icon"></i>
+								<span>FAQ</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="sidebar__footer">
+					<div class="sidebar__copyright">© 2023 АвтоТорги.</div>
+					<div class="sidebar__privacy">
+						<a href="#">Пользовательское соглашение</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="main">
+			<header class="header js-header">
+				<a href="#" class="header__back-link"></a>
+				<div class="header__logo">
+					<a href="#">
+						<img src="images/logo/logo-small.svg" alt="logo">
+					</a>
+				</div>
+				<div class="header__title">
+					<span>Статистика</span>
+				</div>
+				<div class="header__right">
+					<div class="header__notification"></div>
+					<div class="header__time"><span class="js-header-time">11:22</span> МСК</div>
+					<div class="header__account">
+						<div class="account-person">
+							<div class="account-person__pic">
+								<img src="images/account-person/pic.svg" alt="avatar">
+							</div>
+							<!--<div class="account-person__without-pic">K</div>-->
+							<div class="account-person__name">Константин</div>
+							<a href="#" class="account-person__full-link"></a>
+						</div>
+					</div>
+					<div class="header__logout-btn">
+						<a href="#" class="logout-btn">Выйти</a>
+					</div>
+				</div>
+				<div class="header__hamburger">
+					<div class="hamburger js-hamburger"></div>
+				</div>
+			</header>
+			<div class="mobile-menu js-mobile-menu">
+				<div class="mobile-menu__account">
+					<div class="mobile-menu__person">
+						<div class="account-person">
+							<div class="account-person__pic">
+								<img src="images/account-person/pic.svg" alt="avatar">
+							</div>
+							<!--<div class="account-person__without-pic">K</div>-->
+							<div class="account-person__name">Константин</div>
+							<a href="#" class="account-person__full-link"></a>
+						</div>
+					</div>
+					<div class="mobile-menu__logout-btn">
+						<a href="#" class="logout-btn">Выйти</a>
+					</div>
+				</div>
+				<div class="mobile-menu__lots">
+					<div class="mobile-menu__lots-title js-mobile-menu__lots-title">
+						<span>Текущие торги</span>
+					</div>
+					<nav class="mobile-menu__lots-nav js-mobile-menu__lots-nav">
+						<ul class="mobile-menu__lots-list">
+							<li class="mobile-menu__lots-item">
+								<a href="#" class="mobile-menu__lots-link active">Все лоты</a>
+							</li>
+							<li class="mobile-menu__lots-item">
+								<a href="#" class="mobile-menu__lots-link">Легковые автомобили</a>
+							</li>
+							<li class="mobile-menu__lots-item">
+								<a href="#" class="mobile-menu__lots-link">Грузовики</a>
+							</li>
+							<li class="mobile-menu__lots-item">
+								<a href="#" class="mobile-menu__lots-link">Погрузчики</a>
+							</li>
+							<li class="mobile-menu__lots-item">
+								<a href="#" class="mobile-menu__lots-link">Автобусы</a>
+							</li>
+							<li class="mobile-menu__lots-item">
+								<a href="#" class="mobile-menu__lots-link">Сельскохозяйственная техника</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<div class="mobile-menu__menu">
+					<ul class="mobile-menu__menu-list">
+						<li class="mobile-menu__menu-item">
+							<a href="#" class="mobile-menu__menu-link">
+								<i class="icon-star mobile-menu__menu-icon"></i>
+								<span>Избранные лоты</span>
+							</a>
+						</li>
+						<li class="mobile-menu__menu-item">
+							<a href="#" class="mobile-menu__menu-link">
+								<i class="icon-calendar mobile-menu__menu-icon"></i>
+								<span>Календарь торгов</span>
+							</a>
+						</li>
+						<li class="mobile-menu__menu-item">
+							<a href="#" class="mobile-menu__menu-link">
+								<i class="icon-account mobile-menu__menu-icon"></i>
+								<span>Личный кабинет</span>
+							</a>
+						</li>
+						<li class="mobile-menu__menu-item">
+							<a href="#" class="mobile-menu__menu-link">
+								<i class="icon-question mobile-menu__menu-icon"></i>
+								<span>FAQ</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="mobile-menu__footer">
+					<div class="mobile-menu__copyright">© 2023 АвтоТорги.</div>
+					<div class="mobile-menu__privacy">
+						<a href="#">Пользовательское соглашение</a>
+					</div>
+				</div>
+			</div>
+			<div class="main-content has-filter">
+				<div class="filter js-filter">
+					<div class="filter__shadow js-filter__shadow"></div>
+					<div class="filter__wrapper">
+						<div class="filter__top-mob">
+							<div class="filter__title">Фильтр</div>
+							<div class="filter__close-btn js-filter__close-btn"></div>
+						</div>
+						<div class="filter__content js-filter__content">
+							<div class="filter__top-fields">
+								<div class="filter__field">
+									<div class="select-box">
+										<select name="brand" class="select-box__select js-select-box__select js-select-box-filter allow-deselect" data-placeholder-text="Марка" data-show-search="true" data-allow-deselect="true">
+											<option data-placeholder="true"></option>
+											<option value="1">Audi</option>
+											<option value="2">Bmw</option>
+											<option value="3">Mercedes-Benz</option>
+											<option value="4">Львовский Автопогрузчик</option>
+											<option value="5">Мобильный сварочный агрегат на одноосном шасси</option>
+										</select>
+									</div>
+								</div>
+								<div class="filter__field">
+									<div class="select-box">
+										<select name="model" multiple="true" disabled="true" class="select-box__select js-select-box__select js-select-box-filter allow-deselect" data-placeholder-text="Модель" data-show-search="true" data-allow-deselect="true">
+											<option data-placeholder="true"></option>
+											<option value="1">x5</option>
+											<option value="2">x6</option>
+											<option value="3">x7</option>
+											<option value="4">i7</option>
+										</select>
+									</div>
+								</div>
+								<div class="filter__field">
+									<div class="select-box">
+										<select name="transmission" multiple="true" class="select-box__select js-select-box__select js-select-box-filter allow-deselect" data-placeholder-text="КПП" data-show-search="true" data-allow-deselect="true">
+											<option data-placeholder="true"></option>
+											<option value="1">АКПП</option>
+											<option value="2">Механика</option>
+											<option value="3">МКПП</option>
+											<option value="4">МКПП/АКПП</option>
+										</select>
+									</div>
+								</div>
+								<div class="filter__fields">
+									<div class="filter__small-field">
+										<div class="select-box">
+											<select name="year-from" class="select-box__select js-select-box__select js-select-box-filter allow-deselect" data-placeholder-text="Год от" data-show-search="true" data-allow-deselect="true">
+												<option data-placeholder="true"></option>
+												<option value="1">1992</option>
+												<option value="2">1993</option>
+												<option value="3">1994</option>
+												<option value="4">1995</option>
+												<option value="5">1996</option>
+												<option value="6">1997</option>
+												<option value="7">1998</option>
+											</select>
+										</div>
+									</div>
+									<div class="filter__small-field">
+										<div class="select-box">
+											<select name="year-to" class="select-box__select js-select-box__select js-select-box-filter allow-deselect" data-placeholder-text="до" data-show-search="true" data-allow-deselect="true">
+												<option data-placeholder="true"></option>
+												<option value="1">2000</option>
+												<option value="2">2001</option>
+												<option value="3">2005</option>
+												<option value="4">2008</option>
+												<option value="5">2018</option>
+												<option value="6">2022</option>
+												<option value="7">2023</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="filter__fields">
+									<div class="filter__small-field">
+										<div class="select-box">
+											<select name="mileage-from" class="select-box__select js-select-box__select js-select-box-filter allow-deselect" data-placeholder-text="Пробег от" data-show-search="true" data-allow-deselect="true">
+												<option data-placeholder="true"></option>
+												<option value="1">11.000</option>
+												<option value="2">28.000</option>
+												<option value="3">50.000</option>
+											</select>
+										</div>
+									</div>
+									<div class="filter__small-field">
+										<div class="select-box">
+											<select name="mileage-to" class="select-box__select js-select-box__select js-select-box-filter allow-deselect" data-placeholder-text="до" data-show-search="true" data-allow-deselect="true">
+												<option data-placeholder="true"></option>
+												<option value="1">30.000</option>
+												<option value="2">60.000</option>
+												<option value="3">85.000</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="filter__field">
+									<div class="select-box">
+										<select name="salesman" class="select-box__select js-select-box__select js-select-box-filter allow-deselect" data-placeholder-text="Продавец" data-show-search="true" data-allow-deselect="true">
+											<option data-placeholder="true"></option>
+											<option value="1">Empty</option>
+										</select>
+									</div>
+								</div>
+								<div class="filter__field">
+									<div class="select-box">
+										<select name="city" class="select-box__select js-select-box__select js-select-box-filter allow-deselect" data-placeholder-text="Город" data-show-search="true" data-allow-deselect="true">
+											<option data-placeholder="true"></option>
+											<option value="1">Москва</option>
+											<option value="2">Санкт-Петербург</option>
+										</select>
+									</div>
+								</div>
+								<div class="filter__field">
+									<div class="select-box">
+										<select name="trade-type" class="select-box__select js-select-box__select js-select-box-filter allow-deselect" data-placeholder-text="Тип торгов" data-show-search="true" data-allow-deselect="true">
+											<option data-placeholder="true"></option>
+											<option value="1">Купить сейчас</option>
+											<option value="2">Открытые торги</option>
+										</select>
+									</div>
+								</div>
+								<div class="filter__field">
+									<div class="select-box">
+										<select name="category" class="select-box__select js-select-box__select js-select-box-filter allow-deselect" data-placeholder-text="Категория" data-show-search="true" data-allow-deselect="true">
+											<option data-placeholder="true"></option>
+											<option value="1">Корпоративные парки</option>
+											<option value="2">Лизинг и банки</option>
+											<option value="3">Физические лица</option>
+											<option value="4">Такси и прокат</option>
+											<option value="5">Официальные дилеры</option>
+											<option value="6">Водная техника</option>
+										</select>
+									</div>
+								</div>
+								<div class="filter__field">
+									<div class="select-box">
+										<select name="state" class="select-box__select js-select-box__select js-select-box-filter allow-deselect" data-placeholder-text="Состояние" data-show-search="true" data-allow-deselect="true">
+											<option data-placeholder="true"></option>
+											<option value="1">Кроме аварийных</option>
+											<option value="2">Аварийные</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="filter__bottom-fields js-filter__bottom-fields">
+								<div class="filter__fields">
+									<div class="filter__small-field">
+										<div class="select-box">
+											<select name="volume-from" class="select-box__select js-select-box__select js-select-box-filter allow-deselect" data-placeholder-text="Объём от" data-show-search="true" data-allow-deselect="true">
+												<option data-placeholder="true"></option>
+												<option value="1">1600</option>
+												<option value="2">1800</option>
+												<option value="3">2000</option>
+												<option value="4">2800</option>
+											</select>
+										</div>
+									</div>
+									<div class="filter__small-field">
+										<div class="select-box">
+											<select name="volume-to" class="select-box__select js-select-box__select js-select-box-filter allow-deselect" data-placeholder-text="до" data-show-search="true" data-allow-deselect="true">
+												<option data-placeholder="true"></option>
+												<option value="1">1600</option>
+												<option value="2">1800</option>
+												<option value="3">2000</option>
+												<option value="4">2800</option>
+												<option value="5">3000</option>
+												<option value="6">8000</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="filter__field">
+									<div class="select-box">
+										<select name="engine" class="select-box__select js-select-box__select js-select-box-filter allow-deselect" data-placeholder-text="Двигатель" data-show-search="true" data-allow-deselect="true">
+											<option data-placeholder="true"></option>
+											<option value="1">Бензин</option>
+											<option value="2">Дизель</option>
+											<option value="3">Гибрид</option>
+										</select>
+									</div>
+								</div>
+								<div class="filter__field">
+									<div class="select-box">
+										<select name="color" class="select-box__select js-select-box__select js-select-box-filter allow-deselect" data-placeholder-text="Цвет" data-show-search="true" data-allow-deselect="true">
+											<option data-placeholder="true"></option>
+											<option value="1">Белый</option>
+											<option value="2">Черный</option>
+										</select>
+									</div>
+								</div>
+								<div class="filter__field">
+									<div class="select-box">
+										<select name="climate-control" class="select-box__select js-select-box__select js-select-box-filter allow-deselect" data-placeholder-text="Климат-контроль" data-show-search="true" data-allow-deselect="true">
+											<option data-placeholder="true"></option>
+											<option value="1">Климат-контроль</option>
+											<option value="2">Климат-контроль 2-зонный</option>
+											<option value="3">Климат-контроль многозонный</option>
+											<option value="4">Кондиционер</option>
+										</select>
+									</div>
+								</div>
+								<div class="filter__field">
+									<div class="select-box">
+										<select name="upholstery" class="select-box__select js-select-box__select js-select-box-filter allow-deselect" data-placeholder-text="Обивка салона" data-show-search="true" data-allow-deselect="true">
+											<option data-placeholder="true"></option>
+											<option value="1">Кожа</option>
+											<option value="2">Ткань</option>
+										</select>
+									</div>
+								</div>
+								<div class="filter__field">
+									<div class="select-box">
+										<select name="VAT" class="select-box__select js-select-box__select js-select-box-filter allow-deselect" data-placeholder-text="НДС" data-show-search="true" data-allow-deselect="true">
+											<option data-placeholder="true"></option>
+											<option value="1">НДС не облагается</option>
+											<option value="2">НДС включен</option>
+										</select>
+									</div>
+								</div>
+								<div class="filter__field">
+									<div class="select-box">
+										<select name="body-type" class="select-box__select js-select-box__select js-select-box-filter allow-deselect" data-placeholder-text="Тип кузова" data-show-search="true" data-allow-deselect="true">
+											<option data-placeholder="true"></option>
+											<option value="1">Седан</option>
+											<option value="2">Универсал</option>
+											<option value="3">Пикап</option>
+										</select>
+									</div>
+								</div>
+								<div class="filter__field">
+									<div class="select-box">
+										<select name="drive-unit" class="select-box__select js-select-box__select js-select-box-filter allow-deselect" data-placeholder-text="Привод" data-show-search="true" data-allow-deselect="true">
+											<option data-placeholder="true"></option>
+											<option value="1">4х2</option>
+											<option value="2">4х4</option>
+											<option value="3">Заднеприводный с подключаемым передним</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="filter__bottom">
+								<button class="filter__toggle-btn js-filter__toggle-btn">Еще</button>
+								<div class="filter__btns">
+									<a href="#" class="filter__reset-btn">Сбросить</a>
+									<a href="#" class="filter__apply-btn">Показать 357 лотов </a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<button type="button" class="filter-open-btn js-filter-open-btn hide-desktop">Фильтр</button>
+				<div class="sort-line ">
+					<div class="sort-line__showed-count">Показано 360 лотов</div>
+					<div class="sort-line__search">
+						<div class="search-line">
+							<form class="search-line__form">
+								<input type="input" class="search-line__input" placeholder="Поиск" />
+								<div class="search-line__btns">
+									<button type="button" class="search-line__btn"></button>
+									<button type="reset" class="search-line__reset"></button>
+								</div>
+							</form>
+						</div>
+					</div>
+					<form class="sort-line__form ">
+						<div class="sort-line__sort">
+							<div class="select-box">
+								<select name="sort" class="select-box__select js-select-box__select  " data-placeholder-text="Сортировать">
+									<option data-placeholder="true"></option>
+									<option value="1">По умолчанию</option>
+									<option value="2">Название</option>
+									<option value="3">Цена</option>
+									<option value="4">Время завершения</option>
+									<option value="5">Время старта</option>
+								</select>
+							</div>
+						</div>
+						<div class="sort-line__sort-asc-desc">
+							<button type="button" class="sort-line__asc active" title="Сортировать по возрастанию"></button>
+							<button type="button" class="sort-line__desc" title="Сортировать по убыванию"></button>
+						</div>
+						<div class="sort-line__sort-count">
+							<div class="sort-line__sort-count-title">Кол-во на странице:</div>
+							<div class="sort-line__sort-count-box">
+								<div class="select-box">
+									<select name="show-count" class="select-box__select js-select-box__select  ">
+										<option value="1">10</option>
+										<option value="2">25</option>
+										<option value="3">50</option>
+										<option value="4">100</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="lots">
+					<div class="lots__item">
+						<div class="
+            lot-card
+            
+            lot-card_won
+            js-lot-card
+        ">
+							<div class="lot-card__top">
+								<div class="lot-card__type">
+									<span class="lot-card__type-icon-left">
+										<i class="icon-bids"></i>
+									</span>
+									<span>№: 107589 (Открытые торги)</span>
+									<span class="lot-card__type-icon-right">
+										<i class="icon-question-pink"></i>
+									</span>
+								</div>
+								<div class="lot-card__city">Москва</div>
+								<div class="lot-card__status-info lot-card__status-info_won">Ваша ставка 1 000 000 ₽ принята!</div>
+							</div>
+							<div class="lot-card__content">
+								<div class="lot-card__photo">
+									<a href="#">
+										<picture>
+											<img class="lazyload" data-src="images/lots/pic.jpg" alt="photo">
+										</picture>
+									</a>
+									<div class="lot-card__label">
+										<div class="label-won">Выигран</div>
+									</div>
+									<div class="lot-card__big-label">
+										<div class="big-label-won">Ваша ставка 1 000 000 ₽ принята!</div>
+									</div>
+								</div>
+								<div class="lot-card__desc">
+									<div class="lot-card__name">
+										<a href="#">BMW 7 серии 730Ld xDrive 3.0d AT</a>
+										<div class="lot-card__favorite">
+											<div class="favorite "></div>
+										</div>
+									</div>
+									<div class="lot-card__tech-infos">
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-content="Год"><span>2017</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Пробег"><span>224 505 км</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Объём"><span>2993 см3</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Тип двигателя"><span>Дизель</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Мощность"><span>249 л.с</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Привод"><span>Полный</span></div>
+									</div>
+									<div class="lot-card__car-info lot-card__toggle-show js-lot-card__toggle-show">
+										<div class="lot-card__property">
+											<span class="lot-card__property-key">VIN:</span>
+											<span class="lot-card__property-value colored">WBA7G61000B074385</span>
+										</div>
+										<div class="lot-card__car-info-vert-line"></div>
+										<div class="lot-card__checked">Осмотрено продавцом</div>
+									</div>
+									<div class="lot-card__type hide-desktop">
+										<span class="lot-card__type-icon-left">
+											<i class="icon-bids"></i>
+										</span>
+										<span>№: 107589 (Открытые торги)</span>
+										<span class="lot-card__type-icon-right">
+											<i class="icon-question-pink"></i>
+										</span>
+									</div>
+									<div class="lot-card__city lot-card__toggle-show js-lot-card__toggle-show hide-desktop">Москва</div>
+									<div class="lot-card__property">
+										<span class="lot-card__property-key">Продавец:</span>
+										<span class="lot-card__property-value colored">"НИЖЕГОРОДЕЦ ВОСТОК" ООО</span>
+									</div>
+									<div class="lot-card__property">
+										<span class="lot-card__property-key">Заканчивается:</span>
+										<span class="lot-card__property-value">13.12.2022, 12:20 МСК</span>
+									</div>
+									<div class="lot-card__property lot-card__toggle-show js-lot-card__toggle-show hide-desktop">
+										<span class="lot-card__property-key">Комиссия:</span>
+										<span class="lot-card__property-value colored-b">30 000 ₽</span>
+									</div>
+								</div>
+								<div class="lot-card__content-right">
+									<div class="lot-card__company-logo">
+										<picture>
+											<img class="lazyload" data-src="images/lot-card/company-logo.svg" alt="logo">
+										</picture>
+									</div>
+									<div class="lot-card__current-rate">
+										<div class="lot-card__current-rate-prop">Текущая ставка</div>
+										<div class="lot-card__current-rate-val">
+											<span>1 000 000 ₽</span>
+											<span class="lot-card__current-rate-val-icon">
+												<i class="icon-question-pink"></i>
+											</span>
+										</div>
+									</div>
+									<div class="lot-card__commission">
+										<span class="lot-card__commission-prop">Комиссия:</span>
+										<span class="lot-card__commission-val">30 000 ₽</span>
+									</div>
+								</div>
+							</div>
+							<div class="lot-card__bottom-wrap lot-card__toggle-show js-lot-card__toggle-show">
+								<div class="lot-card__bottom">
+									<div class="lot-card__status-indicator">
+										<div class="status-indicator">
+											<div class="status-indicator__steps">
+												<div class="status-indicator__step status-indicator__step_completed">
+													<div class="status-indicator__name">Ожидает подтверждения</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">13.12.2022</div>
+												</div>
+												<div class="status-indicator__step status-indicator__step_completed">
+													<div class="status-indicator__name">Подготовка документов</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">13.12.2022</div>
+												</div>
+												<div class="status-indicator__step status-indicator__step_completed">
+													<div class="status-indicator__name">Ожидает оплаты покупателся</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">13.12.2022</div>
+												</div>
+												<div class="status-indicator__step status-indicator__step_completed">
+													<div class="status-indicator__name">Ожидаются документы от покупателя</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">13.12.2022</div>
+												</div>
+												<div class="status-indicator__step status-indicator__step_completed">
+													<div class="status-indicator__name">Ожидаются документы от продавца</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">13.12.2022</div>
+												</div>
+												<div class="status-indicator__step ">
+													<div class="status-indicator__name">Готов к выдаче</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">&nbsp;</div>
+												</div>
+												<div class="status-indicator__step ">
+													<div class="status-indicator__name">Оригиналы документов выданы</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">&nbsp;</div>
+												</div>
+												<div class="status-indicator__step ">
+													<div class="status-indicator__name">Завершена</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">&nbsp;</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="lot-card__address">
+										<div class="lot-card__property">
+											<span class="lot-card__property-key">Адрес нахождения авто:</span>
+											<span class="lot-card__property-value colored-b">Рольф-Премиум</span>
+										</div>
+										<div class="lot-card__property">
+											<span class="lot-card__property-key">Ответственный за выдачу:</span>
+											<span class="lot-card__property-value colored-b">Пименов Сергей</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="lot-card__bottom-mob hide-desktop">
+								<div class="lot-card__toggle-btn js-lot-card__toggle-btn">ещё</div>
+								<div class="lot-card__current-rate">
+									<div class="lot-card__current-rate-prop">Текущая ставка</div>
+									<div class="lot-card__current-rate-val">
+										<span>1 000 000 ₽</span>
+										<span class="lot-card__current-rate-val-icon">
+											<i class="icon-question-pink"></i>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="lots__item">
+						<div class="
+            lot-card
+            
+            lot-card_won
+            js-lot-card
+        ">
+							<div class="lot-card__top">
+								<div class="lot-card__type">
+									<span class="lot-card__type-icon-left">
+										<i class="icon-bids"></i>
+									</span>
+									<span>№: 107589 (Открытые торги)</span>
+									<span class="lot-card__type-icon-right">
+										<i class="icon-question-pink"></i>
+									</span>
+								</div>
+								<div class="lot-card__city">Москва</div>
+								<div class="lot-card__status-info lot-card__status-info_won">Ваша ставка 1 000 000 ₽ принята!</div>
+							</div>
+							<div class="lot-card__content">
+								<div class="lot-card__photo">
+									<a href="#">
+										<picture>
+											<img class="lazyload" data-src="images/lots/pic-2.jpg" alt="photo">
+										</picture>
+									</a>
+									<div class="lot-card__label">
+										<div class="label-won">Выигран</div>
+									</div>
+									<div class="lot-card__big-label">
+										<div class="big-label-won">Ваша ставка 1 000 000 ₽ принята!</div>
+									</div>
+								</div>
+								<div class="lot-card__desc">
+									<div class="lot-card__name">
+										<a href="#">Alfa Romeo 159 1.8 MT</a>
+										<div class="lot-card__favorite">
+											<div class="favorite "></div>
+										</div>
+									</div>
+									<div class="lot-card__tech-infos">
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-content="Год"><span>2017</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Пробег"><span>224 505 км</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Объём"><span>2993 см3</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Тип двигателя"><span>Дизель</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Мощность"><span>249 л.с</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Привод"><span>Полный</span></div>
+									</div>
+									<div class="lot-card__car-info lot-card__toggle-show js-lot-card__toggle-show">
+										<div class="lot-card__property">
+											<span class="lot-card__property-key">VIN:</span>
+											<span class="lot-card__property-value colored">WBA7G61000B074385</span>
+										</div>
+										<div class="lot-card__car-info-vert-line"></div>
+										<div class="lot-card__checked">Осмотрено продавцом</div>
+									</div>
+									<div class="lot-card__type hide-desktop">
+										<span class="lot-card__type-icon-left">
+											<i class="icon-bids"></i>
+										</span>
+										<span>№: 107589 (Открытые торги)</span>
+										<span class="lot-card__type-icon-right">
+											<i class="icon-question-pink"></i>
+										</span>
+									</div>
+									<div class="lot-card__city lot-card__toggle-show js-lot-card__toggle-show hide-desktop">Москва</div>
+									<div class="lot-card__property">
+										<span class="lot-card__property-key">Продавец:</span>
+										<span class="lot-card__property-value colored">"НИЖЕГОРОДЕЦ ВОСТОК" ООО</span>
+									</div>
+									<div class="lot-card__property">
+										<span class="lot-card__property-key">Заканчивается:</span>
+										<span class="lot-card__property-value">13.12.2022, 12:20 МСК</span>
+									</div>
+									<div class="lot-card__property lot-card__toggle-show js-lot-card__toggle-show hide-desktop">
+										<span class="lot-card__property-key">Комиссия:</span>
+										<span class="lot-card__property-value colored-b">30 000 ₽</span>
+									</div>
+								</div>
+								<div class="lot-card__content-right">
+									<div class="lot-card__company-logo">
+										<picture>
+											<img class="lazyload" data-src="images/lot-card/company-logo.svg" alt="logo">
+										</picture>
+									</div>
+									<div class="lot-card__current-rate">
+										<div class="lot-card__current-rate-prop">Текущая ставка</div>
+										<div class="lot-card__current-rate-val">
+											<span>1 000 000 ₽</span>
+											<span class="lot-card__current-rate-val-icon">
+												<i class="icon-question-pink"></i>
+											</span>
+										</div>
+									</div>
+									<div class="lot-card__commission">
+										<span class="lot-card__commission-prop">Комиссия:</span>
+										<span class="lot-card__commission-val">30 000 ₽</span>
+									</div>
+								</div>
+							</div>
+							<div class="lot-card__bottom-wrap lot-card__toggle-show js-lot-card__toggle-show">
+								<div class="lot-card__bottom">
+									<div class="lot-card__status-indicator">
+										<div class="status-indicator">
+											<div class="status-indicator__steps">
+												<div class="status-indicator__step status-indicator__step_completed">
+													<div class="status-indicator__name">Ожидает подтверждения</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">13.12.2022</div>
+												</div>
+												<div class="status-indicator__step status-indicator__step_completed">
+													<div class="status-indicator__name">Подготовка документов</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">13.12.2022</div>
+												</div>
+												<div class="status-indicator__step status-indicator__step_completed">
+													<div class="status-indicator__name">Ожидает оплаты покупателся</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">13.12.2022</div>
+												</div>
+												<div class="status-indicator__step status-indicator__step_completed">
+													<div class="status-indicator__name">Ожидаются документы от покупателя</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">13.12.2022</div>
+												</div>
+												<div class="status-indicator__step status-indicator__step_completed">
+													<div class="status-indicator__name">Ожидаются документы от продавца</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">13.12.2022</div>
+												</div>
+												<div class="status-indicator__step ">
+													<div class="status-indicator__name">Готов к выдаче</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">&nbsp;</div>
+												</div>
+												<div class="status-indicator__step ">
+													<div class="status-indicator__name">Оригиналы документов выданы</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">&nbsp;</div>
+												</div>
+												<div class="status-indicator__step ">
+													<div class="status-indicator__name">Завершена</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">&nbsp;</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="lot-card__address">
+										<div class="lot-card__property">
+											<span class="lot-card__property-key">Адрес нахождения авто:</span>
+											<span class="lot-card__property-value colored-b">Рольф-Премиум</span>
+										</div>
+										<div class="lot-card__property">
+											<span class="lot-card__property-key">Ответственный за выдачу:</span>
+											<span class="lot-card__property-value colored-b">Пименов Сергей</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="lot-card__bottom-mob hide-desktop">
+								<div class="lot-card__toggle-btn js-lot-card__toggle-btn">ещё</div>
+								<div class="lot-card__current-rate">
+									<div class="lot-card__current-rate-prop">Текущая ставка</div>
+									<div class="lot-card__current-rate-val">
+										<span>1 000 000 ₽</span>
+										<span class="lot-card__current-rate-val-icon">
+											<i class="icon-question-pink"></i>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="lots__item">
+						<div class="
+            lot-card
+            lot-card_not-won
+            
+            js-lot-card
+        ">
+							<div class="lot-card__top">
+								<div class="lot-card__type">
+									<span class="lot-card__type-icon-left">
+										<i class="icon-bids-box"></i>
+									</span>
+									<span>№: 107589 (Открытые торги с к/п)</span>
+									<span class="lot-card__type-icon-right">
+										<i class="icon-question-pink"></i>
+									</span>
+								</div>
+								<div class="lot-card__city">Москва</div>
+								<div class="lot-card__status-info lot-card__status-info_not-won">Ваша ставка 10 660 000 ₽ перебита!</div>
+							</div>
+							<div class="lot-card__content">
+								<div class="lot-card__photo">
+									<a href="#">
+										<picture>
+											<img class="lazyload" data-src="images/lots/pic-3.jpg" alt="photo">
+										</picture>
+									</a>
+									<div class="lot-card__label">
+										<div class="label-not-won">Не выигран</div>
+									</div>
+									<div class="lot-card__big-label">
+										<div class="big-label-not-won">Ваша ставка 750 000 ₽ перебита!</div>
+									</div>
+								</div>
+								<div class="lot-card__desc">
+									<div class="lot-card__name">
+										<a href="#">BMW M8 Competition 4.4 AT</a>
+										<div class="lot-card__favorite">
+											<div class="favorite "></div>
+										</div>
+									</div>
+									<div class="lot-card__tech-infos">
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-content="Год"><span>2017</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Пробег"><span>224 505 км</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Объём"><span>2993 см3</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Тип двигателя"><span>Дизель</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Мощность"><span>249 л.с</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Привод"><span>Полный</span></div>
+									</div>
+									<div class="lot-card__car-info lot-card__toggle-show js-lot-card__toggle-show">
+										<div class="lot-card__property">
+											<span class="lot-card__property-key">VIN:</span>
+											<span class="lot-card__property-value colored">WBA7G61000B074385</span>
+										</div>
+										<div class="lot-card__car-info-vert-line"></div>
+										<div class="lot-card__checked">Осмотрено продавцом</div>
+									</div>
+									<div class="lot-card__type hide-desktop">
+										<span class="lot-card__type-icon-left">
+											<i class="icon-bids-box"></i>
+										</span>
+										<span>№: 107589 (Открытые торги с к/п)</span>
+										<span class="lot-card__type-icon-right">
+											<i class="icon-question-pink"></i>
+										</span>
+									</div>
+									<div class="lot-card__city lot-card__toggle-show js-lot-card__toggle-show hide-desktop">Москва</div>
+									<div class="lot-card__property">
+										<span class="lot-card__property-key">Продавец:</span>
+										<span class="lot-card__property-value colored">"НИЖЕГОРОДЕЦ ВОСТОК" ООО</span>
+									</div>
+									<div class="lot-card__property">
+										<span class="lot-card__property-key">Заканчивается:</span>
+										<span class="lot-card__property-value">13.12.2022, 12:20 МСК</span>
+									</div>
+									<div class="lot-card__property lot-card__toggle-show js-lot-card__toggle-show hide-desktop">
+										<span class="lot-card__property-key">Комиссия:</span>
+										<span class="lot-card__property-value colored-b">30 000 ₽</span>
+									</div>
+								</div>
+								<div class="lot-card__content-right">
+									<div class="lot-card__company-logo">
+										<picture>
+											<img class="lazyload" data-src="images/lot-card/company-logo.svg" alt="logo">
+										</picture>
+									</div>
+									<div class="lot-card__current-rate">
+										<div class="lot-card__current-rate-prop">Текущая ставка</div>
+										<div class="lot-card__current-rate-val">
+											<span>10 660 000 ₽</span>
+											<span class="lot-card__current-rate-val-icon">
+												<i class="icon-question-pink"></i>
+											</span>
+										</div>
+									</div>
+									<div class="lot-card__commission">
+										<span class="lot-card__commission-prop">Комиссия:</span>
+										<span class="lot-card__commission-val">30 000 ₽</span>
+									</div>
+								</div>
+							</div>
+							<div class="lot-card__bottom-wrap lot-card__toggle-show js-lot-card__toggle-show">
+								<div class="lot-card__bottom">
+									<div class="lot-card__icons">
+										<div class="lot-card__icon" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Проверить в базе ГИБДД">
+											<img class="lazyload" data-src="images/lot-card/icons/car-check.svg" alt="icon">
+										</div>
+										<div class="lot-card__icon" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Проверить в базе ГИБДД">
+											<img class="lazyload" data-src="images/lot-card/icons/money-circle.svg" alt="icon">
+										</div>
+										<div class="lot-card__icon" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Проверить в базе ГИБДД">
+											<img class="lazyload" data-src="images/lot-card/icons/check.svg" alt="icon">
+										</div>
+										<div class="lot-card__icon" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Проверить в базе ГИБДД">
+											<img class="lazyload" data-src="images/lot-card/icons/draft.svg" alt="icon">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="lot-card__bottom-mob hide-desktop">
+								<div class="lot-card__toggle-btn js-lot-card__toggle-btn">ещё</div>
+								<div class="lot-card__current-rate">
+									<div class="lot-card__current-rate-prop">Текущая ставка</div>
+									<div class="lot-card__current-rate-val">
+										<span>10 660 000 ₽</span>
+										<span class="lot-card__current-rate-val-icon">
+											<i class="icon-question-pink"></i>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="lots__item">
+						<div class="
+            lot-card
+            lot-card_not-won
+            
+            js-lot-card
+        ">
+							<div class="lot-card__top">
+								<div class="lot-card__type">
+									<span class="lot-card__type-icon-left">
+										<i class="icon-bids"></i>
+									</span>
+									<span>№: 107589 (Открытые торги)</span>
+									<span class="lot-card__type-icon-right">
+										<i class="icon-question-pink"></i>
+									</span>
+								</div>
+								<div class="lot-card__city">Москва</div>
+								<div class="lot-card__status-info lot-card__status-info_not-won">Ваша ставка 477 800 ₽ перебита!</div>
+							</div>
+							<div class="lot-card__content">
+								<div class="lot-card__photo">
+									<a href="#">
+										<picture>
+											<img class="lazyload" data-src="images/lots/pic-4.jpg" alt="photo">
+										</picture>
+									</a>
+									<div class="lot-card__label">
+										<div class="label-not-won">Не выигран</div>
+									</div>
+									<div class="lot-card__big-label">
+										<div class="big-label-not-won">Ваша ставка 750 000 ₽ перебита!</div>
+									</div>
+								</div>
+								<div class="lot-card__desc">
+									<div class="lot-card__name">
+										<a href="#">Chevrolet Cruze 1.6 MT</a>
+										<div class="lot-card__favorite">
+											<div class="favorite "></div>
+										</div>
+									</div>
+									<div class="lot-card__tech-infos">
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-content="Год"><span>2017</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Пробег"><span>224 505 км</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Объём"><span>2993 см3</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Тип двигателя"><span>Дизель</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Мощность"><span>249 л.с</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Привод"><span>Полный</span></div>
+									</div>
+									<div class="lot-card__car-info lot-card__toggle-show js-lot-card__toggle-show">
+										<div class="lot-card__property">
+											<span class="lot-card__property-key">VIN:</span>
+											<span class="lot-card__property-value colored">WBA7G61000B074385</span>
+										</div>
+										<div class="lot-card__car-info-vert-line"></div>
+										<div class="lot-card__checked">Осмотрено продавцом</div>
+									</div>
+									<div class="lot-card__type hide-desktop">
+										<span class="lot-card__type-icon-left">
+											<i class="icon-bids"></i>
+										</span>
+										<span>№: 107589 (Открытые торги)</span>
+										<span class="lot-card__type-icon-right">
+											<i class="icon-question-pink"></i>
+										</span>
+									</div>
+									<div class="lot-card__city lot-card__toggle-show js-lot-card__toggle-show hide-desktop">Москва</div>
+									<div class="lot-card__property">
+										<span class="lot-card__property-key">Продавец:</span>
+										<span class="lot-card__property-value colored">"НИЖЕГОРОДЕЦ ВОСТОК" ООО</span>
+									</div>
+									<div class="lot-card__property">
+										<span class="lot-card__property-key">Заканчивается:</span>
+										<span class="lot-card__property-value">13.12.2022, 12:20 МСК</span>
+									</div>
+									<div class="lot-card__property lot-card__toggle-show js-lot-card__toggle-show hide-desktop">
+										<span class="lot-card__property-key">Комиссия:</span>
+										<span class="lot-card__property-value colored-b">30 000 ₽</span>
+									</div>
+								</div>
+								<div class="lot-card__content-right">
+									<div class="lot-card__company-logo">
+										<picture>
+											<img class="lazyload" data-src="images/lot-card/company-logo.svg" alt="logo">
+										</picture>
+									</div>
+									<div class="lot-card__current-rate">
+										<div class="lot-card__current-rate-prop">Текущая ставка</div>
+										<div class="lot-card__current-rate-val">
+											<span>477 800 ₽</span>
+											<span class="lot-card__current-rate-val-icon">
+												<i class="icon-question-pink"></i>
+											</span>
+										</div>
+									</div>
+									<div class="lot-card__commission">
+										<span class="lot-card__commission-prop">Комиссия:</span>
+										<span class="lot-card__commission-val">30 000 ₽</span>
+									</div>
+								</div>
+							</div>
+							<div class="lot-card__bottom-wrap lot-card__toggle-show js-lot-card__toggle-show">
+								<div class="lot-card__bottom">
+									<div class="lot-card__icons">
+										<div class="lot-card__icon" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Проверить в базе ГИБДД">
+											<img class="lazyload" data-src="images/lot-card/icons/car-check.svg" alt="icon">
+										</div>
+										<div class="lot-card__icon" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Проверить в базе ГИБДД">
+											<img class="lazyload" data-src="images/lot-card/icons/money-circle.svg" alt="icon">
+										</div>
+										<div class="lot-card__icon" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Проверить в базе ГИБДД">
+											<img class="lazyload" data-src="images/lot-card/icons/check.svg" alt="icon">
+										</div>
+										<div class="lot-card__icon" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Проверить в базе ГИБДД">
+											<img class="lazyload" data-src="images/lot-card/icons/draft.svg" alt="icon">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="lot-card__bottom-mob hide-desktop">
+								<div class="lot-card__toggle-btn js-lot-card__toggle-btn">ещё</div>
+								<div class="lot-card__current-rate">
+									<div class="lot-card__current-rate-prop">Текущая ставка</div>
+									<div class="lot-card__current-rate-val">
+										<span>477 800 ₽</span>
+										<span class="lot-card__current-rate-val-icon">
+											<i class="icon-question-pink"></i>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="lots__item">
+						<div class="
+            lot-card
+            
+            lot-card_won
+            js-lot-card
+        ">
+							<div class="lot-card__top">
+								<div class="lot-card__type">
+									<span class="lot-card__type-icon-left">
+										<i class="icon-bids"></i>
+									</span>
+									<span>№: 107589 (Открытые торги)</span>
+									<span class="lot-card__type-icon-right">
+										<i class="icon-question-pink"></i>
+									</span>
+								</div>
+								<div class="lot-card__city">Москва</div>
+								<div class="lot-card__status-info lot-card__status-info_won">Ваша ставка 10 000 ₽ принята!</div>
+							</div>
+							<div class="lot-card__content">
+								<div class="lot-card__photo">
+									<a href="#">
+										<picture>
+											<img class="lazyload" data-src="images/lots/pic-5.jpg" alt="photo">
+										</picture>
+									</a>
+									<div class="lot-card__label">
+										<div class="label-won">Выигран</div>
+									</div>
+									<div class="lot-card__big-label">
+										<div class="big-label-won">Ваша ставка 1 000 000 ₽ принята!</div>
+									</div>
+								</div>
+								<div class="lot-card__desc">
+									<div class="lot-card__name">
+										<a href="#">Ford Focus 1.6 105hp sync edition powershift</a>
+										<div class="lot-card__favorite">
+											<div class="favorite "></div>
+										</div>
+									</div>
+									<div class="lot-card__tech-infos">
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-content="Год"><span>2017</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Пробег"><span>224 505 км</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Объём"><span>2993 см3</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Тип двигателя"><span>Дизель</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Мощность"><span>249 л.с</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Привод"><span>Полный</span></div>
+									</div>
+									<div class="lot-card__car-info lot-card__toggle-show js-lot-card__toggle-show">
+										<div class="lot-card__property">
+											<span class="lot-card__property-key">VIN:</span>
+											<span class="lot-card__property-value colored">WBA7G61000B074385</span>
+										</div>
+										<div class="lot-card__car-info-vert-line"></div>
+										<div class="lot-card__checked">Осмотрено продавцом</div>
+									</div>
+									<div class="lot-card__type hide-desktop">
+										<span class="lot-card__type-icon-left">
+											<i class="icon-bids"></i>
+										</span>
+										<span>№: 107589 (Открытые торги)</span>
+										<span class="lot-card__type-icon-right">
+											<i class="icon-question-pink"></i>
+										</span>
+									</div>
+									<div class="lot-card__city lot-card__toggle-show js-lot-card__toggle-show hide-desktop">Москва</div>
+									<div class="lot-card__property">
+										<span class="lot-card__property-key">Продавец:</span>
+										<span class="lot-card__property-value colored">"НИЖЕГОРОДЕЦ ВОСТОК" ООО</span>
+									</div>
+									<div class="lot-card__property">
+										<span class="lot-card__property-key">Заканчивается:</span>
+										<span class="lot-card__property-value">13.12.2022, 12:20 МСК</span>
+									</div>
+									<div class="lot-card__property lot-card__toggle-show js-lot-card__toggle-show hide-desktop">
+										<span class="lot-card__property-key">Комиссия:</span>
+										<span class="lot-card__property-value colored-b">30 000 ₽</span>
+									</div>
+								</div>
+								<div class="lot-card__content-right">
+									<div class="lot-card__company-logo">
+										<picture>
+											<img class="lazyload" data-src="images/lot-card/company-logo.svg" alt="logo">
+										</picture>
+									</div>
+									<div class="lot-card__current-rate">
+										<div class="lot-card__current-rate-prop">Текущая ставка</div>
+										<div class="lot-card__current-rate-val">
+											<span>10 000 ₽</span>
+											<span class="lot-card__current-rate-val-icon">
+												<i class="icon-question-pink"></i>
+											</span>
+										</div>
+									</div>
+									<div class="lot-card__commission">
+										<span class="lot-card__commission-prop">Комиссия:</span>
+										<span class="lot-card__commission-val">30 000 ₽</span>
+									</div>
+								</div>
+							</div>
+							<div class="lot-card__bottom-wrap lot-card__toggle-show js-lot-card__toggle-show">
+								<div class="lot-card__bottom">
+									<div class="lot-card__status-indicator">
+										<div class="status-indicator">
+											<div class="status-indicator__steps">
+												<div class="status-indicator__step status-indicator__step_completed">
+													<div class="status-indicator__name">Ожидает подтверждения</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">13.12.2022</div>
+												</div>
+												<div class="status-indicator__step status-indicator__step_completed">
+													<div class="status-indicator__name">Подготовка документов</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">13.12.2022</div>
+												</div>
+												<div class="status-indicator__step status-indicator__step_completed">
+													<div class="status-indicator__name">Ожидает оплаты покупателся</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">13.12.2022</div>
+												</div>
+												<div class="status-indicator__step status-indicator__step_completed">
+													<div class="status-indicator__name">Ожидаются документы от покупателя</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">13.12.2022</div>
+												</div>
+												<div class="status-indicator__step status-indicator__step_completed">
+													<div class="status-indicator__name">Ожидаются документы от продавца</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">13.12.2022</div>
+												</div>
+												<div class="status-indicator__step ">
+													<div class="status-indicator__name">Готов к выдаче</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">&nbsp;</div>
+												</div>
+												<div class="status-indicator__step ">
+													<div class="status-indicator__name">Оригиналы документов выданы</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">&nbsp;</div>
+												</div>
+												<div class="status-indicator__step ">
+													<div class="status-indicator__name">Завершена</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">&nbsp;</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="lot-card__address">
+										<div class="lot-card__property">
+											<span class="lot-card__property-key">Адрес нахождения авто:</span>
+											<span class="lot-card__property-value colored-b">Рольф-Премиум</span>
+										</div>
+										<div class="lot-card__property">
+											<span class="lot-card__property-key">Ответственный за выдачу:</span>
+											<span class="lot-card__property-value colored-b">Пименов Сергей</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="lot-card__bottom-mob hide-desktop">
+								<div class="lot-card__toggle-btn js-lot-card__toggle-btn">ещё</div>
+								<div class="lot-card__current-rate">
+									<div class="lot-card__current-rate-prop">Текущая ставка</div>
+									<div class="lot-card__current-rate-val">
+										<span>10 000 ₽</span>
+										<span class="lot-card__current-rate-val-icon">
+											<i class="icon-question-pink"></i>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="lots__item">
+						<div class="
+            lot-card
+            lot-card_not-won
+            
+            js-lot-card
+        ">
+							<div class="lot-card__top">
+								<div class="lot-card__type">
+									<span class="lot-card__type-icon-left">
+										<i class="icon-bids"></i>
+									</span>
+									<span>№: 107589 (Открытые торги)</span>
+									<span class="lot-card__type-icon-right">
+										<i class="icon-question-pink"></i>
+									</span>
+								</div>
+								<div class="lot-card__city">Москва</div>
+								<div class="lot-card__status-info lot-card__status-info_not-won">Ваша ставка 665 000 ₽ перебита!</div>
+							</div>
+							<div class="lot-card__content">
+								<div class="lot-card__photo">
+									<a href="#">
+										<picture>
+											<img class="lazyload" data-src="images/lots/pic-6.jpg" alt="photo">
+										</picture>
+									</a>
+									<div class="lot-card__label">
+										<div class="label-not-won">Не выигран</div>
+									</div>
+									<div class="lot-card__big-label">
+										<div class="big-label-not-won">Ваша ставка 750 000 ₽ перебита!</div>
+									</div>
+								</div>
+								<div class="lot-card__desc">
+									<div class="lot-card__name">
+										<a href="#">Ford Focus 1.6 125hp titanium powershift</a>
+										<div class="lot-card__favorite">
+											<div class="favorite "></div>
+										</div>
+									</div>
+									<div class="lot-card__tech-infos">
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-content="Год"><span>2017</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Пробег"><span>224 505 км</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Объём"><span>2993 см3</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Тип двигателя"><span>Дизель</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Мощность"><span>249 л.с</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Привод"><span>Полный</span></div>
+									</div>
+									<div class="lot-card__car-info lot-card__toggle-show js-lot-card__toggle-show">
+										<div class="lot-card__property">
+											<span class="lot-card__property-key">VIN:</span>
+											<span class="lot-card__property-value colored">WBA7G61000B074385</span>
+										</div>
+										<div class="lot-card__car-info-vert-line"></div>
+										<div class="lot-card__checked">Осмотрено продавцом</div>
+									</div>
+									<div class="lot-card__type hide-desktop">
+										<span class="lot-card__type-icon-left">
+											<i class="icon-bids"></i>
+										</span>
+										<span>№: 107589 (Открытые торги)</span>
+										<span class="lot-card__type-icon-right">
+											<i class="icon-question-pink"></i>
+										</span>
+									</div>
+									<div class="lot-card__city lot-card__toggle-show js-lot-card__toggle-show hide-desktop">Москва</div>
+									<div class="lot-card__property">
+										<span class="lot-card__property-key">Продавец:</span>
+										<span class="lot-card__property-value colored">"НИЖЕГОРОДЕЦ ВОСТОК" ООО</span>
+									</div>
+									<div class="lot-card__property">
+										<span class="lot-card__property-key">Заканчивается:</span>
+										<span class="lot-card__property-value">13.12.2022, 12:20 МСК</span>
+									</div>
+									<div class="lot-card__property lot-card__toggle-show js-lot-card__toggle-show hide-desktop">
+										<span class="lot-card__property-key">Комиссия:</span>
+										<span class="lot-card__property-value colored-b">30 000 ₽</span>
+									</div>
+								</div>
+								<div class="lot-card__content-right">
+									<div class="lot-card__company-logo">
+										<picture>
+											<img class="lazyload" data-src="images/lot-card/company-logo.svg" alt="logo">
+										</picture>
+									</div>
+									<div class="lot-card__current-rate">
+										<div class="lot-card__current-rate-prop">Текущая ставка</div>
+										<div class="lot-card__current-rate-val">
+											<span>665 000 ₽</span>
+											<span class="lot-card__current-rate-val-icon">
+												<i class="icon-question-pink"></i>
+											</span>
+										</div>
+									</div>
+									<div class="lot-card__commission">
+										<span class="lot-card__commission-prop">Комиссия:</span>
+										<span class="lot-card__commission-val">30 000 ₽</span>
+									</div>
+								</div>
+							</div>
+							<div class="lot-card__bottom-wrap lot-card__toggle-show js-lot-card__toggle-show">
+								<div class="lot-card__bottom">
+									<div class="lot-card__icons">
+										<div class="lot-card__icon" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Проверить в базе ГИБДД">
+											<img class="lazyload" data-src="images/lot-card/icons/car-check.svg" alt="icon">
+										</div>
+										<div class="lot-card__icon" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Проверить в базе ГИБДД">
+											<img class="lazyload" data-src="images/lot-card/icons/money-circle.svg" alt="icon">
+										</div>
+										<div class="lot-card__icon" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Проверить в базе ГИБДД">
+											<img class="lazyload" data-src="images/lot-card/icons/check.svg" alt="icon">
+										</div>
+										<div class="lot-card__icon" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Проверить в базе ГИБДД">
+											<img class="lazyload" data-src="images/lot-card/icons/draft.svg" alt="icon">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="lot-card__bottom-mob hide-desktop">
+								<div class="lot-card__toggle-btn js-lot-card__toggle-btn">ещё</div>
+								<div class="lot-card__current-rate">
+									<div class="lot-card__current-rate-prop">Текущая ставка</div>
+									<div class="lot-card__current-rate-val">
+										<span>665 000 ₽</span>
+										<span class="lot-card__current-rate-val-icon">
+											<i class="icon-question-pink"></i>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="lots__item">
+						<div class="
+            lot-card
+            
+            lot-card_won
+            js-lot-card
+        ">
+							<div class="lot-card__top">
+								<div class="lot-card__type">
+									<span class="lot-card__type-icon-left">
+										<i class="icon-bids"></i>
+									</span>
+									<span>№: 107589 (Открытые торги)</span>
+									<span class="lot-card__type-icon-right">
+										<i class="icon-question-pink"></i>
+									</span>
+								</div>
+								<div class="lot-card__city">Москва</div>
+								<div class="lot-card__status-info lot-card__status-info_won">Ваша ставка 9 600 000 ₽ принята!</div>
+							</div>
+							<div class="lot-card__content">
+								<div class="lot-card__photo">
+									<a href="#">
+										<picture>
+											<img class="lazyload" data-src="images/lots/pic-7.jpg" alt="photo">
+										</picture>
+									</a>
+									<div class="lot-card__label">
+										<div class="label-won">Выигран</div>
+									</div>
+									<div class="lot-card__big-label">
+										<div class="big-label-won">Ваша ставка 1 000 000 ₽ принята!</div>
+									</div>
+								</div>
+								<div class="lot-card__desc">
+									<div class="lot-card__name">
+										<a href="#">BMW X6 M M50i AT xDrive</a>
+										<div class="lot-card__favorite">
+											<div class="favorite "></div>
+										</div>
+									</div>
+									<div class="lot-card__tech-infos">
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-content="Год"><span>2017</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Пробег"><span>224 505 км</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Объём"><span>2993 см3</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Тип двигателя"><span>Дизель</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Мощность"><span>249 л.с</span></div>
+										<div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Привод"><span>Полный</span></div>
+									</div>
+									<div class="lot-card__car-info lot-card__toggle-show js-lot-card__toggle-show">
+										<div class="lot-card__property">
+											<span class="lot-card__property-key">VIN:</span>
+											<span class="lot-card__property-value colored">WBA7G61000B074385</span>
+										</div>
+										<div class="lot-card__car-info-vert-line"></div>
+										<div class="lot-card__checked">Осмотрено продавцом</div>
+									</div>
+									<div class="lot-card__type hide-desktop">
+										<span class="lot-card__type-icon-left">
+											<i class="icon-bids"></i>
+										</span>
+										<span>№: 107589 (Открытые торги)</span>
+										<span class="lot-card__type-icon-right">
+											<i class="icon-question-pink"></i>
+										</span>
+									</div>
+									<div class="lot-card__city lot-card__toggle-show js-lot-card__toggle-show hide-desktop">Москва</div>
+									<div class="lot-card__property">
+										<span class="lot-card__property-key">Продавец:</span>
+										<span class="lot-card__property-value colored">"НИЖЕГОРОДЕЦ ВОСТОК" ООО</span>
+									</div>
+									<div class="lot-card__property">
+										<span class="lot-card__property-key">Заканчивается:</span>
+										<span class="lot-card__property-value">13.12.2022, 12:20 МСК</span>
+									</div>
+									<div class="lot-card__property lot-card__toggle-show js-lot-card__toggle-show hide-desktop">
+										<span class="lot-card__property-key">Комиссия:</span>
+										<span class="lot-card__property-value colored-b">30 000 ₽</span>
+									</div>
+								</div>
+								<div class="lot-card__content-right">
+									<div class="lot-card__company-logo">
+										<picture>
+											<img class="lazyload" data-src="images/lot-card/company-logo.svg" alt="logo">
+										</picture>
+									</div>
+									<div class="lot-card__current-rate">
+										<div class="lot-card__current-rate-prop">Текущая ставка</div>
+										<div class="lot-card__current-rate-val">
+											<span>9 600 000 ₽</span>
+											<span class="lot-card__current-rate-val-icon">
+												<i class="icon-question-pink"></i>
+											</span>
+										</div>
+									</div>
+									<div class="lot-card__commission">
+										<span class="lot-card__commission-prop">Комиссия:</span>
+										<span class="lot-card__commission-val">30 000 ₽</span>
+									</div>
+								</div>
+							</div>
+							<div class="lot-card__bottom-wrap lot-card__toggle-show js-lot-card__toggle-show">
+								<div class="lot-card__bottom">
+									<div class="lot-card__status-indicator">
+										<div class="status-indicator">
+											<div class="status-indicator__steps">
+												<div class="status-indicator__step status-indicator__step_completed">
+													<div class="status-indicator__name">Ожидает подтверждения</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">13.12.2022</div>
+												</div>
+												<div class="status-indicator__step status-indicator__step_completed">
+													<div class="status-indicator__name">Подготовка документов</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">13.12.2022</div>
+												</div>
+												<div class="status-indicator__step status-indicator__step_completed">
+													<div class="status-indicator__name">Ожидает оплаты покупателся</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">13.12.2022</div>
+												</div>
+												<div class="status-indicator__step status-indicator__step_completed">
+													<div class="status-indicator__name">Ожидаются документы от покупателя</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">13.12.2022</div>
+												</div>
+												<div class="status-indicator__step status-indicator__step_completed">
+													<div class="status-indicator__name">Ожидаются документы от продавца</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">13.12.2022</div>
+												</div>
+												<div class="status-indicator__step ">
+													<div class="status-indicator__name">Готов к выдаче</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">&nbsp;</div>
+												</div>
+												<div class="status-indicator__step ">
+													<div class="status-indicator__name">Оригиналы документов выданы</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">&nbsp;</div>
+												</div>
+												<div class="status-indicator__step ">
+													<div class="status-indicator__name">Завершена</div>
+													<div class="status-indicator__status">
+														<i class="icon-success"></i>
+													</div>
+													<div class="status-indicator__date">&nbsp;</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="lot-card__address">
+										<div class="lot-card__property">
+											<span class="lot-card__property-key">Адрес нахождения авто:</span>
+											<span class="lot-card__property-value colored-b">Рольф-Премиум</span>
+										</div>
+										<div class="lot-card__property">
+											<span class="lot-card__property-key">Ответственный за выдачу:</span>
+											<span class="lot-card__property-value colored-b">Пименов Сергей</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="lot-card__bottom-mob hide-desktop">
+								<div class="lot-card__toggle-btn js-lot-card__toggle-btn">ещё</div>
+								<div class="lot-card__current-rate">
+									<div class="lot-card__current-rate-prop">Текущая ставка</div>
+									<div class="lot-card__current-rate-val">
+										<span>9 600 000 ₽</span>
+										<span class="lot-card__current-rate-val-icon">
+											<i class="icon-question-pink"></i>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="pagination">
+					<button type="buttom" class="pagination__load-more">Показать ещё</button>
+					<ul class="pagination__list">
+						<li class="pagination__item ">
+							<a href="#" class="pagination__link active">1</a>
+						</li>
+						<li class="pagination__item ">
+							<a href="#" class="pagination__link ">2</a>
+						</li>
+						<li class="pagination__item ">
+							<a href="#" class="pagination__link ">3</a>
+						</li>
+						<li class="pagination__item ">
+							<a href="#" class="pagination__link ">4</a>
+						</li>
+						<li class="pagination__item pagination__item_hide-mob">
+							<a href="#" class="pagination__link ">5</a>
+						</li>
+						<li class="pagination__item pagination__item_hide-mob">
+							<a href="#" class="pagination__link ">6</a>
+						</li>
+						<li class="pagination__item ">
+							<a href="#" class="pagination__link ">7</a>
+						</li>
+						<li class="pagination__item">
+							<span class="pagination__dotted">...</span>
+						</li>
+						<li class="pagination__item">
+							<a href="#" class="pagination__link">57</a>
+						</li>
+					</ul>
+					<div class="pagination__show-count">
+						<div class="pagination__show-count-title">Кол-во на странице:</div>
+						<div class="pagination__show-count-box">
+							<div class="select-box">
+								<select name="show-count" class="select-box__select js-select-box__select  ">
+									<option value="1">10</option>
+									<option value="2">25</option>
+									<option value="3">50</option>
+									<option value="4">100</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /.wrapper -->
+	<script src='js/main.bundle.js'></script>
+</body>
+
+</html>

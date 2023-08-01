@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Faq Page</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, interactive-widget=resizes-content">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/static/frontend-works.js"></script>
+	<!-- Внимание этот скрипт не надо переносить в бекенд 
+		он нужен чисто для демо отсчета таймеров в лотах в верстке -->
+	<script src="js/static/demo-lots-timer.js"></script>
+	<!-- Конец -->
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="sidebar">
+			<div class="sidebar__content">
+				<div class="sidebar__logo">
+					<div class="sidebar__logo-small">
+						<a href="#">
+							<img src="images/logo/logo-small.svg" alt="logo">
+						</a>
+					</div>
+					<div class="sidebar__logo-big">
+						<a href="#">
+							<img src="images/logo/logo.svg" alt="logo">
+						</a>
+					</div>
+				</div>
+				<div class="sidebar__lots active">
+					<div class="sidebar__lots-title js-sidebar__lots-title">
+						<span>Текущие торги</span>
+					</div>
+					<nav class="sidebar__lots-nav js-sidebar__lots-nav">
+						<ul class="sidebar__lots-list">
+							<li class="sidebar__lots-item">
+								<a href="#" class="sidebar__lots-link active">Все лоты</a>
+							</li>
+							<li class="sidebar__lots-item">
+								<a href="#" class="sidebar__lots-link">Легковые автомобили</a>
+							</li>
+							<li class="sidebar__lots-item">
+								<a href="#" class="sidebar__lots-link">Грузовики</a>
+							</li>
+							<li class="sidebar__lots-item">
+								<a href="#" class="sidebar__lots-link">Погрузчики</a>
+							</li>
+							<li class="sidebar__lots-item">
+								<a href="#" class="sidebar__lots-link">Автобусы</a>
+							</li>
+							<li class="sidebar__lots-item">
+								<a href="#" class="sidebar__lots-link">Сельскохозяйственная техника</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<div class="sidebar__menu">
+					<ul class="sidebar__menu-list">
+						<li class="sidebar__menu-item">
+							<a href="#" class="sidebar__menu-link">
+								<i class="icon-star sidebar__menu-icon"></i>
+								<span>Избранные лоты</span>
+							</a>
+						</li>
+						<li class="sidebar__menu-item">
+							<a href="#" class="sidebar__menu-link">
+								<i class="icon-calendar sidebar__menu-icon"></i>
+								<span>Календарь торгов</span>
+							</a>
+						</li>
+						<li class="sidebar__menu-item">
+							<a href="#" class="sidebar__menu-link">
+								<i class="icon-account sidebar__menu-icon"></i>
+								<span>Личный кабинет</span>
+							</a>
+						</li>
+						<li class="sidebar__menu-item">
+							<a href="#" class="sidebar__menu-link">
+								<i class="icon-question sidebar__menu-icon"></i>
+								<span>FAQ</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="sidebar__footer">
+					<div class="sidebar__copyright">© 2023 АвтоТорги.</div>
+					<div class="sidebar__privacy">
+						<a href="#">Пользовательское соглашение</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="main">
+			<header class="header js-header">
+				<a href="#" class="header__back-link"></a>
+				<div class="header__logo">
+					<a href="#">
+						<img src="images/logo/logo-small.svg" alt="logo">
+					</a>
+				</div>
+				<div class="header__title">
+					<span>Справка</span>
+				</div>
+				<div class="header__right">
+					<div class="header__notification"></div>
+					<div class="header__time"><span class="js-header-time">11:22</span> МСК</div>
+					<div class="header__account">
+						<div class="account-person">
+							<div class="account-person__pic">
+								<img src="images/account-person/pic.svg" alt="avatar">
+							</div>
+							<!--<div class="account-person__without-pic">K</div>-->
+							<div class="account-person__name">Константин</div>
+							<a href="#" class="account-person__full-link"></a>
+						</div>
+					</div>
+					<div class="header__logout-btn">
+						<a href="#" class="logout-btn">Выйти</a>
+					</div>
+				</div>
+				<div class="header__hamburger">
+					<div class="hamburger js-hamburger"></div>
+				</div>
+			</header>
+			<div class="mobile-menu js-mobile-menu">
+				<div class="mobile-menu__account">
+					<div class="mobile-menu__person">
+						<div class="account-person">
+							<div class="account-person__pic">
+								<img src="images/account-person/pic.svg" alt="avatar">
+							</div>
+							<!--<div class="account-person__without-pic">K</div>-->
+							<div class="account-person__name">Константин</div>
+							<a href="#" class="account-person__full-link"></a>
+						</div>
+					</div>
+					<div class="mobile-menu__logout-btn">
+						<a href="#" class="logout-btn">Выйти</a>
+					</div>
+				</div>
+				<div class="mobile-menu__lots">
+					<div class="mobile-menu__lots-title js-mobile-menu__lots-title">
+						<span>Текущие торги</span>
+					</div>
+					<nav class="mobile-menu__lots-nav js-mobile-menu__lots-nav">
+						<ul class="mobile-menu__lots-list">
+							<li class="mobile-menu__lots-item">
+								<a href="#" class="mobile-menu__lots-link active">Все лоты</a>
+							</li>
+							<li class="mobile-menu__lots-item">
+								<a href="#" class="mobile-menu__lots-link">Легковые автомобили</a>
+							</li>
+							<li class="mobile-menu__lots-item">
+								<a href="#" class="mobile-menu__lots-link">Грузовики</a>
+							</li>
+							<li class="mobile-menu__lots-item">
+								<a href="#" class="mobile-menu__lots-link">Погрузчики</a>
+							</li>
+							<li class="mobile-menu__lots-item">
+								<a href="#" class="mobile-menu__lots-link">Автобусы</a>
+							</li>
+							<li class="mobile-menu__lots-item">
+								<a href="#" class="mobile-menu__lots-link">Сельскохозяйственная техника</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<div class="mobile-menu__menu">
+					<ul class="mobile-menu__menu-list">
+						<li class="mobile-menu__menu-item">
+							<a href="#" class="mobile-menu__menu-link">
+								<i class="icon-star mobile-menu__menu-icon"></i>
+								<span>Избранные лоты</span>
+							</a>
+						</li>
+						<li class="mobile-menu__menu-item">
+							<a href="#" class="mobile-menu__menu-link">
+								<i class="icon-calendar mobile-menu__menu-icon"></i>
+								<span>Календарь торгов</span>
+							</a>
+						</li>
+						<li class="mobile-menu__menu-item">
+							<a href="#" class="mobile-menu__menu-link">
+								<i class="icon-account mobile-menu__menu-icon"></i>
+								<span>Личный кабинет</span>
+							</a>
+						</li>
+						<li class="mobile-menu__menu-item">
+							<a href="#" class="mobile-menu__menu-link">
+								<i class="icon-question mobile-menu__menu-icon"></i>
+								<span>FAQ</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="mobile-menu__footer">
+					<div class="mobile-menu__copyright">© 2023 АвтоТорги.</div>
+					<div class="mobile-menu__privacy">
+						<a href="#">Пользовательское соглашение</a>
+					</div>
+				</div>
+			</div>
+			<div class="main-content">
+				<div class="faq">
+					<div class="accordion ">
+						<div class="accordion__title js-accordion__title"> С чего начать <i class="accordion__arrow"></i>
+						</div>
+						<div class="accordion__content">
+							<div class="accordion__content-inner">
+								<div class="faq__content">
+									<div class="text-default">
+										<span>Чтобы продать автомобиль(и) нужно:</span>
+										<ul>
+											<li> Зайти в раздел МОИ АКТИВНОСТИ главного меню и нажать кнопку ДОБАВИТЬ ЛОТ. При этом обязательными являются название лота, начальная цена, минимальная цена, блиц-цена. Вы можете добавить автомобили как при создании лота, так и позже в режиме его редактирования. Чтобы добавить автомобили в лот, нажмите кнопку ДОБАВИТЬ АВТОМОБИЛЬ и далее, используя фильтр, выберите нужные Вам автомобили. После того, как Вы закончили формировать лот, необходимо подтвердить его, нажав кнопку ПОДТВЕРДИТЬ. Новый лот сразу же станет доступен в разделе В ПОДГОТОВКЕ, где его можно будет при необходимости отредактировать. <p></p>
+												<div class="ul-full-img">
+													<img src="images/faq/pic.jpg" alt="pic">
+												</div>
+											</li>
+											<li> Подождать некоторое время, пока администратор не распределит Ваш лот в аукцион. Вы получите оповещение по электронной почте, а статус Вашего лота изменится на ТЕКУЩИЙ в МОИХ АКТИВНОСТЯХ. Ваш лот станет доступен онлайн для всех участников аукциона в разделе АУКЦИОНЫ. </li>
+											<li> По результатам аукциона с Вами свяжется наш менеджер для уточнения статуса проданных лотов и возможности повторного выставления в аукцион непроданных лотов. Статистика по Вашим продажам доступна в разделе МОИ АКТИВНОСТИ. </li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="accordion ">
+						<div class="accordion__title js-accordion__title"> Как купить автомобиль <i class="accordion__arrow"></i>
+						</div>
+						<div class="accordion__content">
+							<div class="accordion__content-inner">
+								<div class="faq__content">
+									<div class="text-default">
+										<span>Чтобы продать автомобиль(и) нужно:</span>
+										<ul>
+											<li> Зайти в раздел МОИ АКТИВНОСТИ главного меню и нажать кнопку ДОБАВИТЬ ЛОТ. При этом обязательными являются название лота, начальная цена, минимальная цена, блиц-цена. Вы можете добавить автомобили как при создании лота, так и позже в режиме его редактирования. Чтобы добавить автомобили в лот, нажмите кнопку ДОБАВИТЬ АВТОМОБИЛЬ и далее, используя фильтр, выберите нужные Вам автомобили. После того, как Вы закончили формировать лот, необходимо подтвердить его, нажав кнопку ПОДТВЕРДИТЬ. Новый лот сразу же станет доступен в разделе В ПОДГОТОВКЕ, где его можно будет при необходимости отредактировать. <p></p>
+												<div class="ul-full-img">
+													<img src="images/faq/pic.jpg" alt="pic">
+												</div>
+											</li>
+											<li> Подождать некоторое время, пока администратор не распределит Ваш лот в аукцион. Вы получите оповещение по электронной почте, а статус Вашего лота изменится на ТЕКУЩИЙ в МОИХ АКТИВНОСТЯХ. Ваш лот станет доступен онлайн для всех участников аукциона в разделе АУКЦИОНЫ. </li>
+											<li> По результатам аукциона с Вами свяжется наш менеджер для уточнения статуса проданных лотов и возможности повторного выставления в аукцион непроданных лотов. Статистика по Вашим продажам доступна в разделе МОИ АКТИВНОСТИ. </li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="accordion ">
+						<div class="accordion__title js-accordion__title"> Какие бывают аукционы <i class="accordion__arrow"></i>
+						</div>
+						<div class="accordion__content">
+							<div class="accordion__content-inner">
+								<div class="faq__content">
+									<div class="text-default">
+										<span>Чтобы продать автомобиль(и) нужно:</span>
+										<ul>
+											<li> Зайти в раздел МОИ АКТИВНОСТИ главного меню и нажать кнопку ДОБАВИТЬ ЛОТ. При этом обязательными являются название лота, начальная цена, минимальная цена, блиц-цена. Вы можете добавить автомобили как при создании лота, так и позже в режиме его редактирования. Чтобы добавить автомобили в лот, нажмите кнопку ДОБАВИТЬ АВТОМОБИЛЬ и далее, используя фильтр, выберите нужные Вам автомобили. После того, как Вы закончили формировать лот, необходимо подтвердить его, нажав кнопку ПОДТВЕРДИТЬ. Новый лот сразу же станет доступен в разделе В ПОДГОТОВКЕ, где его можно будет при необходимости отредактировать. <p></p>
+												<div class="ul-full-img">
+													<img src="images/faq/pic.jpg" alt="pic">
+												</div>
+											</li>
+											<li> Подождать некоторое время, пока администратор не распределит Ваш лот в аукцион. Вы получите оповещение по электронной почте, а статус Вашего лота изменится на ТЕКУЩИЙ в МОИХ АКТИВНОСТЯХ. Ваш лот станет доступен онлайн для всех участников аукциона в разделе АУКЦИОНЫ. </li>
+											<li> По результатам аукциона с Вами свяжется наш менеджер для уточнения статуса проданных лотов и возможности повторного выставления в аукцион непроданных лотов. Статистика по Вашим продажам доступна в разделе МОИ АКТИВНОСТИ. </li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="accordion ">
+						<div class="accordion__title js-accordion__title"> Что такое шаг аукциона <i class="accordion__arrow"></i>
+						</div>
+						<div class="accordion__content">
+							<div class="accordion__content-inner">
+								<div class="faq__content">
+									<div class="text-default">
+										<span>Чтобы продать автомобиль(и) нужно:</span>
+										<ul>
+											<li> Зайти в раздел МОИ АКТИВНОСТИ главного меню и нажать кнопку ДОБАВИТЬ ЛОТ. При этом обязательными являются название лота, начальная цена, минимальная цена, блиц-цена. Вы можете добавить автомобили как при создании лота, так и позже в режиме его редактирования. Чтобы добавить автомобили в лот, нажмите кнопку ДОБАВИТЬ АВТОМОБИЛЬ и далее, используя фильтр, выберите нужные Вам автомобили. После того, как Вы закончили формировать лот, необходимо подтвердить его, нажав кнопку ПОДТВЕРДИТЬ. Новый лот сразу же станет доступен в разделе В ПОДГОТОВКЕ, где его можно будет при необходимости отредактировать. <p></p>
+												<div class="ul-full-img">
+													<img src="images/faq/pic.jpg" alt="pic">
+												</div>
+											</li>
+											<li> Подождать некоторое время, пока администратор не распределит Ваш лот в аукцион. Вы получите оповещение по электронной почте, а статус Вашего лота изменится на ТЕКУЩИЙ в МОИХ АКТИВНОСТЯХ. Ваш лот станет доступен онлайн для всех участников аукциона в разделе АУКЦИОНЫ. </li>
+											<li> По результатам аукциона с Вами свяжется наш менеджер для уточнения статуса проданных лотов и возможности повторного выставления в аукцион непроданных лотов. Статистика по Вашим продажам доступна в разделе МОИ АКТИВНОСТИ. </li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="accordion ">
+						<div class="accordion__title js-accordion__title"> Как узнать, когда закончится аукцион <i class="accordion__arrow"></i>
+						</div>
+						<div class="accordion__content">
+							<div class="accordion__content-inner">
+								<div class="faq__content">
+									<div class="text-default">
+										<span>Чтобы продать автомобиль(и) нужно:</span>
+										<ul>
+											<li> Зайти в раздел МОИ АКТИВНОСТИ главного меню и нажать кнопку ДОБАВИТЬ ЛОТ. При этом обязательными являются название лота, начальная цена, минимальная цена, блиц-цена. Вы можете добавить автомобили как при создании лота, так и позже в режиме его редактирования. Чтобы добавить автомобили в лот, нажмите кнопку ДОБАВИТЬ АВТОМОБИЛЬ и далее, используя фильтр, выберите нужные Вам автомобили. После того, как Вы закончили формировать лот, необходимо подтвердить его, нажав кнопку ПОДТВЕРДИТЬ. Новый лот сразу же станет доступен в разделе В ПОДГОТОВКЕ, где его можно будет при необходимости отредактировать. <p></p>
+												<div class="ul-full-img">
+													<img src="images/faq/pic.jpg" alt="pic">
+												</div>
+											</li>
+											<li> Подождать некоторое время, пока администратор не распределит Ваш лот в аукцион. Вы получите оповещение по электронной почте, а статус Вашего лота изменится на ТЕКУЩИЙ в МОИХ АКТИВНОСТЯХ. Ваш лот станет доступен онлайн для всех участников аукциона в разделе АУКЦИОНЫ. </li>
+											<li> По результатам аукциона с Вами свяжется наш менеджер для уточнения статуса проданных лотов и возможности повторного выставления в аукцион непроданных лотов. Статистика по Вашим продажам доступна в разделе МОИ АКТИВНОСТИ. </li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="accordion ">
+						<div class="accordion__title js-accordion__title"> Что такое лот <i class="accordion__arrow"></i>
+						</div>
+						<div class="accordion__content">
+							<div class="accordion__content-inner">
+								<div class="faq__content">
+									<div class="text-default">
+										<span>Чтобы продать автомобиль(и) нужно:</span>
+										<ul>
+											<li> Зайти в раздел МОИ АКТИВНОСТИ главного меню и нажать кнопку ДОБАВИТЬ ЛОТ. При этом обязательными являются название лота, начальная цена, минимальная цена, блиц-цена. Вы можете добавить автомобили как при создании лота, так и позже в режиме его редактирования. Чтобы добавить автомобили в лот, нажмите кнопку ДОБАВИТЬ АВТОМОБИЛЬ и далее, используя фильтр, выберите нужные Вам автомобили. После того, как Вы закончили формировать лот, необходимо подтвердить его, нажав кнопку ПОДТВЕРДИТЬ. Новый лот сразу же станет доступен в разделе В ПОДГОТОВКЕ, где его можно будет при необходимости отредактировать. <p></p>
+												<div class="ul-full-img">
+													<img src="images/faq/pic.jpg" alt="pic">
+												</div>
+											</li>
+											<li> Подождать некоторое время, пока администратор не распределит Ваш лот в аукцион. Вы получите оповещение по электронной почте, а статус Вашего лота изменится на ТЕКУЩИЙ в МОИХ АКТИВНОСТЯХ. Ваш лот станет доступен онлайн для всех участников аукциона в разделе АУКЦИОНЫ. </li>
+											<li> По результатам аукциона с Вами свяжется наш менеджер для уточнения статуса проданных лотов и возможности повторного выставления в аукцион непроданных лотов. Статистика по Вашим продажам доступна в разделе МОИ АКТИВНОСТИ. </li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="accordion ">
+						<div class="accordion__title js-accordion__title"> Как создать лот <i class="accordion__arrow"></i>
+						</div>
+						<div class="accordion__content">
+							<div class="accordion__content-inner">
+								<div class="faq__content">
+									<div class="text-default">
+										<span>Чтобы продать автомобиль(и) нужно:</span>
+										<ul>
+											<li> Зайти в раздел МОИ АКТИВНОСТИ главного меню и нажать кнопку ДОБАВИТЬ ЛОТ. При этом обязательными являются название лота, начальная цена, минимальная цена, блиц-цена. Вы можете добавить автомобили как при создании лота, так и позже в режиме его редактирования. Чтобы добавить автомобили в лот, нажмите кнопку ДОБАВИТЬ АВТОМОБИЛЬ и далее, используя фильтр, выберите нужные Вам автомобили. После того, как Вы закончили формировать лот, необходимо подтвердить его, нажав кнопку ПОДТВЕРДИТЬ. Новый лот сразу же станет доступен в разделе В ПОДГОТОВКЕ, где его можно будет при необходимости отредактировать. <p></p>
+												<div class="ul-full-img">
+													<img src="images/faq/pic.jpg" alt="pic">
+												</div>
+											</li>
+											<li> Подождать некоторое время, пока администратор не распределит Ваш лот в аукцион. Вы получите оповещение по электронной почте, а статус Вашего лота изменится на ТЕКУЩИЙ в МОИХ АКТИВНОСТЯХ. Ваш лот станет доступен онлайн для всех участников аукциона в разделе АУКЦИОНЫ. </li>
+											<li> По результатам аукциона с Вами свяжется наш менеджер для уточнения статуса проданных лотов и возможности повторного выставления в аукцион непроданных лотов. Статистика по Вашим продажам доступна в разделе МОИ АКТИВНОСТИ. </li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="accordion ">
+						<div class="accordion__title js-accordion__title"> Доступна ли информация обо мне другим участникам Системы <i class="accordion__arrow"></i>
+						</div>
+						<div class="accordion__content">
+							<div class="accordion__content-inner">
+								<div class="faq__content">
+									<div class="text-default">
+										<span>Чтобы продать автомобиль(и) нужно:</span>
+										<ul>
+											<li> Зайти в раздел МОИ АКТИВНОСТИ главного меню и нажать кнопку ДОБАВИТЬ ЛОТ. При этом обязательными являются название лота, начальная цена, минимальная цена, блиц-цена. Вы можете добавить автомобили как при создании лота, так и позже в режиме его редактирования. Чтобы добавить автомобили в лот, нажмите кнопку ДОБАВИТЬ АВТОМОБИЛЬ и далее, используя фильтр, выберите нужные Вам автомобили. После того, как Вы закончили формировать лот, необходимо подтвердить его, нажав кнопку ПОДТВЕРДИТЬ. Новый лот сразу же станет доступен в разделе В ПОДГОТОВКЕ, где его можно будет при необходимости отредактировать. <p></p>
+												<div class="ul-full-img">
+													<img src="images/faq/pic.jpg" alt="pic">
+												</div>
+											</li>
+											<li> Подождать некоторое время, пока администратор не распределит Ваш лот в аукцион. Вы получите оповещение по электронной почте, а статус Вашего лота изменится на ТЕКУЩИЙ в МОИХ АКТИВНОСТЯХ. Ваш лот станет доступен онлайн для всех участников аукциона в разделе АУКЦИОНЫ. </li>
+											<li> По результатам аукциона с Вами свяжется наш менеджер для уточнения статуса проданных лотов и возможности повторного выставления в аукцион непроданных лотов. Статистика по Вашим продажам доступна в разделе МОИ АКТИВНОСТИ. </li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /.wrapper -->
+	<script src='js/main.bundle.js'></script>
+</body>
+
+</html>

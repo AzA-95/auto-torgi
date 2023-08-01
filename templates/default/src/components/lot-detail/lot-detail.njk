@@ -1,0 +1,760 @@
+{% from "favorite/favorite.njk" import favorite %}
+{% from "accordion/accordion.njk" import accordion %}
+{% from "auto-bet-btn/auto-bet-btn.njk" import autoBetBtn %}
+{% from "set-bet-price/set-bet-price.njk" import setBetPrice %}
+{% from "make-bet-btn/make-bet-btn.njk" import makeBetBtn %}
+{% from "document-item/document-item.njk" import documentItem %}
+
+<div class="lot-detail">
+    <div class="lot-detail__inner">
+        <div class="lot-detail-product">
+            <div class="lot-detail-product__slider">
+                <div class="lot-detail-slider">
+                    <div class="lot-detail-slider__main">
+                        <div class="swiper js-lot-detail-slider__swiper">
+                            <div class="swiper-wrapper">
+                                {% for item in range(0, 10) %}
+                                    <div class="swiper-slide">
+                                        <div class="lot-detail-slider__pic">
+                                            <a class="js-lot-detail-slider__fancybox-el" data-fancybox="gallery" data-src="images/lot-detail/pic.jpg">
+                                                <picture>
+                                                    <img class="lazyload" data-src="images/lot-detail/pic.jpg" alt="pic">
+                                                </picture>
+                                            </a>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        
+                        {% if not detailWon and not detailNotWon %}
+                            <div class="lot-detail-slider__timer">
+                                {% include "lot-timer/lot-timer.njk" %}
+                            </div>
+                        {% endif %}
+
+                        {% if detailWon or detailNotWon %}
+                            <div class="lot-detail-slider__label">
+                                {% if detailNotWon %}
+                                    {% include "label-not-won/label-not-won.njk" %}
+                                {% else %}
+                                    {% include "label-won/label-won.njk" %}
+                                {% endif %}
+                            </div>
+                            <div class="lot-detail-slider__big-label">
+                                {% if detailNotWon %}
+                                    {% include "big-label-not-won/big-label-not-won.njk" %}
+                                {% else %}
+                                    {% include "big-label-won/big-label-won.njk" %}
+                                {% endif %}
+                            </div>
+                        {% endif %}
+
+                        <div class="lot-detail-slider__slide-count {% if detailWon or detailNotWon %}lot-detail-slider__slide-count_bottom-bigger{% endif %}">
+                            <span class="js-lot-detail-slider__slide-dynamic-count">1</span>/<span>10</span>
+                        </div>
+                    </div>
+                    <div class="lot-detail-slider__thumbs">
+                        {% for item in range(0, 4) %}
+                            <div 
+                                class="
+                                    lot-detail-slider__thumb
+                                    {% if loop.last === false %}
+                                        js-lot-detail-slider__thumb_change-slide
+                                    {% else %}
+                                        js-lot-detail-slider__thumb_open-fancybox
+                                    {% endif %}
+                                    {% if loop.index === 1 %}active{% endif %}
+                                "
+                            >
+                                <picture>
+                                    <img class="lazyload" data-src="images/lot-detail/thumb.jpg" alt="slider thumb">
+                                </picture>
+
+                                {% if loop.last === true %}
+                                    <div class="lot-detail-slider__thumb-total-count">
+                                        <span>+6</span>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="lot-detail-product__desc">
+                <div class="lot-detail-product__name">
+                    <span>BMW 7 серии 730Ld xDrive 3.0d AT</span>
+                    <div class="lot-detail-product__favorite">
+                        {{ favorite() }}
+                    </div>
+                </div>
+                <div class="lot-detail-product__lot-info">
+                    <div class="lot-detail-product__lot-id">
+                        <span class="lot-detail-product__lot-id-icon">
+                            <i class="icon-bids"></i>
+                        </span>
+                        <span>№: 107589</span>
+                    </div>
+                    <div class="lot-detail-product__lot-info-vert-line"></div>
+                    <div class="lot-detail-product__checked">Осмотрено продавцом</div>
+                </div>
+                <div class="lot-detail-product__properties">
+                    <div class="lot-detail-product__property">
+                        <div class="lot-detail-product__property-key">Заканчивается:</div>
+                        <div class="lot-detail-product__property-value">13.12.2022, 12:20 МСК</div>
+                    </div>
+                    <div class="lot-detail-product__property">
+                        <div class="lot-detail-product__property-key">Начало торгов:</div>
+                        <div class="lot-detail-product__property-value">7.12.2022, 12:20 МСК</div>
+                    </div>
+                    <div class="lot-detail-product__property">
+                        <div class="lot-detail-product__property-key">Тип аукциона:</div>
+                        <div class="lot-detail-product__property-value">
+                            <span>Открытые торги</span>
+                            <span class="lot-detail-product__property-value-icon">
+                                <i class="icon-question-gray"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="lot-detail-product__property">
+                        <div class="lot-detail-product__property-key">Продавец:</div>
+                        <div class="lot-detail-product__property-value colored">"НИЖЕГОРОДЕЦ ВОСТОК" ООО</div>
+                    </div>
+                    <div class="lot-detail-product__property">
+                        <div class="lot-detail-product__property-key">Город продажи:</div>
+                        <div class="lot-detail-product__property-value">Москва</div>
+                    </div>
+                </div>
+
+                {% if not detailNotWon %}
+                    <button type="button" class="lot-detail-product__add-note hide-mobile">Добавить заметку</button>
+                {% else %}
+                    <div class="lot-detail-product__note hide-mobile">
+                        <div class="lot-detail-product__note-desc">Машина битая, информация по ГИБДД другая. Еще какой-то текст заметки</div>
+                        <div class="lot-detail-product__note-btns">
+                            <div class="lot-detail-product__note-edit-btn">Изменить</div>
+                            <div class="lot-detail-product__note-delete-btn">Удалить</div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="lot-detail-product__right">
+                <div class="lot-detail-product__company-logo">
+                    <img class="lazyload" data-src="images/lot-detail/company-logo.svg" alt="logo">
+                </div>
+                <div class="lot-detail-product__doc-infos">
+                    <div class="lot-detail-product__doc-info">
+                        <div class="lot-detail-product__doc-info-icon">
+                            <img class="lazyload" data-src="images/lot-detail/icons/car-check.svg" alt="icon">
+                        </div>
+                        <div class="lot-detail-product__doc-info-val">VIN номер проверен</div>
+                    </div>
+                    <div class="lot-detail-product__doc-info">
+                        <div class="lot-detail-product__doc-info-icon">
+                            <img class="lazyload" data-src="images/lot-detail/icons/money-circle.svg" alt="icon">
+                        </div>
+                        <div class="lot-detail-product__doc-info-val">Условия и сборы</div>
+                    </div>
+                    <div class="lot-detail-product__doc-info">
+                        <div class="lot-detail-product__doc-info-icon">
+                            <img class="lazyload" data-src="images/lot-detail/icons/gibdd-check.svg" alt="icon">
+                        </div>
+                        <div class="lot-detail-product__doc-info-val">Проверить по базе ГИБДД</div>
+                    </div>
+                    <div class="lot-detail-product__doc-info">
+                        <div class="lot-detail-product__doc-info-icon">
+                            <img class="lazyload" data-src="images/lot-detail/icons/price-nds.svg" alt="icon">
+                        </div>
+                        <div class="lot-detail-product__doc-info-val">НДС - полный</div>
+                    </div>
+                    <div class="lot-detail-product__doc-info">
+                        <div class="lot-detail-product__doc-info-icon">
+                            <img class="lazyload" data-src="images/lot-detail/icons/key.svg" alt="icon">
+                        </div>
+                        <div class="lot-detail-product__doc-info-val">Условия получения лота</div>
+                    </div>
+                </div>
+            </div>
+
+            {% if not detailNotWon %}
+                <button type="button" class="lot-detail-product__add-note hide-min-mobile">Добавить заметку</button>
+            {% else %}
+                <div class="lot-detail-product__note hide-min-mobile">
+                    <div class="lot-detail-product__note-desc">Машина битая, информация по ГИБДД другая. Еще какой-то текст заметки</div>
+                    <div class="lot-detail-product__note-btns">
+                        <div class="lot-detail-product__note-edit-btn">Изменить</div>
+                        <div class="lot-detail-product__note-delete-btn">Удалить</div>
+                    </div>
+                </div>
+            {% endif %}
+
+        </div>
+
+        {% if detailWon %}
+            <div class="lot-detail-status">
+                {% include "status-indicator/status-indicator.njk" %}
+            </div>
+        {% endif %}
+
+        <div class="lot-detail-accordions">
+            {{
+                accordion({
+                    modiferClass: 'active',
+                    title: 'Описание',
+                    content: '<div class="lot-detail-content">
+                                <div class="lot-detail-content__block">
+                                    <div class="lot-detail-content__small-title">Спецификация</div>
+
+                                    <div class="lot-detail-content__columns">
+                                        <div class="lot-detail-content__characteristic">
+                                            <div class="lot-detail-content__characteristic-prop">
+                                                <span>VIN-номер:</span>
+                                            </div>
+                                            <div class="lot-detail-content__characteristic-val">WBA7G61000B074385</div>
+                                        </div>
+                                        <div class="lot-detail-content__characteristic">
+                                            <div class="lot-detail-content__characteristic-prop">
+                                                <span>Тип ТС:</span>
+                                            </div>
+                                            <div class="lot-detail-content__characteristic-val">Легковые автомобили</div>
+                                        </div>
+                                        <div class="lot-detail-content__characteristic">
+                                            <div class="lot-detail-content__characteristic-prop">
+                                                <span>Марка:</span>
+                                            </div>
+                                            <div class="lot-detail-content__characteristic-val">BMW</div>
+                                        </div>
+                                        <div class="lot-detail-content__characteristic">
+                                            <div class="lot-detail-content__characteristic-prop">
+                                                <span>Модель:</span>
+                                            </div>
+                                            <div class="lot-detail-content__characteristic-val">7 серии</div>
+                                        </div>
+                                        <div class="lot-detail-content__characteristic">
+                                            <div class="lot-detail-content__characteristic-prop">
+                                                <span>Модификация:</span>
+                                            </div>
+                                            <div class="lot-detail-content__characteristic-val">730Ld xDrive 3.0d AT</div>
+                                        </div>
+                                        <div class="lot-detail-content__characteristic">
+                                            <div class="lot-detail-content__characteristic-prop">
+                                                <span>Поколение:</span>
+                                            </div>
+                                            <div class="lot-detail-content__characteristic-val">VI (G11/G12)</div>
+                                        </div>
+                                        <div class="lot-detail-content__characteristic">
+                                            <div class="lot-detail-content__characteristic-prop">
+                                                <span>Год выпуска:</span>
+                                            </div>
+                                            <div class="lot-detail-content__characteristic-val">2017</div>
+                                        </div>
+                                        <div class="lot-detail-content__characteristic">
+                                            <div class="lot-detail-content__characteristic-prop">
+                                                <span>Пробег:</span>
+                                            </div>
+                                            <div class="lot-detail-content__characteristic-val">224 505 км</div>
+                                        </div>
+                                        <div class="lot-detail-content__characteristic">
+                                            <div class="lot-detail-content__characteristic-prop">
+                                                <span>Тип двигателя:</span>
+                                            </div>
+                                            <div class="lot-detail-content__characteristic-val">Дизель</div>
+                                        </div>
+                                        <div class="lot-detail-content__characteristic">
+                                            <div class="lot-detail-content__characteristic-prop">
+                                                <span>Объём двигателя:</span>
+                                            </div>
+                                            <div class="lot-detail-content__characteristic-val">2993 см3</div>
+                                        </div>
+                                        <div class="lot-detail-content__characteristic">
+                                            <div class="lot-detail-content__characteristic-prop">
+                                                <span>Мощность:</span>
+                                            </div>
+                                            <div class="lot-detail-content__characteristic-val">249 л.с.</div>
+                                        </div>
+                                        <div class="lot-detail-content__characteristic">
+                                            <div class="lot-detail-content__characteristic-prop">
+                                                <span>Тип КПП:</span>
+                                            </div>
+                                            <div class="lot-detail-content__characteristic-val">Автомат</div>
+                                        </div>
+                                        <div class="lot-detail-content__characteristic">
+                                            <div class="lot-detail-content__characteristic-prop">
+                                                <span>Привод:</span>
+                                            </div>
+                                            <div class="lot-detail-content__characteristic-val">Полный</div>
+                                        </div>
+                                        <div class="lot-detail-content__characteristic">
+                                            <div class="lot-detail-content__characteristic-prop">
+                                                <span>Цвет:</span>
+                                            </div>
+                                            <div class="lot-detail-content__characteristic-val">Черный</div>
+                                        </div>
+                                        <div class="lot-detail-content__characteristic">
+                                            <div class="lot-detail-content__characteristic-prop">
+                                                <span>Рег. знак:</span>
+                                            </div>
+                                            <div class="lot-detail-content__characteristic-val">Х970ХР 790</div>
+                                        </div>
+                                        <div class="lot-detail-content__characteristic">
+                                            <div class="lot-detail-content__characteristic-prop">
+                                                <span>Тип кузова:</span>
+                                            </div>
+                                            <div class="lot-detail-content__characteristic-val">Седан</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="lot-detail-content__block">
+                                    <div class="lot-detail-content__small-title">Комментарии</div>
+                                    <div class="lot-detail-content__desc">
+                                        <ul>
+                                            <li>Возможно наличие очагов коррозии разной степени, следов, потеков, течей масел и других технических жидкостей.</li>
+                                            <li>Данные о работоспособности, техническом состоянии агрегатов и узлов, наличии ключей зажигания,</li>
+                                            <li>а также иных частей торгуемого лота, если не указано иное, отсутствуют.</li>
+                                            <li>Сколы, царапины, потертости кузова, салона, системы освещения вызваны естественной эксплуатацией</li>
+                                            <li>Пробег указан по показаниям одометра. Актуальность пробега не гарантируется.</li>
+                                            <li>Вся доступная информация размещена в карточке лота.</li>
+                                            <li>Претензии, связанные с техническим состоянием либо с комплектностью лота после завершения торгов - не принимаются.</li>
+                                            <li>Лот продается в состоянии и на условиях "как есть".</li>
+                                            <li>Собственником т/с является ООО"КР" данные в ПТС будут вписаны до момента передачи т/с</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>'
+                })
+            }}
+
+            {{
+                accordion({
+                    title: 'Документы',
+                    content: '  <div class="lot-detail-content">
+                                    <div class="lot-detail-content__block">
+                                        <div class="lot-detail-content__documents">
+                                            <div class="lot-detail-content__documents-item">
+                                                {{
+                                                    documentItem({
+                                                        name: "Отчёт о состоянии",
+                                                        text: "PDF, 13.57 мб"
+                                                    })
+                                                }}
+                                            </div>
+                                                <div class="lot-detail-content__documents-item">
+                                                {{
+                                                    documentItem({
+                                                        "type": "img",
+                                                        "name": "ПТС",
+                                                        "text": "JPG, 0.57 мб"
+                                                    })
+                                                }}
+                                            </div>
+                                            <div class="lot-detail-content__documents-item">
+                                                {{
+                                                    documentItem({
+                                                        "name": "Акт возврата",
+                                                        "text": "PDF, 13.57 мб"
+                                                    })
+                                                }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>'
+                })
+            }}
+
+            {{
+                accordion({
+                    title: 'Комплектация',
+                    content: '<div class="lot-detail-content">
+                            <div class="lot-detail-content__block">
+                                <div class="lot-detail-content__small-title">Салон</div>
+                                <div class="lot-detail-content__columns">
+                                    <div class="lot-detail-content__property">
+                                        <div class="lot-detail-content__property-key">Материал салона:</div>
+                                        <div class="lot-detail-content__property-value">Кожа</div>
+                                    </div>
+                                    <div class="lot-detail-content__property">
+                                        <div class="lot-detail-content__property-key">Подогрев сидений:</div>
+                                        <div class="lot-detail-content__property-value">Передних сидений, задних сидений</div>
+                                    </div>
+                                    <div class="lot-detail-content__property">
+                                        <div class="lot-detail-content__property-key">Регулировка по высоте:</div>
+                                        <div class="lot-detail-content__property-value">Передних сидений</div>
+                                    </div>
+                                    <div class="lot-detail-content__property">
+                                        <div class="lot-detail-content__property-key">Цвет салона:</div>
+                                        <div class="lot-detail-content__property-value">Темный</div>
+                                    </div>
+                                    <div class="lot-detail-content__property">
+                                        <div class="lot-detail-content__property-key">Электрорегулировка сидений:</div>
+                                        <div class="lot-detail-content__property-value">Задних сидений</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="lot-detail-content__block">
+                                <div class="lot-detail-content__small-title">Обзор</div>
+
+                                <div class="lot-detail-content__columns">
+                                    <div class="lot-detail-content__value">Датчик дождя</div>
+                                    <div class="lot-detail-content__value">Датчик света</div>
+                                    <div class="lot-detail-content__property">
+                                        <div class="lot-detail-content__property-key">Электрообогрев:</div>
+                                        <div class="lot-detail-content__property-value">Боковых зеркал</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="lot-detail-content__block">
+                                <div class="lot-detail-content__small-title">Защита от угона и безопасность</div>
+
+                                <div class="lot-detail-content__columns">
+                                    <div class="lot-detail-content__value">Иммобилайзер</div>
+                                    <div class="lot-detail-content__property">
+                                        <div class="lot-detail-content__property-key">Подушки безопасности:</div>
+                                        <div class="lot-detail-content__property-value">Водителя, Пассажира</div>
+                                    </div>
+                                    <div class="lot-detail-content__value">Центральный замок</div>
+                                    <div class="lot-detail-content__value">Система стабилизации (ESP)</div>
+                                    <div class="lot-detail-content__value">Антиблокировочная система (ABS)</div>
+                                </div>
+                            </div>
+
+                            <div class="lot-detail-content__block">
+                                <div class="lot-detail-content__small-title">Мультимедиа</div>
+
+                                <div class="lot-detail-content__columns">
+                                    <div class="lot-detail-content__value">Аудиосистема</div>
+                                </div>
+                            </div>
+
+                            <div class="lot-detail-content__block">
+                                <div class="lot-detail-content__small-title">Другое</div>
+
+                                <div class="lot-detail-content__columns">
+                                    <div class="lot-detail-content__property">
+                                        <div class="lot-detail-content__property-key">Количество ключей:</div>
+                                        <div class="lot-detail-content__property-value">2</div>
+                                    </div>
+                                    <div class="lot-detail-content__property">
+                                        <div class="lot-detail-content__property-key">Запасное колесо:</div>
+                                        <div class="lot-detail-content__property-value">Есть</div>
+                                    </div>
+                                    <div class="lot-detail-content__property">
+                                        <div class="lot-detail-content__property-key">Инструкция:</div>
+                                        <div class="lot-detail-content__property-value">Есть</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>'
+                })
+            }}
+
+            {{
+                accordion({
+                    modiferClass: 'accordion_lot-detail-other-padding',
+                    title: 'Проверки и осмотр',
+                    content: '<div class="lot-detail-content">
+                                <div class="lot-detail-content__block">
+                                    <div class="lot-detail-content__report">
+                                        <div class="lot-detail-content__report-content">
+                                            <div class="lot-detail-content__report-prop">Сервисная книжка</div>
+                                            <div class="lot-detail-content__report-value">Отсутствует</div>
+                                        </div>
+                                    </div>
+                                    <div class="lot-detail-content__report">
+                                        <div class="lot-detail-content__report-content">
+                                            <div class="lot-detail-content__report-prop">Запасное колесо</div>
+                                            <div class="lot-detail-content__report-value">Присутствует</div>
+                                        </div>
+                                        <div class="lot-detail-content__report-photos">
+                                            <div class="lot-detail-content__report-photo">
+                                                <a data-fancybox="report-2" data-src="images/lot-detail/reports/pic.jpg" data-caption="Будет большая фотка">
+                                                    <img class="lazyload" data-src="images/lot-detail/reports/pic.jpg" alt="photo">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="lot-detail-content__report">
+                                        <div class="lot-detail-content__report-content">
+                                            <div class="lot-detail-content__report-prop">Дверь передняя левая</div>
+                                            <div class="lot-detail-content__report-value">Притертость</div>
+                                        </div>
+                                        <div class="lot-detail-content__report-photos">
+                                            <div class="lot-detail-content__report-photo">
+                                                <a data-fancybox="report-3" data-src="images/lot-detail/reports/pic-2.jpg" data-caption="Будет большая фотка">
+                                                    <img class="lazyload" data-src="images/lot-detail/reports/pic-2.jpg" alt="photo">
+                                                    <!-- Нижний блок появляется если фоток больше одного-->
+                                                    <span class="lot-detail-content__report-photo-count">+2</span>
+                                                </a>
+                                            </div>
+                                            <div class="lot-detail-content__report-photo">
+                                                <a data-fancybox="report-3" data-src="images/lot-detail/reports/pic-3.jpg" data-caption="Будет большая фотка">
+                                                    <img class="lazyload" data-src="images/lot-detail/reports/pic-3.jpg" alt="photo">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="lot-detail-content__report">
+                                        <div class="lot-detail-content__report-content">
+                                            <div class="lot-detail-content__report-prop">Дверь передняя левая</div>
+                                            <div class="lot-detail-content__report-value">Притертость</div>
+                                        </div>
+                                        <div class="lot-detail-content__report-photos">
+                                            <div class="lot-detail-content__report-photo">
+                                                <a data-fancybox="report-4" data-src="images/lot-detail/reports/pic-4.jpg" data-caption="Будет большая фотка">
+                                                    <img class="lazyload" data-src="images/lot-detail/reports/pic-4.jpg" alt="photo">
+                                                    <!-- Нижний блок появляется если фоток больше одного-->
+                                                    <span class="lot-detail-content__report-photo-count">+7</span>
+                                                </a>
+                                            </div>
+                                            <div class="lot-detail-content__report-photo">
+                                                <a data-fancybox="report-4" data-src="images/lot-detail/reports/pic-5.jpg" data-caption="Будет большая фотка">
+                                                    <img class="lazyload" data-src="images/lot-detail/reports/pic-5.jpg" alt="photo">
+                                                </a>
+                                            </div>
+                                            <div class="lot-detail-content__report-photo">
+                                                <a data-fancybox="report-4" data-src="images/lot-detail/reports/pic.jpg" data-caption="Будет большая фотка">
+                                                    <img class="lazyload" data-src="images/lot-detail/reports/pic.jpg" alt="photo">
+                                                    <!-- Нижний блок появляется если фоток больше трех -->
+                                                    <span class="lot-detail-content__report-photo-count">+5</span>
+                                                </a>
+                                            </div>
+                                            <div class="lot-detail-content__report-photo lot-detail-content__report-photo_hidden">
+                                                <a data-fancybox="report-4" data-src="images/lot-detail/reports/pic-2.jpg" data-caption="Будет большая фотка">
+                                                    <img class="lazyload" data-src="images/lot-detail/reports/pic-2.jpg" alt="photo">
+                                                </a>
+                                            </div>
+                                            <div class="lot-detail-content__report-photo lot-detail-content__report-photo_hidden">
+                                                <a data-fancybox="report-4" data-src="images/lot-detail/reports/pic-3.jpg" data-caption="Будет большая фотка">
+                                                    <img class="lazyload" data-src="images/lot-detail/reports/pic-3.jpg" alt="photo">
+                                                </a>
+                                            </div>
+                                            <div class="lot-detail-content__report-photo lot-detail-content__report-photo_hidden">
+                                                <a data-fancybox="report-4" data-src="images/lot-detail/reports/pic-4.jpg" data-caption="Будет большая фотка">
+                                                    <img class="lazyload" data-src="images/lot-detail/reports/pic-4.jpg" alt="photo">
+                                                </a>
+                                            </div>
+                                            <div class="lot-detail-content__report-photo lot-detail-content__report-photo_hidden">
+                                                <a data-fancybox="report-4" data-src="images/lot-detail/reports/pic-5.jpg" data-caption="Будет большая фотка">
+                                                    <img class="lazyload" data-src="images/lot-detail/reports/pic-5.jpg" alt="photo">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="lot-detail-content__block">
+                                    <div class="lot-detail-content__small-title">Проверка на незаведённом двигателе</div>
+                                    <div class="lot-detail-content__desc">
+                                        По информации продавца: автомобиль находится в полностью исправном техническом состоянии. Корректная работа АКПП, ДВС, световых приборов и электрических узлов автомобиля, ошибок не наблюдается. Недостатки: Сняты (отклеились) хромированные элементы дверных ручек по правой стороны автомобиля. (Элементы находятся при автомобиле)
+                                    </div>
+                                </div>
+                                <div class="lot-detail-content__block">
+                                    <div class="lot-detail-content__small-title">Проверка на незаведённом двигателе</div>
+                                    <div class="lot-detail-content__cols">
+                                        <div class="lot-detail-content__col">
+                                            <div class="lot-detail-content__value">Контрольные лампы</div>
+                                            <div class="lot-detail-content__characteristic lot-detail-content__characteristic_auto">
+                                                <div class="lot-detail-content__characteristic-prop">
+                                                    <span>Check Engine:</span>
+                                                </div>
+                                                <div class="lot-detail-content__characteristic-val not-ok">НЕ ОК</div>
+                                            </div>
+                                            <div class="lot-detail-content__characteristic lot-detail-content__characteristic_auto">
+                                                <div class="lot-detail-content__characteristic-prop">
+                                                    <span>Airbag:</span>
+                                                </div>
+                                                <div class="lot-detail-content__characteristic-val ok">ОК</div>
+                                            </div>
+                                            <div class="lot-detail-content__characteristic lot-detail-content__characteristic_auto">
+                                                <div class="lot-detail-content__characteristic-prop">
+                                                    <span>Уровень масла:</span>
+                                                </div>
+                                                <div class="lot-detail-content__characteristic-val ok">ОК</div>
+                                            </div>
+                                        </div>
+                                        <div class="lot-detail-content__col">
+                                            <div class="lot-detail-content__value">Механика</div>
+                                            <div class="lot-detail-content__characteristic lot-detail-content__characteristic_auto">
+                                                <div class="lot-detail-content__characteristic-prop">
+                                                    <span>ГУР:</span>
+                                                </div>
+                                                <div class="lot-detail-content__characteristic-val ok">ОК</div>
+                                            </div>
+                                            <div class="lot-detail-content__characteristic lot-detail-content__characteristic_auto">
+                                                <div class="lot-detail-content__characteristic-prop">
+                                                    <span>Работа двигателя:</span>
+                                                </div>
+                                                <div class="lot-detail-content__characteristic-val ok">ОК</div>
+                                            </div>
+                                            <div class="lot-detail-content__characteristic lot-detail-content__characteristic_auto">
+                                                <div class="lot-detail-content__characteristic-prop">
+                                                    <span>Рулевое управление:</span>
+                                                </div>
+                                                <div class="lot-detail-content__characteristic-val ok">ОК</div>
+                                            </div>
+                                        </div>
+                                        <div class="lot-detail-content__col">
+                                            <div class="lot-detail-content__value">Электрика</div>
+                                            <div class="lot-detail-content__characteristic lot-detail-content__characteristic_auto">
+                                                <div class="lot-detail-content__characteristic-prop">
+                                                    <span>Аккумулятор:</span>
+                                                </div>
+                                                <div class="lot-detail-content__characteristic-val ok">ОК</div>
+                                            </div>
+                                            <div class="lot-detail-content__characteristic lot-detail-content__characteristic_auto">
+                                                <div class="lot-detail-content__characteristic-prop">
+                                                    <span>Обогрев сидений:</span>
+                                                </div>
+                                                <div class="lot-detail-content__characteristic-val ok">ОК</div>
+                                            </div>
+                                            <div class="lot-detail-content__characteristic lot-detail-content__characteristic_auto">
+                                                <div class="lot-detail-content__characteristic-prop">
+                                                    <span>Светотехника:</span>
+                                                </div>
+                                                <div class="lot-detail-content__characteristic-val ok">ОК</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>'
+                })
+            }}
+
+            {{
+                accordion({
+                    title: 'Фото',
+                    content: '<div class="lot-detail-content">
+                                <div class="lot-detail-content__block">
+                                    <div class="lot-detail-content__photos">
+                                        <div class="lot-detail-content__photos-item">
+                                            <div class="lot-detail-content__photo">
+                                                <a data-fancybox="photos" data-src="images/lot-detail/car-photos/pic.jpg">
+                                                    <picture>
+                                                        <img class="lazyload" data-src="images/lot-detail/car-photos/pic.jpg" alt="photo">
+                                                    </picture>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="lot-detail-content__photos-item">
+                                            <div class="lot-detail-content__photo">
+                                                <a data-fancybox="photos" data-src="images/lot-detail/car-photos/pic-2.jpg">
+                                                    <picture>
+                                                        <img class="lazyload" data-src="images/lot-detail/car-photos/pic-2.jpg" alt="photo">
+                                                    </picture>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="lot-detail-content__photos-item">
+                                            <div class="lot-detail-content__photo">
+                                                <a data-fancybox="photos" data-src="images/lot-detail/car-photos/pic-3.jpg">
+                                                    <picture>
+                                                        <img class="lazyload" data-src="images/lot-detail/car-photos/pic-3.jpg" alt="photo">
+                                                    </picture>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="lot-detail-content__photos-item">
+                                            <div class="lot-detail-content__photo">
+                                                <a data-fancybox="photos" data-src="images/lot-detail/car-photos/pic-4.jpg">
+                                                    <picture>
+                                                        <img class="lazyload" data-src="images/lot-detail/car-photos/pic-4.jpg" alt="photo">
+                                                    </picture>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="lot-detail-content__photos-item">
+                                            <div class="lot-detail-content__photo">
+                                                <a data-fancybox="photos" data-src="images/lot-detail/car-photos/pic-5.jpg">
+                                                    <picture>
+                                                        <img class="lazyload" data-src="images/lot-detail/car-photos/pic-5.jpg" alt="photo">
+                                                    </picture>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="lot-detail-content__photos-item">
+                                            <div class="lot-detail-content__photo">
+                                                <a data-fancybox="photos" data-src="images/lot-detail/car-photos/pic-6.jpg">
+                                                    <picture>
+                                                        <img class="lazyload" data-src="images/lot-detail/car-photos/pic-6.jpg" alt="photo">
+                                                    </picture>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="lot-detail-content__photos-item">
+                                            <div class="lot-detail-content__photo">
+                                                <a data-fancybox="photos" data-src="images/lot-detail/car-photos/pic-7.jpg">
+                                                    <picture>
+                                                        <img class="lazyload" data-src="images/lot-detail/car-photos/pic-7.jpg" alt="photo">
+                                                    </picture>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="lot-detail-content__photos-item">
+                                            <div class="lot-detail-content__photo">
+                                                <a data-fancybox="photos" data-src="images/lot-detail/car-photos/pic-8.jpg">
+                                                    <picture>
+                                                        <img class="lazyload" data-src="images/lot-detail/car-photos/pic-8.jpg" alt="photo">
+                                                    </picture>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="lot-detail-content__photos-item">
+                                            <div class="lot-detail-content__photo">
+                                                <a data-fancybox="photos" data-src="images/lot-detail/car-photos/pic-9.jpg">
+                                                    <picture>
+                                                        <img class="lazyload" data-src="images/lot-detail/car-photos/pic-9.jpg" alt="photo">
+                                                    </picture>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>'
+                })
+            }}
+        </div>
+    </div>
+
+    <div class="lot-detail-bet {% if detailWon or detailNotWon %}lot-detail-bet_completed{% endif %}">
+        {% if detailWon or detailNotWon %}
+            <div class="lot-detail-bet__completed">Торги завершены</div>
+
+            <div class="lot-detail-bet__current-rate">
+                <div class="lot-detail-bet__current-rate-prop">Текущая ставка</div>
+                <div class="lot-detail-bet__current-rate-val">
+                    <span>1 000 000 ₽</span>
+                    <span class="lot-detail-bet__current-rate-val-icon">
+                        <i class="icon-question-pink"></i>
+                    </span>
+                </div>
+            </div>
+        {% else %}
+            <div class="lot-detail-bet__step">Шаг 10 000 ₽</div>
+            
+            <div class="lot-detail-bet__auto-bet-btn">
+                {{ autoBetBtn() }}
+            </div>
+
+            <div class="lot-detail-bet__tablet-space"></div>
+
+            <div class="lot-detail-bet__current-rate">
+                <div class="lot-detail-bet__current-rate-prop">Текущая ставка</div>
+                <div class="lot-detail-bet__current-rate-val">
+                    <span>1 000 000 ₽</span>
+                    <span class="lot-detail-bet__current-rate-val-icon">
+                        <i class="icon-question-pink"></i>
+                    </span>
+                </div>
+            </div>
+        
+            <div class="lot-detail-bet__set-bet-price">
+                {{ setBetPrice() }}
+            </div>
+
+            <div class="lot-detail-bet__make-bet-btn">
+                {{ makeBetBtn() }}
+            </div>
+        {% endif %}
+    </div>
+</div>

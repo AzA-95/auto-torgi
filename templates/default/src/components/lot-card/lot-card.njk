@@ -1,0 +1,223 @@
+{% from "favorite/favorite.njk" import favorite %}
+{% from "auto-bet-btn/auto-bet-btn.njk" import autoBetBtn %}
+{% from "set-bet-price/set-bet-price.njk" import setBetPrice %}
+{% from "make-bet-btn/make-bet-btn.njk" import makeBetBtn %}
+
+{% macro lotCard(args) %}
+    <div
+        class="
+            lot-card
+            {% if args.notWon %}lot-card_not-won{% endif %}
+            {% if args.won %}lot-card_won{% endif %}
+            js-lot-card
+        "
+    >
+        <div class="lot-card__top">
+            <div class="lot-card__type">
+                {% if args.otherTypeBids %}
+                    <span class="lot-card__type-icon-left">
+                        <i class="icon-bids-box"></i>
+                    </span>
+                    <span>№: 107589 (Открытые торги с к/п)</span>
+                {% else %}
+                    <span class="lot-card__type-icon-left">
+                        <i class="icon-bids"></i>
+                    </span>
+                    <span>№: 107589 (Открытые торги)</span>
+                {% endif %}
+                
+                <span class="lot-card__type-icon-right">
+                    <i class="icon-question-pink"></i>
+                </span>
+            </div>
+            <div class="lot-card__city">Москва</div>
+            
+            {% if args.notWon %}
+                <div class="lot-card__status-info lot-card__status-info_not-won">Ваша ставка {{ args.price }} перебита!</div>
+            {% elseif args.won %}
+                <div class="lot-card__status-info lot-card__status-info_won">Ваша ставка {{ args.price }} принята!</div>
+            {% endif %}
+
+        </div>
+        <div class="lot-card__content">
+            <div class="lot-card__photo">
+                <a href="#">
+                    <picture>
+                        <img class="lazyload" data-src="images/lots/{{ args.pic }}" alt="photo">
+                    </picture>
+                </a>
+
+                {% if not args.notWon and not args.won %}
+                    <div class="lot-card__timer">
+                        {% include "lot-timer/lot-timer.njk" %}
+                    </div>
+                {% endif %}
+
+                {% if args.notWon or args.won %}
+                    <div class="lot-card__label">
+                        {% if args.notWon  %}
+                            {% include "label-not-won/label-not-won.njk" %}
+                        {% else %}
+                            {% include "label-won/label-won.njk" %}
+                        {% endif %}
+                    </div>
+                    
+                    <div class="lot-card__big-label">
+                        {% if args.notWon  %}
+                            {% include "big-label-not-won/big-label-not-won.njk" %}
+                        {% else %}
+                            {% include "big-label-won/big-label-won.njk" %}
+                        {% endif %}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="lot-card__desc">
+                <div class="lot-card__name">
+                    <a href="#">{{ args.name }}</a>
+                    <div class="lot-card__favorite">
+                        {% if args.favoriteActive %}
+                            {{
+                                favorite({
+                                    modiferClass: 'active'
+                                })
+                            }}
+                        {% else %}
+                            {{ favorite() }}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="lot-card__tech-infos">
+                    <div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-content="Год"><span>2017</span></div>
+                    <div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Пробег"><span>224 505 км</span></div>
+                    <div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Объём"><span>2993 см3</span></div>
+                    <div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Тип двигателя"><span>Дизель</span></div>
+                    <div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Мощность"><span>249 л.с</span></div>
+                    <div class="lot-card__tech-info" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Привод"><span>Полный</span></div>
+                </div>
+                <div class="lot-card__car-info lot-card__toggle-show js-lot-card__toggle-show">
+                    <div class="lot-card__property">
+                        <span class="lot-card__property-key">VIN:</span>
+                        <span class="lot-card__property-value colored">WBA7G61000B074385</span>
+                    </div>
+                    <div class="lot-card__car-info-vert-line"></div>
+                    <div class="lot-card__checked">Осмотрено продавцом</div>
+                </div>
+                
+                <div class="lot-card__type hide-desktop">
+                    {% if args.otherTypeBids %}
+                        <span class="lot-card__type-icon-left">
+                            <i class="icon-bids-box"></i>
+                        </span>
+                        <span>№: 107589 (Открытые торги с к/п)</span>
+                    {% else %}
+                        <span class="lot-card__type-icon-left">
+                            <i class="icon-bids"></i>
+                        </span>
+                        <span>№: 107589 (Открытые торги)</span>
+                    {% endif %}
+                    
+                    <span class="lot-card__type-icon-right">
+                        <i class="icon-question-pink"></i>
+                    </span>
+                </div>
+                
+                <div class="lot-card__city lot-card__toggle-show js-lot-card__toggle-show hide-desktop">Москва</div>
+
+                <div class="lot-card__property">
+                    <span class="lot-card__property-key">Продавец:</span>
+                    <span class="lot-card__property-value colored">"НИЖЕГОРОДЕЦ ВОСТОК" ООО</span>
+                </div>
+                <div class="lot-card__property">
+                    <span class="lot-card__property-key">Заканчивается:</span>
+                    <span class="lot-card__property-value">13.12.2022, 12:20 МСК</span>
+                </div>
+                <div class="lot-card__property lot-card__toggle-show js-lot-card__toggle-show hide-desktop">
+                    <span class="lot-card__property-key">Комиссия:</span>
+                    <span class="lot-card__property-value colored-b">30 000 ₽</span>
+                </div>
+            </div>
+            <div class="lot-card__content-right">
+                <div class="lot-card__company-logo">
+                    <picture>
+                        <img class="lazyload" data-src="images/lot-card/company-logo.svg" alt="logo">
+                    </picture>
+                </div>
+                <div class="lot-card__current-rate">
+                    <div class="lot-card__current-rate-prop">Текущая ставка</div>
+                    <div class="lot-card__current-rate-val">
+                        <span>{{ args.price }}</span>
+                        <span class="lot-card__current-rate-val-icon">
+                            <i class="icon-question-pink"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="lot-card__commission">
+                    <span class="lot-card__commission-prop">Комиссия:</span>
+                    <span class="lot-card__commission-val">30 000 ₽</span>
+                </div>
+            </div>
+        </div>
+        <div class="lot-card__bottom-wrap lot-card__toggle-show js-lot-card__toggle-show">
+            <div class="lot-card__bottom">
+                {% if args.won %}
+                    <div class="lot-card__status-indicator">
+                        {% include "status-indicator/status-indicator.njk" %}
+                    </div>
+
+                    <div class="lot-card__address">
+                        <div class="lot-card__property">
+                            <span class="lot-card__property-key">Адрес нахождения авто:</span>
+                            <span class="lot-card__property-value colored-b">Рольф-Премиум</span>
+                        </div>
+
+                        <div class="lot-card__property">
+                            <span class="lot-card__property-key">Ответственный за выдачу:</span>
+                            <span class="lot-card__property-value colored-b">Пименов Сергей</span>
+                        </div>
+                    </div>
+                {% else  %}
+                    <div class="lot-card__icons">
+                        <div class="lot-card__icon" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Проверить в базе ГИБДД">
+                            <img class="lazyload" data-src="images/lot-card/icons/car-check.svg" alt="icon">
+                        </div>
+                        <div class="lot-card__icon" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Проверить в базе ГИБДД">
+                            <img class="lazyload" data-src="images/lot-card/icons/money-circle.svg" alt="icon">
+                        </div>
+                        <div class="lot-card__icon" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Проверить в базе ГИБДД">
+                            <img class="lazyload" data-src="images/lot-card/icons/check.svg" alt="icon">
+                        </div>
+                        <div class="lot-card__icon" data-tippy-theme="small" data-tippy-placement="top" data-tippy-placement="top" data-tippy-content="Проверить в базе ГИБДД">
+                            <img class="lazyload" data-src="images/lot-card/icons/draft.svg" alt="icon">
+                        </div>
+                    </div>
+
+                    {% if not args.notWon %}
+                        <div class="lot-card__bottom-right">
+                            <div class="lot-card__auto-bet-btn">
+                                {{ autoBetBtn() }}
+                            </div>
+                            <div class="lot-card__set-bet-price">
+                                {{ setBetPrice() }}
+                            </div>
+                            <div class="lot-card__make-bet-btn">
+                                {{ makeBetBtn() }}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            </div>    
+        </div>
+        <div class="lot-card__bottom-mob hide-desktop">
+            <div class="lot-card__toggle-btn js-lot-card__toggle-btn">ещё</div>
+            <div class="lot-card__current-rate">
+                <div class="lot-card__current-rate-prop">Текущая ставка</div>
+                <div class="lot-card__current-rate-val">
+                    <span>{{ args.price }}</span>
+                    <span class="lot-card__current-rate-val-icon">
+                        <i class="icon-question-pink"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endmacro %}

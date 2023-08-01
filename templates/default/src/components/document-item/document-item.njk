@@ -1,0 +1,19 @@
+{% macro documentItem(args) %}
+    <div class="document-item">
+        <div class="document-item__icon">
+            {% set iconName = 'pdf' %}
+
+            {% if args.type === "img" %}
+                {% set iconName = 'img' %}
+            {% endif %}
+
+            <img class="lazyload" data-src="images/document-item/{{ iconName }}.svg" alt="icon">
+        </div>
+        <div class="document-item__desc">
+            <div class="document-item__name">{{ args.name }}</div>
+            <div class="document-item__size">{{ args.text }}</div>
+        </div>
+        <a href="#" class="document-item__full-link"></a>
+    </div>
+{% endmacro %}
+

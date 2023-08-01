@@ -1,0 +1,45 @@
+<div class="status-indicator">
+    {% set steps = [
+        {
+            name: 'Ожидает подтверждения'
+        },
+        {
+            name: 'Подготовка документов'
+        },
+        {
+            name: 'Ожидает оплаты покупателся'
+        },
+        {
+            name: 'Ожидаются документы от покупателя'
+        },
+        {
+            name: 'Ожидаются документы от продавца'
+        },
+        {
+            name: 'Готов к выдаче'
+        },
+        {
+            name: 'Оригиналы документов выданы'
+        },
+        {
+            name: 'Завершена'
+        }
+    ] %}
+
+    <div class="status-indicator__steps">
+        {% for item in steps %}
+            <div class="status-indicator__step {% if loop.index < 6 %}status-indicator__step_completed{% endif %}">
+                <div class="status-indicator__name">{{ item.name }}</div>
+                <div class="status-indicator__status">
+                    <i class="icon-success"></i>
+                </div>
+                
+                {% if loop.index < 6 %}
+                    <div class="status-indicator__date">13.12.2022</div>
+                {% else %}
+                    <div class="status-indicator__date">&nbsp;</div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</div>

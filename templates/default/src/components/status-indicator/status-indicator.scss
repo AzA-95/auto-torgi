@@ -1,0 +1,124 @@
+.status-indicator {
+    padding: 16px;
+    background: rgba(13, 194, 104, 0.06);
+
+    &__steps {
+        display: flex;
+        margin: 0 -12px;
+    }
+
+    &__step {
+        position: relative;
+        color: $colorSecond;
+        width: 162px;
+        padding: 0 12px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            left: 50%;
+            bottom: 36px;
+            opacity: 0.3;
+            border-bottom: 1px dashed $colorSuccess; 
+        }
+
+        &:last-child::after {
+            content: none;
+        }
+    }
+
+    &__name,
+    &__status,
+    &__date {
+        opacity: 0.3;
+    }
+
+    &__step_completed &__name,
+    &__step_completed &__status,
+    &__step_completed &__date {
+        opacity: 1;
+    }
+
+    &__name,
+    &__date {
+        font-size: 13px;
+        line-height: 16px;
+    }
+
+    &__name {
+        flex-grow: 1;
+        text-align: center;
+        margin-bottom: 8px;
+    }
+
+    &__status {
+        position: relative;
+        z-index: 1;
+        margin-bottom: 8px;
+    }
+
+    @include mdMax {
+        padding: 8px;
+
+        &__steps {
+            margin: 0;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        &__step {
+            width: 100%;
+            min-height: 24px;
+            padding: 0 0 0 40px;
+            margin-bottom: 16px;
+            align-items: flex-start;
+            justify-content: center;
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 12px;
+                bottom: auto;
+                width: 1px;
+                height: calc(100% + 16px);
+                border-left: 1px dashed $colorSecond;
+                border-bottom: none;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &__name {
+            flex-grow: 0;
+            margin-bottom: 0;
+        }
+
+        &__step_completed &__name {
+            margin-bottom: 4px;
+        }
+
+        &__date {
+            display: none;
+        }
+
+        &__step_completed &__date {
+            display: block;
+        }
+
+        &__status {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            margin: 0;
+        }
+    }
+}

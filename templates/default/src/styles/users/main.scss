@@ -1,0 +1,31 @@
+.main {
+    margin-left: 264px;
+
+    &-content {
+        padding: 16px 16px 24px;
+
+        &_pb-none {
+            padding-bottom: 0;
+        }
+    }
+
+    @include lgMax {
+        margin-left: 72px;
+    }
+
+    @include mdMax {
+        &-content {
+            &.has-filter {
+                padding-bottom: 56px;
+            }
+        }
+    }
+
+    @include sm {
+        margin-left: 0;
+        
+        &-content {
+            padding: 8px;
+        }
+    }
+}

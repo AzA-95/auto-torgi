@@ -1,0 +1,11 @@
+.hide-mobile {
+    @include sm {
+        display: none !important;
+    }
+}
+
+.hide-min-mobile {
+    @include smMin {
+        display: none !important;
+    }
+}

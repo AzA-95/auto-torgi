@@ -1,0 +1,20 @@
+{% macro selectBox(args) %}
+    <div class="select-box">
+        <select
+            name="{{ args.name }}"
+            {%if args.multiple %}multiple="true"{% endif %}
+            {%if args.disabled %}disabled="true"{% endif %}
+            class="select-box__select js-select-box__select {{ args.modiferClass }} {%if args.allowDeselect %}allow-deselect{% endif %}"
+            {% if args.placeholder  %}data-placeholder-text="{{ args.placeholder }}"{% endif %}
+            {%if args.showSearch %}data-show-search="true"{% endif %}
+            {%if args.allowDeselect %}data-allow-deselect="true"{% endif %}
+        >
+            {% if args.placeholder  %}
+                <option data-placeholder="true"></option>
+            {% endif %}
+            {% for optionName in args.options %}
+                <option value="{{ loop.index }}">{{ optionName }}</option>
+            {% endfor %}
+        </select>
+    </div>
+{% endmacro %}

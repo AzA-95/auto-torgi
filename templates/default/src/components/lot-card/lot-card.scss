@@ -1,0 +1,611 @@
+.lot-card {
+    $parent: &;
+    border-radius: 8px;
+    box-shadow: 0px 6px 12px -6px rgba($color, 0.05);
+    background: #fff;
+
+    &__top {
+        display: flex;
+        align-items: center;
+        padding: 8px 16px;
+    }
+
+    &__type {
+        display: flex;
+        align-items: center;
+        margin-right: 32px;
+
+        &-icon-left {
+            display: flex;
+            align-items: center;
+            margin-right: 8px;
+        }
+        
+        &-icon-right {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            margin-left: 8px;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+
+    &__city {
+        display: flex;
+        align-items: center;
+
+        &::before {
+            content: '';
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M12 22.728L5.636 16.364C4.37734 15.1054 3.52019 13.5017 3.17293 11.7559C2.82567 10.0101 3.00391 8.20047 3.6851 6.55595C4.36629 4.91142 5.51984 3.50582 6.99988 2.51689C8.47992 1.52796 10.22 1.00012 12 1.00012C13.78 1.00012 15.5201 1.52796 17.0001 2.51689C18.4802 3.50582 19.6337 4.91142 20.3149 6.55595C20.9961 8.20047 21.1743 10.0101 20.8271 11.7559C20.4798 13.5017 19.6227 15.1054 18.364 16.364L12 22.728ZM16.95 14.95C17.9289 13.971 18.5955 12.7238 18.8656 11.3659C19.1356 10.0081 18.9969 8.60064 18.4671 7.3216C17.9373 6.04256 17.04 4.94935 15.8889 4.18021C14.7378 3.41107 13.3844 3.00055 12 3.00055C10.6156 3.00055 9.26222 3.41107 8.11109 4.18021C6.95996 4.94935 6.06275 6.04256 5.53292 7.3216C5.00308 8.60064 4.86442 10.0081 5.13445 11.3659C5.40449 12.7238 6.07111 13.971 7.05 14.95L12 19.9L16.95 14.95ZM12 12C11.4696 12 10.9609 11.7893 10.5858 11.4143C10.2107 11.0392 10 10.5305 10 10C10 9.46961 10.2107 8.9609 10.5858 8.58583C10.9609 8.21076 11.4696 8.00004 12 8.00004C12.5304 8.00004 13.0391 8.21076 13.4142 8.58583C13.7893 8.9609 14 9.46961 14 10C14 10.5305 13.7893 11.0392 13.4142 11.4143C13.0391 11.7893 12.5304 12 12 12Z' fill='%23898D93'/%3E%3C/svg%3E") no-repeat;
+            background-size: contain;
+        }
+    }
+
+    &__status-info {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        
+        &::before {
+            content: '';
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+            margin-right: 8px;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        
+        &_not-won {
+            color: $colorWrong;
+
+            &::before {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M14 20V22H2V20H14ZM14.586 0.686035L22.364 8.46404L20.95 9.88004L19.89 9.52604L17.413 12L23.07 17.657L21.656 19.071L16 13.414L13.596 15.818L13.879 16.95L12.464 18.364L4.686 10.586L6.101 9.17204L7.231 9.45404L13.525 3.16104L13.172 2.10104L14.586 0.686035Z' fill='%23ED0A34'/%3E%3C/svg%3E");
+            }
+        }
+
+        &_won {
+            color: $colorSuccess;
+
+            &::before {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M14 20V22H2V20H14ZM14.586 0.686035L22.364 8.46404L20.95 9.88004L19.89 9.52604L17.413 12L23.07 17.657L21.656 19.071L16 13.414L13.596 15.818L13.879 16.95L12.464 18.364L4.686 10.586L6.101 9.17204L7.231 9.45404L13.525 3.16104L13.172 2.10104L14.586 0.686035Z' fill='%230DC268'/%3E%3C/svg%3E");
+            }
+        }
+    }
+    
+    &__content {
+        display: flex;
+        padding: 16px;
+        color: $colorSecond;
+        border-top: 1px solid rgba($color, 0.12);
+        border-bottom: 1px solid rgba($color, 0.12);
+    }
+
+    &__photo {
+        position: relative;
+        width: 224px;
+        height: 160px;
+        flex-shrink: 0;
+        border-radius: 6px;
+        overflow: hidden;
+
+        a,
+        picture,
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        img {
+            object-fit: cover;
+        }
+    }
+
+    &__timer,
+    &__label {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+    }
+
+    &__big-label {
+        display: none;
+    }
+
+    &__desc {
+        margin-left: 24px;
+    }
+
+    &__name {
+        color: $color;
+        display: flex;
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 12px;
+
+        a {
+            color: inherit;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+
+    &__favorite {
+        margin-top: 4px;
+        margin-left: 8px;
+    }
+
+    &__tech-infos {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 0 -8px 4px;
+    }
+
+    &__tech-info {
+        display: flex;
+        align-items: center;
+        margin-bottom: 4px;
+
+        span {
+            margin: 0 8px;
+        }
+
+        &::after {
+            content: '';
+            width: 1px;
+            height: 12px;
+            opacity: 0.12;
+            background: $colorSecond;
+        }
+
+        &:last-child {
+            &::after {
+                content: none;
+            }
+        }
+    }
+
+    &__car-info {
+        display: flex;
+        align-items: center;
+
+        &-vert-line {
+            width: 1px;
+            height: 12px;
+            opacity: 0.12;
+            margin: 0 8px 8px;
+            flex-shrink: 0;
+            align-self: center;
+            background: #898D93;
+        }
+    }    
+
+    &__property {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+
+        &-key {
+            color: $colorSecond
+        }
+
+        &-value {
+            margin-left: 8px;
+
+            &.colored {
+                color: $colorAccent;
+            }
+
+            &.colored-b {
+                color: $color;
+            }
+        }
+    }
+
+    &__checked {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+
+        &::before {
+            content: '';
+            width: 24px;
+            height: 24px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M3.783 2.826L12 1L20.217 2.826C20.4391 2.87536 20.6377 2.99897 20.78 3.1764C20.9224 3.35384 21 3.57452 21 3.802V13.789C20.9999 14.7767 20.756 15.7492 20.2899 16.62C19.8238 17.4908 19.1499 18.2331 18.328 18.781L12 23L5.672 18.781C4.85027 18.2332 4.17646 17.4911 3.71035 16.6205C3.24424 15.7498 3.00024 14.7776 3 13.79V3.802C3.00004 3.57452 3.07764 3.35384 3.21999 3.1764C3.36234 2.99897 3.56094 2.87536 3.783 2.826ZM5 4.604V13.789C5.00001 14.4475 5.16257 15.0957 5.47326 15.6763C5.78395 16.2568 6.23315 16.7517 6.781 17.117L12 20.597L17.219 17.117C17.7667 16.7518 18.2158 16.2571 18.5265 15.6767C18.8372 15.0964 18.9998 14.4483 19 13.79V4.604L12 3.05L5 4.604ZM12 11C11.337 11 10.7011 10.7366 10.2322 10.2678C9.76339 9.79893 9.5 9.16304 9.5 8.5C9.5 7.83696 9.76339 7.20107 10.2322 6.73223C10.7011 6.26339 11.337 6 12 6C12.663 6 13.2989 6.26339 13.7678 6.73223C14.2366 7.20107 14.5 7.83696 14.5 8.5C14.5 9.16304 14.2366 9.79893 13.7678 10.2678C13.2989 10.7366 12.663 11 12 11ZM7.527 16C7.64822 14.8984 8.17168 13.8803 8.99708 13.1407C9.82248 12.4012 10.8918 11.9922 12 11.9922C13.1082 11.9922 14.1775 12.4012 15.0029 13.1407C15.8283 13.8803 16.3518 14.8984 16.473 16H7.527Z' fill='%23898D93'/%3E%3C/svg%3E") no-repeat;
+            background-size: contain;
+            margin-right: 8px;
+        }
+    }
+
+    &__content-right {
+        width: 220px;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        padding-left: 20px;
+        margin-left: auto;
+    }
+
+    &__company-logo {
+        width: 100px;
+
+        picture,
+        img {
+            display: block;
+        }
+    }
+
+    &__current-rate {
+        margin-top: auto;
+        margin-bottom: 8px;
+
+        &-prop {
+            font-size: 13px;
+            line-height: 18px;
+            margin-bottom: 12px;
+        }
+
+        &-val {
+            display: flex;
+            align-items: center;
+            color: $color;
+            font-size: 24px;
+            line-height: 1;
+            font-weight: 500;
+            
+            #{$parent}_not-won & {
+                span {
+                    color: $colorWrong;
+                }
+            }
+        
+            #{$parent}_won & {
+                span {
+                    color: $colorSuccess;
+                }
+            }
+
+            &-icon {
+                cursor: pointer;
+                flex-shrink: 0;
+                margin-left: 8px;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+
+    &__commission {
+        display: flex;
+        align-items: center;
+
+        &-val {
+            color: $color;
+            margin-left: 8px; 
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        min-height: 56px;
+        padding: 8px 16px;
+
+        #{$parent}_won & {
+            padding: 0;
+        }
+    }
+
+    &__icons {
+        display: flex;
+        align-items: center;
+    }
+
+    &__icon {
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+
+        & + & {
+            margin-left: 18px;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: scale-down;
+        }
+    }
+
+    &__bottom-right {
+        display: flex;
+        margin-left: auto;
+    }
+
+    &__set-bet-price {
+        width: 224px;
+        margin-left: 16px;
+    }
+
+    &__make-bet-btn {
+        margin-left: 16px;
+    }
+
+    &__status-indicator {
+        width: 100%;
+    }
+
+    &__address {
+        width: 100%;
+        display: flex;
+        padding: 16px;
+
+        #{$parent}__property {
+            width: 50%;
+            margin: 0;
+
+            &:last-child {
+                margin-left: 24px;
+            }
+        }
+    }
+
+    @include mdMin {
+        border-left: 3px solid transparent;
+
+        &_not-won {
+            border-color: $colorWrong;
+        }
+    
+        &_won {
+            border-color: $colorSuccess;
+        }
+
+        &__top,
+        &__content,
+        &__bottom {
+            padding-left: 13px;
+        }
+
+        &__desc & {
+            &__property {
+                &:nth-last-child(2) {
+                    margin-bottom: 0; // reset pre last visible elemnt margin
+                }
+            }
+        }
+    }
+
+    @include mdMax {
+        border-top: 3px solid transparent;
+
+        &_not-won {
+            border-top-color: $colorWrong;
+        }
+    
+        &_won {
+            border-top-color: $colorSuccess;
+        }
+
+        &__top {
+            display: none;
+        }
+
+        &__content {
+            flex-wrap: wrap;
+            border: none;
+            padding-top: 13px;
+            padding-bottom: 12px;
+        }
+
+        &__photo {
+            width: 100%;
+            height: auto;
+            max-height: 350px;
+            display: flex;
+            margin-bottom: 16px;
+
+            &::before {
+                content: '';
+                width: 0;
+                height: 0;
+                padding-top: 71%;
+            }
+
+            a { 
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+
+        &__big-label {
+            display: block;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        &__desc {
+            width: 100%;
+            margin-left: 0;
+        }
+
+        &__name {
+            margin-bottom: 6px;
+        }
+
+        &__favorite {
+            margin-left: auto;
+        }
+
+        &__tech-infos {
+            margin-bottom: 0;
+        }
+
+        &__car-info {
+            flex-direction: column;
+            align-items: flex-start;
+
+            &-vert-line {
+                display: none;
+            }
+        }
+
+        &__toggle-show {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.4s linear, max-height 0.3s ease-in;
+            
+            &:not(.active) {
+                margin-bottom: 0;
+            }
+
+            &.active {
+                opacity: 1;
+                max-height: var(--max-height);
+            }
+        }
+
+        &__property {
+            margin-bottom: 4px;
+        }
+
+        &__checked {
+            margin-bottom: 4px;
+        }
+
+        &__type {
+            margin: 0 0 4px;
+        }
+
+        &__city {
+            margin: 0 0 4px;
+        }
+
+        &__content-right {
+            display: none;
+        }
+
+        &__bottom {
+            padding-top: 0;
+            min-height: auto;
+            padding-bottom: 16px;
+        }
+
+        &__icons {
+            width: 100%;
+        }
+
+        &__icon {
+            width: 75px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            background: rgba(225, 146, 146, 0.12);
+
+            & + & {
+                margin-left: 4px;
+            }
+        }
+
+        &__bottom-right {
+            width: 100%;
+            margin-top: 16px;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        &__auto-bet-btn {
+            width: 100%;
+            margin-bottom: 8px;
+        }
+
+        &__set-bet-price {
+            width: 100%;
+            margin: 0 0 8px;
+        }
+
+        &__make-bet-btn {
+            width: 100%;
+            margin: 0;
+        }
+
+        &__bottom-mob {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 16px;
+            border-top: 1px solid rgba($color, 0.12);
+        }
+
+        &__toggle-btn {
+            cursor: pointer;
+            color: $colorAccent;
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+
+            &::before {
+                content: '';
+                width: 24px;
+                height: 24px;
+                flex-shrink: 0;
+                margin-right: 8px;
+                background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M12 13.172L16.95 8.22198L18.364 9.63598L12 16L5.63599 9.63598L7.04999 8.22198L12 13.172Z' fill='%23005BD1'/%3E%3C/svg%3E") no-repeat;
+                background-size: contain;
+                transition: transform 0.2s ease-in;
+            }
+
+            &.active {
+                &::before {
+                    transform: rotate(-180deg);
+                }
+            }
+        }
+
+        &__current-rate {
+            margin-bottom: 0;
+            
+            &-prop {
+                color: $colorSecond;
+                margin-bottom: 4px;
+            }
+        }
+
+        &__status-indicator {
+            padding: 0 16px;
+        }
+
+        &__address {
+            flex-wrap: wrap;
+    
+            #{$parent}__property {
+                width: 100%;
+                margin-bottom: 4px;
+
+                &:last-child {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

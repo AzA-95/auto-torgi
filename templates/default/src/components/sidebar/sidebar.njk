@@ -1,0 +1,80 @@
+<div class="sidebar">
+    <div class="sidebar__content">
+        <div class="sidebar__logo">
+            <div class="sidebar__logo-small">
+                <a href="#">
+                    <img src="images/logo/logo-small.svg" alt="logo">
+                </a>
+            </div>
+            <div class="sidebar__logo-big">
+                <a href="#">
+                    <img src="images/logo/logo.svg" alt="logo">
+                </a>
+            </div>
+        </div>
+        <div class="sidebar__lots active">
+            <div class="sidebar__lots-title js-sidebar__lots-title">
+                <span>Текущие торги</span>
+            </div>
+            <nav class="sidebar__lots-nav js-sidebar__lots-nav">
+                <ul class="sidebar__lots-list">
+                    <li class="sidebar__lots-item">
+                        <a href="#" class="sidebar__lots-link active">Все лоты</a>
+                    </li>
+                    <li class="sidebar__lots-item">
+                        <a href="#" class="sidebar__lots-link">Легковые автомобили</a>
+                    </li>
+                    <li class="sidebar__lots-item">
+                        <a href="#" class="sidebar__lots-link">Грузовики</a>
+                    </li>
+                    <li class="sidebar__lots-item">
+                        <a href="#" class="sidebar__lots-link">Погрузчики</a>
+                    </li>
+                    <li class="sidebar__lots-item">
+                        <a href="#" class="sidebar__lots-link">Автобусы</a>
+                    </li>
+                    <li class="sidebar__lots-item">
+                        <a href="#" class="sidebar__lots-link">Сельскохозяйственная техника</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="sidebar__menu">
+            <ul class="sidebar__menu-list">
+                {% if showSidebarAuth %}
+					<li class="sidebar__menu-item">
+						<a href="#" class="sidebar__menu-link">
+							<i class="icon-star sidebar__menu-icon"></i>
+							<span>Избранные лоты</span>
+						</a>
+					</li>
+				{% endif %}
+
+                <li class="sidebar__menu-item">
+                    <a href="#" class="sidebar__menu-link">
+                        <i class="icon-calendar sidebar__menu-icon"></i>
+                        <span>Календарь торгов</span>
+                    </a>
+                </li>
+                <li class="sidebar__menu-item">
+                    <a href="#" class="sidebar__menu-link">
+                        <i class="icon-account sidebar__menu-icon"></i>
+                        <span>Личный кабинет</span>
+                    </a>
+                </li>
+                <li class="sidebar__menu-item">
+                    <a href="#" class="sidebar__menu-link">
+                        <i class="icon-question sidebar__menu-icon"></i>
+                        <span>FAQ</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="sidebar__footer">
+            <div class="sidebar__copyright">© 2023 АвтоТорги.</div>
+            <div class="sidebar__privacy">
+                <a href="#">Пользовательское соглашение</a>
+            </div>
+        </div>
+    </div>
+</div>

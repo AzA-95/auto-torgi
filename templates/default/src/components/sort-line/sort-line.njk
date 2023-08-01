@@ -1,0 +1,66 @@
+{% from "select-box/select-box.njk" import selectBox %}
+
+<div class="sort-line {% if sortLineWithTags %}sort-line_has-tags{% endif %}">
+    <div class="sort-line__showed-count">Показано 360 лотов</div>
+    <div class="sort-line__search">
+        {% include "search-line/search-line.njk" %}
+    </div>
+    
+    <form class="sort-line__form {% if sortLineWithTags %}sort-line__form_with-tags{% endif %}">
+        {% if sortLineWithTags %}
+            <div class="sort-line__tags">
+                <div class="sort-line__tags-inner">
+                    <button type="button" class="sort-line__tag active">Сегодня</button>
+                    <button type="button" class="sort-line__tag">Завтра</button>
+                    <button type="button" class="sort-line__tag">Неделя</button>
+                    <button type="button" class="sort-line__tag">Месяц</button>
+                </div>
+            </div>
+        {% endif %}
+    
+        <div class="sort-line__sort">
+            {{ selectBox({
+                "name": "sort",
+                "disabled": false,
+                "placeholder": "Сортировать",
+                "multiple": false,
+                "options": [
+                    "По умолчанию",
+                    "Название",
+                    "Цена",
+                    "Время завершения",
+                    "Время старта"
+                ]
+            }) }}
+        </div>
+
+        {% if sortLineWithTags %}
+            <div class="sort-line__change-view-btns">
+                <button type="button" class="sort-line__change-view-btn js-sort-line__change-view-btn view-type-grid active" title="Вид таблицой"></button>
+                <button type="button" class="sort-line__change-view-btn js-sort-line__change-view-btn view-type-graph" title="Вид графиком"></button>
+            </div>
+        {% else %}
+            <div class="sort-line__sort-asc-desc">
+                <button type="button" class="sort-line__asc active" title="Сортировать по возрастанию"></button>
+                <button type="button" class="sort-line__desc" title="Сортировать по убыванию"></button>
+            </div>
+        {% endif %}
+
+        <div class="sort-line__sort-count">
+            <div class="sort-line__sort-count-title">Кол-во на странице:</div>
+            <div class="sort-line__sort-count-box">
+                {{ selectBox({
+                    "name": "show-count",
+                    "disabled": false,
+                    "multiple": false,
+                    "options": [
+                        "10",
+                        "25",
+                        "50",
+                        "100"
+                    ]
+                }) }}
+            </div>
+        </div>
+    </form>
+</div>

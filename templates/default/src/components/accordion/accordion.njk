@@ -1,0 +1,15 @@
+{% from "document-item/document-item.njk" import documentItem %} {# Не удалять передается macro documentItem в компоненте lot-detail #}
+
+{% macro accordion(args) %}
+	<div class="accordion {{ args.modiferClass }}">
+		<div class="accordion__title js-accordion__title">
+			{{ args.title }}
+			<i class="accordion__arrow"></i>
+		</div>
+		<div class="accordion__content">
+			<div class="accordion__content-inner">
+				{{ args.content | safeWithContext }}
+			</div>
+		</div>
+	</div>
+{% endmacro %}

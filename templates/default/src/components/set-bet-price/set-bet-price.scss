@@ -1,0 +1,57 @@
+.set-bet-price {
+    display: flex;        
+
+    &__btn {
+        cursor: pointer;
+        appearance: none;
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        border: none;
+        border-radius: 4px;
+        background: rgba($colorAccent, 0.12);
+    
+        &:focus {
+            outline: none;
+        }
+
+        &:hover {
+            opacity: 0.8;
+        }
+
+        &::before {
+            content: '';
+            width: 24px;
+            height: 24px;
+        }
+
+        &.minus {
+            &::before {
+                background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M5 11H19V13H5V11Z' fill='%23005BD1'/%3E%3C/svg%3E") no-repeat;
+                background-size: contain;
+            }
+        }
+
+        &.plus {
+            &::before {
+                background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z' fill='%23005BD1'/%3E%3C/svg%3E") no-repeat;
+                background-size: contain;
+            }
+        }
+    }
+
+    &__input {
+        color: $color;
+        flex-grow: 1;
+        width: calc(100% - 88px);
+        height: 40px;
+        margin: 0 4px;
+        padding: 0 12px;
+        border-radius: 4px;
+        border: 1px solid rgba($color, 0.12);
+    }
+}

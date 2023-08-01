@@ -1,0 +1,34 @@
+body {
+	color: $color;
+	font-size: $font-size;
+	font-weight: $font-weight;
+	font-family: $font-family;
+	line-height: $line-height;
+	background: #F9F9F9;
+
+	&.hide-scroll {
+		overflow: hidden;
+	}
+}
+
+// Нужен чтобы не скролился фильтр при (position: fixed) в мобилке айфона при фокусе(Когда показана клавиатура)
+// Если открыта клавиутура(И пользователь прокрутит фильтр то он будет покручивться) нижний класс
+// предоврашает скролл (То есть востанавливает значения стиля (position: fixed))
+html.ios-fixed-filter {
+	height: 100%;
+}
+
+html.ios-fixed-filter,
+html.ios-fixed-filter body {
+	-webkit-overflow-scrolling: touch;
+	overflow: auto;
+}
+// Конец
+
+a {
+	color: $colorAccent;
+}
+
+img {
+	max-width: 100%;
+}
